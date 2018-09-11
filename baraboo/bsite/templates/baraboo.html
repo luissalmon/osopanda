@@ -1,289 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" media="screen" href="{% static '/css/bootstrap.css' %}"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/bootstrap.css' %}" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
-<body style="height: 100vh; background-color: #FFD041;">
-  <div class="container-fluid h-100">
-    <div class="row h-100">
-
-      <nav id="navBar" class="col-12 navbar justify-content-end">
-          <form class="form-inline h-100 ml-2 mr-2 mr-md-3">
-            <input type="text" class="form-control mr-sm-2" placeholder="User">
-            <input type="password" class="form-control mr-sm-2" placeholder="Password">
-            <button class="btn btn-dark my-2 my-sm-0" type="submit">Log In</button>
-          </form>
+<body style="min-width: 520px; background-color: white">
+  <div>
+    <!-- //////////////////  Page 1 /////////////////// -->
+    <div class="d-flex flex-column" style="height: 100vh; min-height: 540px;">
+      <nav id="navBar" class="navbar justify-content-end h-auto">
+        <form class="form-inline ml-2 mr-2 mr-md-3">
+          <input type="text" class="form-control mr-sm-2" placeholder="User">
+          <input type="password" class="form-control mr-sm-2" placeholder="Password">
+          <button class="btn btn-dark my-2 my-sm-0" type="submit">Log In</button>
+        </form>
       </nav>
+      <div class="flex-fill d-flex flex-column align-items-center justify-content-center" style="height: 50vh;">
+        <div class="container-fluid h-100">
+          <div class="row h-100">
+            <div class="col-sm-1"></div>
 
-      <main class="col-12">
-        <div id="main" style="height: 89vh;">
-
-          <div class="container h-100">
-            <div class="row h-100 align-items-center justify-content-center">
-
-<!-- ////////////// -->
-
-              <div class="col-6 col-md-4 d-flex justify-content-end p-0" style="height: 40%;">
-    
-                <div class="row col-12 d-flex justify-content-center m-0">
-                  <div class="col-12 h-75 justify-content-center">
-                    <img src="img/criptomoneda.png" alt="" class="img-fluid h-100">
-                  </div>
-
-                  <div class="col-12 h-50">
-                      
-                  </div>
-                </div>
-                
-                <div id="imgL" class="col-12 d-flex p-0 pl-2 h-100 position-absolute justify-content-end" style="background-color:#FFD041; right: 0; top:0">
-                  <img src="img/screen1_left_segment-01.png" class="img-fluid align-self-center"/>
-                </div>
-                
-                <div class="h-100 w-100 fixed-top position-absolute bg-transparent" onmouseover="count('imgL')" onmouseout="stop('imgL')"></div>
-              
-              </div>
-
-<!-- /////////////////////// -->
-              <div class="col-6 col-md-4 d-flex justify-content-start p-0" style="height: 40%;">
-    
-                <div class="row col-12 d-flex justify-content-center m-0">
-                    <div class="col-12 h-75 justify-content-center">
-                      <img src="img/edificios.png" alt="" class="img-fluid h-100">
+            <div class="col-12 col-md-10 h-100">
+              <div class="container-fluid h-100 p-0">
+                <div class="row h-100 align-items-center justify-content-center">
+                  <!-- ///////////////////////SEGMENTO IZQUIERDO//////////////// -->
+                  <div class="col d-flex justify-content-end align-items-center h-100 p-0">
+                    
+                    <div id="bgSectL" class="d-flex flex-column w-100 align-items-center" style="opacity: 0; padding-left: 7%; padding-right: 5%;">
+                      {%load static%}
+                      <img src="{%static 'img/criptomoneda.png' %}" style="height: 10vw; width: 10vw; min-width: 70px; min-height: 70px;" alt="">
+                      <p id="bgPL" class="w-100">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate deserunt fugiat iusto enim rem dolore eos ducimus distinctio est?</p>
                     </div>
 
-                  <div class="col-12 h-50">
-                      
+                    <div id="imgL" class="d-flex position-absolute justify-content-end align-items-center w-100">
+                      {%load static%}
+                      <img id="imgLS" src="{% static 'img/screen1_left_segment-01.png' %}" class="w-100 float-right" alt="">
+                    </div>
+
+                    <div id="areaL" onmouseover="actionArea('imgL', 'start')" onmouseout="actionArea('imgL', 'stop')" class="bg-transparent position-absolute w-100 "></div>
+                  
                   </div>
-                </div>
+                  <!-- ///////////////////////TERMINA SEGMENTO IZQUIERDO//////////////// -->
+                  <!-- ///////////////////////SEGMENTO DERECHO//////////////// -->
+                  <div class="col d-flex justify-content-start align-items-center h-100 p-0">
 
+                    <div id="bgSectR" class="d-flex flex-column w-100 align-items-center" style="opacity: 0; padding-left:12%; padding-right: 25%;">
+                      {%load static%}
+                      <img src="{% static 'img/edificios.png' %}" style="height: 10vw; width: 10vw; min-width: 70px; min-height: 70px;" alt="">
+                      <p id="bgPR" class="w-100">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate deserunt fugiat iusto enim rem dolore eos ducimus distinctio est?</p>
+                    </div>
 
-                <div id="imgR" class="col-12 d-flex p-0 pr-2 h-100 position-absolute justify-content-start" style="background-color:#FFD041; left: 0; top: 0;">
-                  <img src="img/screen1_right_segment-01.png" class="img-fluid align-self-center"/>
+                    <div id="imgR" class="d-flex position-absolute justify-content-start align-items-center w-100">
+                      {%load static%}
+                      <img src="{% static 'img/screen1_right_segment-01.png' %}" class="w-100 float-left" alt="">
+                    </div>
+                    
+                    <div id="areaR" onmouseover="actionArea('imgR', 'start')" onmouseout="actionArea('imgR', 'stop')" class="bg-transparent position-absolute w-100"></div>
+                  
+                  </div>
+                  <!-- ///////////////////////TERMINA SEGMENTO DERECHO//////////////// -->
                 </div>
-    
-                <div class="h-100 w-100 fixed-top bg-transparent position-absolute" onmouseover="count('imgR')" onmouseout="stop('imgR')"></div>
               </div>
+            </div>
 
-<!-- ////////////////////// -->
-              
+
+            <div class="col-sm-1"></div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="d-flex align-items-center justify-content-center" style="height: 6%; min-height: 50px;">
+          <a id="showSection" to="info" onmousedown="showBtn(this)">Mostrar</a>
+      </footer>
+    </div>
+    <!-- ////////////////// Termina Page 1 /////////////////// -->
+    <!-- //////////////////  Page 2 /////////////////// -->
+    <div id="info" class="d-none">
+      <div class="d-flex flex-column w-100">
+        <div class="d-flex align-items-center justify-content-center bg-primary">
+          <h1>IFRAME</h1>
+          <h1>WILL</h1>
+          <h1>BE</h1>
+          <h1>HERE</h1>
+        </div>
+        <div class="d-flex flex-column flex-row">
+          <div class="container-fluid mt-5 mb-5">
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-12 col-sm-5"></div>
+              <div class="col-12 col-sm-5 pt-2 pb-4 bg-secondary rounded">
+                  <form action="" class="form-row m-0 pl-md-2 pr-md-2">
+                      <div class="form-group pr-2 pl-2 w-50">
+                          <label for="firstName">First Name</label>
+                          <input id="firstName" type="text" class="form-control" placeholder="First Name">
+                      </div>
+                      <div class="form-group pr-2 pl-2 w-50">
+                          <label for="lastName">Last Name</label>
+                          <input id="lastName" type="text" class="form-control" placeholder="Last Name">
+                      </div>
+                      <div class="form-group pr-2 pl-2 m-0 p-0 w-50">
+                          <label for="email">Email</label>
+                          <input id="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                          <small id="emailHelp" class="form-text text-light">Example mail@mail.com</small>
+                      </div>
+                      <div class="form-group pr-2 pl-2 w-50">
+                          <label for="password">Password</label>
+                          <input id="password" type="password" class="form-control" aria-describedby="passwordHelp" placeholder="Password">
+                          <small id="passwordHelp" class="form-text text-light">Password must be at least must be 8 characters.</small>
+                      </div>
+                      <div class="form-group pr-2 pl-2 w-50">
+                          <label for="rePassword">Re-enter password</label>
+                          <input id="rePassword" type="text" class="form-control" placeholder="Re-enter password">
+                      </div>
+                      <div class="form-group pr-2 pl-2 w-50">
+                          <label for="ethAdress">Ethereum address</label>
+                          <input id="ethAdress" type="text" class="form-control" placeholder="Ethereum address">
+                      </div>
+                      <div class="form-group pr-2 pl-2 w-50">
+                          <label for="country">Country</label>
+                          <input id="country" type="text" class="form-control" placeholder="Country">
+                      </div>
+                      <div class="form-group pr-2 pl-2 w-50">
+                          <label for="nationality">Nationality</label>
+                          <input id="nationality" type="text" class="form-control" placeholder="Nationality">
+                      </div>
+                      <div class="form-group pr-2 pl-2 w-100">
+                          <label for="docs">Documents</label>
+                          <input id="docs" aria-describedby="docsHelp" type="file" class="form-control-file">
+                          <small id="docsHelp" class="form-text text-light">INE, Visa, Pasaporte, etc...</small>
+                      </div>
+                      <div class="form-group form-check w-100">
+                        <input for="check" type="checkbox" class="form-check-input">
+                        <label id="check" class="form-check-label">Check me out</label>
+                      </div>
+                      
+                      <button type="submit" class="btn btn-sm btn-primary ml-5 mr-5">Sign Up</button>
+                  </form>
+              </div>
+              <div class="col-sm-1" style="height: 20px;"></div>
             </div>
           </div>
-
-
         </div>
-
-        <div id="info" class="container d-none">
-          <div class="row h-100 bg-primary">
-              <div class="col-12 d-flex justify-content-center">
-                <h1>IFRAME</h1>
-                <h1>WILL</h1>
-                <h1>BE</h1>
-                <h1>HERE</h1>
-              </div>
-          </div>
-        </div>
-
-
-
-      </main>
-
-
-      <footer id="footer" class="col-12 align-self-end justify-content-center">
-
-        <div id="showSection" class="container">
-          <div class="row align-items-center justify-content-center text-center p-2">
-              <a href="info" onmousedown="showBtn(this)">Mostrar</a>
-          </div>
-        </div>
-        <!-- Copyright -->
-        <div id="copyright" class="container d-none">
-          <dir class="row align-items-center justify-content-center text-center">
-            <span>Baraboo<br><a href="">Baraboo.com</a></span>
-          </dir>
-        </div>
-        <!-- Copyright -->
-      </footer>
-
-
-
+        <footer id="copyright" class="d-flex align-items-center justify-content-center" style="height: 6%; min-height: 50px;">
+          <span class="text-center p-2">Baraboo<br><a href="">Baraboo.com</a></span>
+        </footer>
+      </div>
     </div>
+    <!-- ////////////////// Termina Page 2 /////////////////// -->
   </div>
-  {% load static %}
-  <script src="{% static '/js/jquery-3.3.1.slim.min.js' %}"></script>
-  {% load static %}
-  <script src="{% static '/js/popper.min.js' %}"></script>
-  {% load static %}
-  <script src="{% static '/js/bootstrap.min.js' %}"></script>
+  {%load static%}
+  <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/baraboo.js' %}"></script>
 </body>
-
-<script type="text/javascript">
-  var footerHeight = document.getElementById('footer').getBoundingClientRect().height;
-  let counter = 0;
-  let interval = null;
-  const defaultPos = { transform: 'rotate(0) translateY(0)' };
-  var animatingL = false;
-  var animatingR = false;
-  const transY = 70;
-  const pxOrPercent = "%"; // px or %
-  const animDuration = 250;
-
-  count = (id) => {
-    const { boolean, name } = this.getBoolean(id);
-    if(boolean) return;  
-    var el = document.getElementById(id);
-  
-    counter = 0;
-    interval = setInterval(start,200);
-    
-    function start() {
-      if (counter === 1) {
-        window[name] = true;
-          clearInterval(interval);
-
-        var anim = [ defaultPos, { transform: `rotate(0) translateY(${transY}${pxOrPercent})` }];
-        this.downUp(el, anim, animDuration);
-        window[name] = false;
-      } else {
-        counter ++;
-      }
-    }
-  }
-  
-  stop = (id) => {
-    const { boolean, name } = this.getBoolean(id);
-    if(boolean) return;
-
-    clearInterval(interval);
-    var el = document.getElementById(id);
-    const axisY = changedPos(el);
-    window[name] = true;
-
-    var anim = [{ transform: `rotate(0) translateY(${axisY}px)` }, defaultPos],
-        backSpeed = this.backSpeed(axisY);
-    this.downUp(el, anim, backSpeed);
-    window[name] = false;
-  }
-  
-  downUp = (el, array, duration) => {
-    return el.animate(
-      array, {
-        duration: duration,
-        fill: 'forwards',
-        iterations: 1,
-      }
-    );
-  }
-
-  inPos = (el, pos) => {
-    var offset = this.getParentOffset(el);
-    const { top } = el.getBoundingClientRect();
-    const _inPos = (pos === top - offset.top);
-
-    return _inPos;
-  }
-
-  changedPos = (el) => {
-    var offset = this.getParentOffset(el);
-    const { top } = el.getBoundingClientRect();
-    const _changedPos = (top - offset.top);
-
-    return _changedPos;
-  }
-
-  getParentOffset = (el) => {
-    return el.parentElement.getBoundingClientRect();
-  }
-
-  backSpeed = (posY) => {
-    if(posY === 0) return 0;
-    const speed = posY * (animDuration/posY);
-    return speed;
-  }
-
-  getBoolean = (el) => {
-    if (el === 'imgL') {
-      return { boolean: window['animatingL'], name: 'animatingL'};
-    }
-    return { boolean: window['animatingR'], name: 'animatingR'};
-  };
-
-  hideShow = (el) => {
-    var len = el.classList.length;
-    var added = false;
-
-    for (let index = 0; index < len; index++) {
-      if (el.classList[index] === 'd-none') {
-        added = true;
-        el.classList.replace('d-none', 'd-block');
-        return 'show';
-      } else if (el.classList[index] === 'd-block') {
-        added = true;
-        el.classList.replace('d-block', 'd-none');
-        return 'hide';
-      } else added = false;
-    }
-    if (!added) el.classList.add('d-none');
-    return 'hide';
-  }
-
-  showBtn = (el) => {
-    var show = document.getElementById('showSection');
-    console.log(show.classList);
-    
-    this.hideShow(show);
-
-    var copyright = document.getElementById('copyright');
-    this.hideShow(copyright);
-
-    var to = el.getAttribute("href"),
-        page = document.getElementById(to);
-
-    var showEl = this.hideShow(page);
-    if (showEl === 'show') {
-      var elY = page.getBoundingClientRect().top;
-      this.doScrolling(elY, 400);
-    }
-
-
-  }
-
-  doScrolling = (elementY, duration) => {
-    var startingY = window.pageXOffset;
-    var diff = elementY;
-    var start;
-
-    window.requestAnimationFrame(function step(timestamp) {
-      if (!start) start = timestamp;
-    var time = timestamp - start;
-    var percent = Math.min(time / duration, 1);
-
-    window.scrollTo(0, startingY + diff * percent);
-    if (time < duration) {
-      window.requestAnimationFrame(step);
-    }
-    })
-  }
-  </script>
-
-  <style>
-  .loader {
-    border: 5px solid #f3f3f3; /* Light grey */
-    border-top: 5px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-  </style>
 </html>
