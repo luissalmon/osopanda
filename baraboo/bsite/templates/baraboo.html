@@ -6,13 +6,14 @@
   <title>Document</title>
   {% load static %}
   <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/bootstrap.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
-<body style="min-width: 520px; background-color: white">
+<body class="bg-image" style="min-width: 520px;">
   <div>
     <!-- //////////////////  Page 1 /////////////////// -->
-    <div class="d-flex flex-column" style="height: 100vh; min-height: 540px;">
+    <div class="d-flex flex-column screen">
       <nav id="navBar" class="navbar justify-content-end h-auto">
         {% if form.errors %}
           <p class="error">Lo sentimos, la contraseña y el nombre de usuario no son
@@ -38,15 +39,15 @@
                   <!-- ///////////////////////SEGMENTO IZQUIERDO//////////////// -->
                   <div class="col d-flex justify-content-end align-items-center h-100 p-0">
                     
-                    <div id="bgSectL" class="d-flex flex-column w-100 align-items-center" style="opacity: 0; padding-left: 7%; padding-right: 5%;">
+                    <div id="bgSectL" class="position-absolute d-flex flex-column w-100 align-items-center bgContainerL">
                       {%load static%}
-                      <img src="{%static 'img/criptomoneda.png' %}" style="height: 10vw; width: 10vw; min-width: 70px; min-height: 70px;" alt="">
-                      <p id="bgPL" class="w-100">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate deserunt fugiat iusto enim rem dolore eos ducimus distinctio est?</p>
+                      <img src="{%static 'img/criptomoneda.png' %}" class="bgImage" alt="">
+                      <p id="bgPL" class="w-100 text-justify bgText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate deserunt fugiat iusto enim rem dolore eos ducimus distinctio est?</p>
                     </div>
 
-                    <div id="imgL" class="d-flex position-absolute justify-content-end align-items-center w-100">
+                    <div id="imgL" class="d-flex position-absolute justify-content-end align-items-center w-100 pr-3">
                       {%load static%}
-                      <img id="imgLS" src="{% static 'img/screen1_left_segment-01.png' %}" class="w-100 float-right" alt="">
+                      <img id="imgLS" src="{% static 'img/bara.png' %}" class="w-100 float-right" alt="">
                     </div>
 
                     <div id="areaL" onmouseover="actionArea('imgL', 'start')" onmouseout="actionArea('imgL', 'stop')" class="bg-transparent position-absolute w-100 "></div>
@@ -56,15 +57,15 @@
                   <!-- ///////////////////////SEGMENTO DERECHO//////////////// -->
                   <div class="col d-flex justify-content-start align-items-center h-100 p-0">
 
-                    <div id="bgSectR" class="d-flex flex-column w-100 align-items-center" style="opacity: 0; padding-left:12%; padding-right: 25%;">
+                    <div id="bgSectR" class="position-absolute d-flex flex-column w-100 align-items-center bgContainerR" style="opacity: 0; padding-left:12%; padding-right: 25%;">
                       {%load static%}
                       <img src="{% static 'img/edificios.png' %}" style="height: 10vw; width: 10vw; min-width: 70px; min-height: 70px;" alt="">
                       <p id="bgPR" class="w-100">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate deserunt fugiat iusto enim rem dolore eos ducimus distinctio est?</p>
                     </div>
 
-                    <div id="imgR" class="d-flex position-absolute justify-content-start align-items-center w-100">
+                    <div id="imgR" class="d-flex position-absolute justify-content-start align-items-center w-100 pl-3">
                       {%load static%}
-                      <img src="{% static 'img/screen1_right_segment-01.png' %}" class="w-100 float-left" alt="">
+                      <img src="{% static 'img/boo 2.png' %}" class="w-100 float-left" alt="">
                     </div>
                     
                     <div id="areaR" onmouseover="actionArea('imgR', 'start')" onmouseout="actionArea('imgR', 'stop')" class="bg-transparent position-absolute w-100"></div>
@@ -81,8 +82,8 @@
         </div>
       </div>
 
-      <footer class="d-flex align-items-center justify-content-center" style="height: 6%; min-height: 50px;">
-          <a id="showSection" to="info" onmousedown="showBtn(this)">Mostrar</a>
+      <footer class="d-flex align-items-center justify-content-center footShow">
+        <input id="showSection" to="info"  onclick="showBtn(this)" type="image" src="{% static 'img/boton2.png' %}" class="btnShow" />
       </footer>
     </div>
     <!-- ////////////////// Termina Page 1 /////////////////// -->
@@ -100,60 +101,98 @@
             <div class="row">
               <div class="col-md-1"></div>
               <div class="col-12 col-sm-5"></div>
-              <div class="col-12 col-sm-5 pt-2 pb-4 bg-secondary rounded">
-                  <form action="" class="form-row m-0 pl-md-2 pr-md-2">
-                      <div class="form-group pr-2 pl-2 w-50">
-                          <label for="firstName">First Name</label>
-                          <input id="firstName" type="text" class="form-control" placeholder="First Name">
+              <div class="col-12 col-lg-5">
+                  <div class="container-fluid pt-3 inRound-Container" style="background-color: black">
+                    <form action="" class="form-group row">
+
+
+                      <div class="form-group col-12 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                            <label class="pb-0 mb-0 text-light" style="font-size: 25px;" for="firstName">First Name*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                            <input id="firstName" type="text" class="form-control inRound h-100" style="line-height: 0px;">
+                        </div>
                       </div>
-                      <div class="form-group pr-2 pl-2 w-50">
-                          <label for="lastName">Last Name</label>
-                          <input id="lastName" type="text" class="form-control" placeholder="Last Name">
+
+
+                      <div class="form-group col-12 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                            <label class="pb-0 mb-0 text-light" style="font-size: 25px;" for="firstName">Last Name*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                            <input id="lastName" type="text" class="form-control inRound h-100" style="line-height: 0px;">
+                        </div>
                       </div>
-                      <div class="form-group pr-2 pl-2 m-0 p-0 w-50">
-                          <label for="email">Email</label>
-                          <input id="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
-                          <small id="emailHelp" class="form-text text-light">Example mail@mail.com</small>
+
+
+                      <div class="form-group col-12 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                            <label class="pb-0 mb-0 text-light" style="font-size: 25px;" for="firstName">Email*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                            <input id="email" type="email" class="form-control inRound h-100" style="line-height: 0px;">
+                        </div>
                       </div>
-                      <div class="form-group pr-2 pl-2 w-50">
-                          <label for="password">Password</label>
-                          <input id="password" type="password" class="form-control" aria-describedby="passwordHelp" placeholder="Password">
-                          <small id="passwordHelp" class="form-text text-light">Password must be at least must be 8 characters.</small>
+
+
+                      <div class="form-group col-12 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                            <label class="pb-0 mb-0 text-light" style="font-size: 25px;" for="firstName">Birth date*</label>
+                        </div>
+                        <select id="dobday" class="flex-fill inRound text-muted mr-3 h-75" style="text-align-last: center;"></select>
+                        <select id="dobmonth" class="flex-fill inRound text-muted pr-2 mr-3 h-75" style="text-align-last: center;"></select>
+                        <select id="dobyear" class="flex-fill inRound text-muted pr-2 h-75" style="text-align-last: center;"></select>
                       </div>
-                      <div class="form-group pr-2 pl-2 w-50">
-                          <label for="rePassword">Re-enter password</label>
-                          <input id="rePassword" type="text" class="form-control" placeholder="Re-enter password">
+
+
+                      <div class="form-group col-12 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                            <label class="pb-0 mb-0 text-light" style="font-size: 25px;" for="firstName">Phone*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                            <input id="phone" type="text" class="form-control h-100 inRound" style="line-height: 0px;">
+                        </div>
                       </div>
-                      <div class="form-group pr-2 pl-2 w-50">
-                          <label for="ethAdress">Ethereum address</label>
-                          <input id="ethAdress" type="text" class="form-control" placeholder="Ethereum address">
+
+
+                      <div class="form-group col-7 d-flex align-items-end">
+                        <div class="mr-3 form-label" >
+                            <label class="pb-0 mb-0 text-light" style="font-size: 25px;" for="firstName">Document*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                            <select id="documentSelect" class="form-control h-100 inRound p-0 m-0 text-muted" style="line-height: 0px; text-align-last: center;">
+                                <option>INE</option>
+                                <option>Pasaporte</option>
+                                <option>..........</option>
+                            </select>
+                        </div>
                       </div>
-                      <div class="form-group pr-2 pl-2 w-50">
-                          <label for="country">Country</label>
-                          <input id="country" type="text" class="form-control" placeholder="Country">
+
+
+                      <div class="form-group col-5 d-flex justify-content-end align-items-end">
+                          <div class="upload-btn-wrapper h-75 mr-4">
+                              <button class="btnF text-muted inRound pl-4 h-100 pr-4" style="line-height: 0px;">.jgp / .pdf</button>
+                              <input class="form-control-file" type="file"  id="file" />
+                          </div>
+                          <div class="upload-btn-wrapper h-75">
+                              <button class="btnF text-muted rounded-circle h-100 p-0 m-0" style="line-height: 0px; width: 30px;">▼</button>
+                              <input type="file" id="fileBtn" />
+                          </div>
                       </div>
-                      <div class="form-group pr-2 pl-2 w-50">
-                          <label for="nationality">Nationality</label>
-                          <input id="nationality" type="text" class="form-control" placeholder="Nationality">
+
+
+                      <div class="col-12 mt-2 mb-3 d-flex justify-content-start align-items-end justify-content-end">
+                          <button type="submit" class="h1 btn btn-primary" style="width: 20%;">Send</button>
                       </div>
-                      <div class="form-group pr-2 pl-2 w-100">
-                          <label for="docs">Documents</label>
-                          <input id="docs" aria-describedby="docsHelp" type="file" class="form-control-file">
-                          <small id="docsHelp" class="form-text text-light">INE, Visa, Pasaporte, etc...</small>
-                      </div>
-                      <div class="form-group form-check w-100">
-                        <input for="check" type="checkbox" class="form-check-input">
-                        <label id="check" class="form-check-label">Check me out</label>
-                      </div>
-                      
-                      <button type="submit" class="btn btn-sm btn-primary ml-5 mr-5">Sign Up</button>
-                  </form>
+                    </form>
+                  </div>
               </div>
               <div class="col-sm-1" style="height: 20px;"></div>
             </div>
           </div>
         </div>
-        <footer id="copyright" class="d-flex align-items-center justify-content-center" style="height: 6%; min-height: 50px;">
+        <footer id="copyright" class="footer d-flex align-items-center justify-content-center">
           <span class="text-center p-2">Baraboo<br><a href="">Baraboo.com</a></span>
         </footer>
       </div>
@@ -165,5 +204,20 @@
   <script src="{% static 'js/popper.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
   <script src="{% static 'js/baraboo.js' %}"></script>
+  <script src="{% static 'js/dobpicker.js' %}"></script>
+  <script>
+    $(document).ready(function() {
+        $.dobPicker({
+            daySelector: '#dobday', /* Required */
+            monthSelector: '#dobmonth', /* Required */
+            yearSelector: '#dobyear', /* Required */
+            dayDefault: 'Day', /* Optional */
+            monthDefault: 'Month', /* Optional */
+            yearDefault: 'Year', /* Optional */
+            minimumAge: 12, /* Optional */
+            maximumAge: 80 /* Optional */
+        });
+    });
+  </script>
 </body>
 </html>
