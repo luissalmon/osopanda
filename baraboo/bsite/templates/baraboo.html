@@ -14,11 +14,18 @@
     <!-- //////////////////  Page 1 /////////////////// -->
     <div class="d-flex flex-column" style="height: 100vh; min-height: 540px;">
       <nav id="navBar" class="navbar justify-content-end h-auto">
-        <form class="form-inline ml-2 mr-2 mr-md-3">
-          <input type="text" class="form-control mr-sm-2" placeholder="User">
-          <input type="password" class="form-control mr-sm-2" placeholder="Password">
+        {% if form.errors %}
+          <p class="error">Lo sentimos, la contraseña y el nombre de usuario no son
+          validos</p> 
+        {% endif %}
+        {% block content%}
+        <form class="form-inline ml-2 mr-2 mr-md-3" method="POST">
+          <!-- {% csrf_token %} -->
+          <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
+          <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
           <button class="btn btn-dark my-2 my-sm-0" type="submit">Log In</button>
         </form>
+        {% endblock %}
       </nav>
       <div class="flex-fill d-flex flex-column align-items-center justify-content-center" style="height: 50vh;">
         <div class="container-fluid h-100">
