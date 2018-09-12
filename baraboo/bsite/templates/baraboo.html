@@ -20,12 +20,14 @@
           validos</p> 
         {% endif %}
         {% block content%}
-        <form class="form-inline ml-2 mr-2 mr-md-3" method="POST">
-          {% csrf_token %}
-          <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
-          <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
-          <button class="btn btn-dark my-2 my-sm-0" type="submit">Log In</button>
-        </form>
+        <div class="w-50">
+          <form class="form-inline justify-content-end w-100" method="POST">
+            {% csrf_token %}
+            <input name="username" type="text" class="form-control input-login" placeholder="User">
+            <input name="password" type="password" class="form-control w-25 input-login" placeholder="Password">
+            <button class="bg-dark btn btn-login text-light" type="submit">Log In</button>
+          </form>
+        </div>
         {% endblock %}
       </nav>
       <div class="flex-fill d-flex flex-column align-items-center justify-content-center" style="height: 50vh;">
@@ -102,8 +104,8 @@
               <div class="col-md-1"></div>
               <div class="col-12 col-sm-5"></div>
               <div class="col-12 col-lg-5">
-                  <div class="container-fluid pt-3 inRound-Container" style="background-color: black">
-                    <form action="" class="form-group row">
+                  <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
+                    <form action="" class="row">
 
 
                       <div class="form-group col-12 d-flex align-items-end">
@@ -192,8 +194,21 @@
             </div>
           </div>
         </div>
-        <footer id="copyright" class="footer d-flex align-items-center justify-content-center">
-          <span class="text-center p-2">Baraboo<br><a href="">Baraboo.com</a></span>
+        <footer id="copyright" class="footer d-flex pr-5 pl-5 pt-3 bg-dark">
+          <div class="w-25 d-flex justify-content-center">
+            <span class="font-weight-bold text-light font-footer">Conocenos</span>
+            <span></span>
+          </div>
+          <div class="w-25 d-flex justify-content-center">
+            <span class="font-weight-bold text-light font-footer">Terminos y Condiciones</span>
+          </div>
+          <div class="w-25 d-flex justify-content-center">
+            <span class="font-weight-bold text-light font-footer">Politicas de privacidad</span>
+          </div>
+          <div class="w-25 d-flex justify-content-center">
+            <span class="font-weight-bold text-light font-footer">Ayuda</span>
+          </div>
+          <!-- <span class="text-center p-2">Baraboo<br><a href="">Baraboo.com</a></span> -->
         </footer>
       </div>
     </div>
