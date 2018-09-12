@@ -14,6 +14,9 @@ from django.contrib import auth
 def index (request):
     return render_to_response('baraboo.html')
 
+def homepage(request):
+    return render_to_response('registrar.html')
+
 def vista_login(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
