@@ -132,3 +132,5 @@ STATICFILES_DIRS = [
 ]
 #Esto nos va a llevar a la pagina de inicio despues de la validacion del login
 LOGIN_REDIRECT_URL = 'registrar.html'
+
+WEB3_PROVIDER_URI = 'ws://127.0.0.1:8545'
