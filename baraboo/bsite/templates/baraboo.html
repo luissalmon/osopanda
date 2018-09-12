@@ -47,7 +47,7 @@
 
                     <div id="imgL" class="d-flex position-absolute justify-content-end align-items-center w-100 pr-3">
                       {%load static%}
-                      <img id="imgLS" src="{% static 'img/screen1_left_segment-01.png' %}" class="w-100 float-right" alt="">
+                      <img id="imgLS" src="{% static 'img/bara.png' %}" class="w-100 float-right" alt="">
                     </div>
 
                     <div id="areaL" onmouseover="actionArea('imgL', 'start')" onmouseout="actionArea('imgL', 'stop')" class="bg-transparent position-absolute w-100 "></div>
@@ -65,7 +65,7 @@
 
                     <div id="imgR" class="d-flex position-absolute justify-content-start align-items-center w-100 pl-3">
                       {%load static%}
-                      <img src="{% static 'img/screen1_right_segment-01.png' %}" class="w-100 float-left" alt="">
+                      <img src="{% static 'img/boo 2.png' %}" class="w-100 float-left" alt="">
                     </div>
                     
                     <div id="areaR" onmouseover="actionArea('imgR', 'start')" onmouseout="actionArea('imgR', 'stop')" class="bg-transparent position-absolute w-100"></div>
@@ -83,7 +83,7 @@
       </div>
 
       <footer class="d-flex align-items-center justify-content-center footShow">
-        <input id="showSection" to="info"  onclick="showBtn(this)" type="image" src="img/boton.png" class="btnShow" />
+        <input id="showSection" to="info"  onclick="showBtn(this)" type="image" src="{% static 'img/boton2.png' %}" class="btnShow" />
       </footer>
     </div>
     <!-- ////////////////// Termina Page 1 /////////////////// -->
@@ -204,7 +204,7 @@
   <script src="{% static 'js/popper.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
   <script src="{% static 'js/baraboo.js' %}"></script>
-  <script src="js/dobpicker.js"></script>
+  <script src="{% static 'js/dobpicker.js' %}"></script>
   <script>
     $(document).ready(function() {
         $.dobPicker({
