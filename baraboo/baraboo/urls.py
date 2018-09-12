@@ -20,6 +20,5 @@ from bsite import views
 from django.contrib.auth.views import LoginView
 
 urlpatterns = [
-    #url(r'^admin/', include('admin.site.urls')),
-    url(r'bsite/', include('bsite.urls'))
+    url(r'', include('bsite.urls')),
 ]
