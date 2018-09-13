@@ -7,16 +7,10 @@ def index(request):
 
 '''
 
-<<<<<<< HEAD
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
-=======
-from django.shortcuts import render_to_response, HttpResponseRedirect
 
->>>>>>> 0bc44a63bb1c0b3c064c12f678288e81947d1f3b
-from django.contrib import auth
-from bsite.forms import Person_Form
 
 def index (request):
     return render_to_response('baraboo.html')
@@ -36,8 +30,7 @@ def loginpage(request):
     
     #-----------------------#
     if username == 'luis' and password == '123':
-        url = "investments.html"
-        return HttpResponseRedirect(url)
+        return HttpResponseRedirect('investments.html')
     else:
         return render(request, 'baraboo.html',{'error': True})
         
@@ -55,11 +48,11 @@ def loginpage(request):
     #     # Muestra una página de error
     #     return HttpResponseRedirect("investments.html")
 
-def vistaFormulario(request):
+def formulario(request):
     if request.method == 'POST':
-        form = Person_Form(request.POST)
-        form.save()
-        username = form.cleaned_data.get('username')
-        password = form.cleaned_data.get('password')
 
+        username = request.POST.get('username')
+        name = request.POST.get('name')
+        lastName = request.POST.get('lastName')
+        
         #database select to login

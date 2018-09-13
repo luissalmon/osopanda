@@ -20,22 +20,11 @@
           validos</p> 
         {% endif %}
         {% block content%}
-<<<<<<< HEAD
         <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="GET">
           <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
           <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
           <button class="btn btn-dark my-2 my-sm-0" type="submit">Log In</button>
         </form>
-=======
-        <div class="w-50">
-          <form class="form-inline justify-content-end w-100" method="POST">
-            {% csrf_token %}
-            <input name="username" type="text" class="form-control input-login" placeholder="User">
-            <input name="password" type="password" class="form-control w-25 input-login" placeholder="Password">
-            <button class="bg-dark btn btn-login text-light" type="submit">Log In</button>
-          </form>
-        </div>
->>>>>>> c858467932cc31380978aa3f17daf8c0efd044c1
         {% endblock %}
       </nav>
       <div class="flex-fill d-flex flex-column align-items-center justify-content-center" style="height: 50vh;">
@@ -112,15 +101,9 @@
               <div class="col-md-1"></div>
               <div class="col-12 col-sm-5"></div>
               <div class="col-12 col-lg-5">
-<<<<<<< HEAD
                   <div class="container-fluid pt-3 inRound-Container" style="background-color: black">
                     <form action="" class="form-group row" method="POST">
-=======
-                  <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
-                    <form action="" class="row">
->>>>>>> c858467932cc31380978aa3f17daf8c0efd044c1
-
-
+                      
                       <div class="form-group col-12 d-flex align-items-end">
                         <div class="mr-3 form-label">
                             <label class="pb-0 mb-0 text-light" style="font-size: 25px;" for="firstName">First Name*</label>
