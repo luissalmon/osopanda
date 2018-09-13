@@ -21,7 +21,7 @@
         <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="GET">
           <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
           <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
-          <button class="btn btn-dark my-2 my-sm-0" type="submit">Log In</button>
+          <button class="bg-dark btn btn-login text-light" type="submit">Log In</button>
         </form>
         {% endblock %}
       </nav>
@@ -101,7 +101,7 @@
                           <label class="pb-0 mb-0  form-text" for="firstName">First Name*</label>
                         </div>
                         <div class="flex-fill h-75">
-                          <input id="firstName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                          <input name="name" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
                       </div>
                       
@@ -111,7 +111,7 @@
                           <label class="pb-0 mb-0  form-text" for="lastName">Last Name*</label>
                         </div>
                         <div class="flex-fill h-75">
-                          <input id="lastName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                          <input name="lastName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
                       </div>
                       
@@ -121,7 +121,7 @@
                           <label class="pb-0 mb-0 form-text" for="email">Email*</label>
                         </div>
                         <div class="flex-fill h-75">
-                          <input id="email" type="email" class="form-control h-100 input-form" style="line-height: 0px;">
+                          <input name="email" type="email" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
                       </div>
                       
@@ -130,7 +130,7 @@
                             <label class="pb-0 mb-0  form-text" for="userName">Username*</label>
                         </div>
                         <div class="flex-fill h-75">
-                            <input id="userName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                            <input name="userName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
                       </div>
                       
@@ -138,9 +138,9 @@
                         <div class="mr-3 form-label">
                           <label class="pb-0 mb-0 form-text">Birth date*</label>
                         </div>
-                        <select id="dobday" class="flex-fill form-control text-muted mr-3 h-100 input-form" style="text-align-last: center;"></select>
-                        <select id="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100 input-form" style="text-align-last: center;"></select>
-                        <select id="dobyear" class="flex-fill form-control text-muted pr-2 h-100 input-form" style="text-align-last: center;"></select>
+                        <select name="dobday" class="flex-fill form-control text-muted mr-3 h-100 input-form" style="text-align-last: center;"></select>
+                        <select name="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100 input-form" style="text-align-last: center;"></select>
+                        <select name="dobyear" class="flex-fill form-control text-muted pr-2 h-100 input-form" style="text-align-last: center;"></select>
                       </div>
 
                       <div class="form-group col-6 d-flex align-items-end">
@@ -148,7 +148,7 @@
                             <label class="pb-0 mb-0  form-text" for="pswdForm">Password*</label>
                         </div>
                         <div class="flex-fill h-75">
-                            <input id="pswdForm" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                            <input name="password" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
                       </div>
 
@@ -157,7 +157,7 @@
                             <label class="pb-0 mb-0  form-text" for="confirmPsw">Confirm password*</label>
                         </div>
                         <div class="flex-fill h-75">
-                            <input id="confirmPsw" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                            <input id="passwordConfirmation" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
                       </div>
 
@@ -165,7 +165,7 @@
                         <div class="mr-3 form-label">
                             <label class="pb-0 mb-0  form-text" for="country">Country*</label>
                         </div>
-                          <select id="country" name="" id="" value class="form-control h-100 input-form country"  style="text-align-last: center;">
+                          <select name="country" value class="form-control h-100 input-form country"  style="text-align-last: center;">
                               <option value="AF">Afghanistan</option>
                               <option value="AX">Åland Islands</option>
                               <option value="AL">Albania</option>
@@ -468,7 +468,7 @@
         </div>
         
         <div class="footer-bottom w-100 m-0 p-2 pt-3 pb-3 text-center">
-            <span class="text-center text-muted "><a class="text-light" href="">Condiciones de uso | Aviso de privacidad</a> 2018 Baraboo.com, Inc. o afiliados. Todos los derechos reservados.</span>
+            <span class="text-center text-muted "><a class="text-light" href="">Condiciones de uso | Aviso de privacidad</a> 2018 Baraboo.com, Inc. o afiliados. Todos los derechos renrvados.</span>
         </div>
 
 
