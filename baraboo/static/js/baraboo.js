@@ -17,6 +17,21 @@ var initialY,
 resize();
 window.addEventListener("resize", resize);
 
+function alerta() {
+  counter = 0;
+  console.log('entro');
+  
+  var inter = setInterval(displayAlert, 200);
+  function displayAlert() {
+    if(c === 3) {
+      clearInterval(inter)
+      alert('hola');
+    } else {
+      counter++;
+    }
+  }
+}
+
 function resize() {
   var data = document.getElementById('imgLS').getBoundingClientRect();
   adjustHeight('bgSectL');
@@ -151,8 +166,18 @@ function bgAnimation() {
     initialBgY = el.getBoundingClientRect().top;
     if (id === 'bgSectL') {
       bgSectionL = el.animate(frame, options);
+      bgSectionL.onfinish = function() {
+        console.log('entro');
+        
+        this.alerta();
+      }
     } else {
       bgSectionR = el.animate(frame, options);
+      bgSectionR.onfinish = function() {
+        console.log('entro');
+        
+        this.alerta();
+      }
     }
   }
 
@@ -212,6 +237,7 @@ function showBtn(el) {
     this.doScrolling(elY, 400);
   }
 }
+
 
 function hideShow(el) {
   var id = el.getAttribute('id');
