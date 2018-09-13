@@ -43,7 +43,7 @@ class Person(models.Model):
     name = models.CharField(max_length=150)
     lastName = models.CharField(max_length=150)
     birdDate = models.DateField()
-    lastModification = models.DateTimeField()
+    lastModification = models.DateTimeField(auto_now=True)
     mail = models.EmailField('e-mail', blank=False)
 
 class DocumentType(models.Model):
