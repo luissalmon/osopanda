@@ -13,6 +13,8 @@ class User(models.Model):
     idUser = models.AutoField(primary_key=True)
     userName = models.CharField(max_length=150)
     password = models.CharField(max_length=150)
+    idPerson = models.ForeignKey('Person', on_delete=models.CASCADE)
+    active = models.IntegerField(default=1)
 
 class Wallet(models.Model):
     idWallet = models.AutoField(primary_key=True)
@@ -20,7 +22,7 @@ class Wallet(models.Model):
         'User',
         on_delete=models.CASCADE,
     )
-    crationDate = models.DateField()
+    crationDate = models.DateField(auto_now=True)
     address = models.CharField(max_length=60)
 
 class UserRole(models.Model):

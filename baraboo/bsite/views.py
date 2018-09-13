@@ -7,9 +7,14 @@ def index(request):
 
 '''
 
+<<<<<<< HEAD
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
+=======
+from django.shortcuts import render_to_response, HttpResponseRedirect
+
+>>>>>>> 0bc44a63bb1c0b3c064c12f678288e81947d1f3b
 from django.contrib import auth
 from bsite.forms import Person_Form
 
