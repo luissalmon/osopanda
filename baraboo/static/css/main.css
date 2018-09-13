@@ -590,3 +590,34 @@ background-image: url('../img/fondo.png');
 background-repeat: no-repeat;
 background-attachment: fixed;
 }
+
+.input-login, .btn-login {
+  font-size: 14px;
+  height: calc(1.6rem + 2px);
+}
+
+.input-login {
+  width: 20% !important;
+  margin-right: 8px;
+}
+
+.btn-login {
+  line-height: 0px;
+}
+
+.footer {
+  height: 25vh;
+  background-color: #343a40;
+}
+
+.footer-bottom {
+  background-color: #2a3035;
+}
+
+.footerSection {
+  
+}
+
+.font-footer {
+  font-size: 15px !important;
+}
