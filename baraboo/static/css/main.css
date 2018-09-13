@@ -621,3 +621,24 @@ background-attachment: fixed;
 .font-footer {
   font-size: 15px !important;
 }
+
+@font-face {
+  font-family: 'future-book';
+  src: url(../fonts/Futura\ Book\ Regular.otf);
+}
+
+@font-face {
+  font-family: 'mont-light';
+  src: url(../fonts/Mont-ExtraLightDEMO.otf);
+}
+
+
+.footer-title {
+  font-family: future-book;
+  font-size: 14px;
+}
+
+.footer-text {
+  font-family: mont-light;
+  font-size: 12px;
+}
