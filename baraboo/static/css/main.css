@@ -607,6 +607,11 @@ background-attachment: fixed;
 
 .footer {
   height: 25vh;
+  background-color: #343a40;
+}
+
+.footer-bottom {
+  background-color: #2a3035;
 }
 
 .footerSection {
