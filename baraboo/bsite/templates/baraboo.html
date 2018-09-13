@@ -5,16 +5,24 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   {% load static %}
-  <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/bootstrap.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
-
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body class="bg-image" style="min-width: 520px;">
+  
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Some text in the Modal..</p>
+        </div>
+      
+      </div>
   <div>
     <!-- //////////////////  Page 1 /////////////////// -->
     <div class="d-flex flex-column screen">
-      <nav id="navBar" class="navbar justify-content-end h-auto">
+      <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
         {% if form.errors %}
           <p class="error">Lo sentimos, la contraseña y el nombre de usuario no son
           validos</p> 
@@ -39,25 +47,25 @@
               <div class="container-fluid h-100 p-0">
                 <div class="row h-100 align-items-center justify-content-center">
                   <!-- ///////////////////////SEGMENTO IZQUIERDO//////////////// -->
-                  <div class="col d-flex justify-content-end align-items-center h-100 p-0">
+                  <div class="col-5 d-flex justify-content-end align-items-center h-100 p-0">
                     
                     <div id="bgSectL" class="position-absolute d-flex flex-column w-100 align-items-center bgContainerL">
                       {%load static%}
                       <img src="{%static 'img/criptomoneda.png' %}" class="bgImage" alt="">
                       <p id="bgPL" class="w-100 text-justify bgText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate deserunt fugiat iusto enim rem dolore eos ducimus distinctio est?</p>
                     </div>
-
+                    
                     <div id="imgL" class="d-flex position-absolute justify-content-end align-items-center w-100 pr-3">
                       {%load static%}
                       <img id="imgLS" src="{% static 'img/bara.png' %}" class="w-100 float-right" alt="">
                     </div>
 
-                    <div id="areaL" onmouseover="actionArea('imgL', 'start')" onmouseout="actionArea('imgL', 'stop')" class="bg-transparent position-absolute w-100 "></div>
+                    <div id="areaL" onmouseover="actionArea('imgL', 'start')" onmouseout="actionArea('imgL', 'stop')" class="position-absolute w-100 "></div>
                   
                   </div>
                   <!-- ///////////////////////TERMINA SEGMENTO IZQUIERDO//////////////// -->
                   <!-- ///////////////////////SEGMENTO DERECHO//////////////// -->
-                  <div class="col d-flex justify-content-start align-items-center h-100 p-0">
+                  <div class="col-5 d-flex justify-content-start align-items-center h-100 p-0">
 
                     <div id="bgSectR" class="position-absolute d-flex flex-column w-100 align-items-center bgContainerR" style="opacity: 0; padding-left:12%; padding-right: 25%;">
                       {%load static%}
@@ -92,12 +100,6 @@
     <!-- //////////////////  Page 2 /////////////////// -->
     <div id="info" class="d-none">
       <div class="d-flex flex-column w-100">
-        <div class="d-flex align-items-center justify-content-center bg-primary">
-          <h1>IFRAME</h1>
-          <h1>WILL</h1>
-          <h1>BE</h1>
-          <h1>HERE</h1>
-        </div>
         <div class="d-flex flex-column flex-row">
           <div class="container-fluid mt-5 mb-5">
             <div class="row">
@@ -105,62 +107,68 @@
               <div class="col-12 col-sm-5"></div>
               <div class="col-12 col-lg-5">
                   <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
-                    <form action="" class="row">
+                    <form action="" class="row bg-dark">
 
 
                       <div class="form-group col-12 d-flex align-items-end">
                         <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0 text-light" style="font-size: 25px;" for="firstName">First Name*</label>
+                            <label class="pb-0 mb-0  form-text text-light" for="firstName">First Name*</label>
                         </div>
                         <div class="flex-fill h-75">
-                            <input id="firstName" type="text" class="form-control inRound h-100" style="line-height: 0px;">
+                            <input id="firstName" type="text" class="form-control h-100" style="line-height: 0px;">
                         </div>
                       </div>
 
 
                       <div class="form-group col-12 d-flex align-items-end">
                         <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0 text-light" style="font-size: 25px;" for="firstName">Last Name*</label>
+                            <label class="pb-0 mb-0  form-text" for="lastName">Last Name*</label>
                         </div>
                         <div class="flex-fill h-75">
-                            <input id="lastName" type="text" class="form-control inRound h-100" style="line-height: 0px;">
+                            <input id="lastName" type="text" class="form-control h-100" style="line-height: 0px;">
                         </div>
                       </div>
 
-
                       <div class="form-group col-12 d-flex align-items-end">
                         <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0 text-light" style="font-size: 25px;" for="firstName">Email*</label>
+                            <label class="pb-0 mb-0t form-text" for="email">Email*</label>
                         </div>
                         <div class="flex-fill h-75">
-                            <input id="email" type="email" class="form-control inRound h-100" style="line-height: 0px;">
+                            <input id="email" type="email" class="form-control h-100" style="line-height: 0px;">
                         </div>
                       </div>
-
-
+                      
+                      
                       <div class="form-group col-12 d-flex align-items-end">
                         <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0 text-light" style="font-size: 25px;" for="firstName">Birth date*</label>
+                          <label class="pb-0 mb-0 form-text">Birth date*</label>
                         </div>
-                        <select id="dobday" class="flex-fill inRound text-muted mr-3 h-75" style="text-align-last: center;"></select>
-                        <select id="dobmonth" class="flex-fill inRound text-muted pr-2 mr-3 h-75" style="text-align-last: center;"></select>
-                        <select id="dobyear" class="flex-fill inRound text-muted pr-2 h-75" style="text-align-last: center;"></select>
+                        <select id="dobday" class="flex-fill form-control text-muted mr-3 h-100" style="text-align-last: center;"></select>
+                        <select id="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100" style="text-align-last: center;"></select>
+                        <select id="dobyear" class="flex-fill form-control text-muted pr-2 h-100" style="text-align-last: center;"></select>
                       </div>
-
-
+                      
                       <div class="form-group col-12 d-flex align-items-end">
                         <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0 text-light" style="font-size: 25px;" for="firstName">Phone*</label>
+                            <label class="pb-0 mb-0  form-text" for="phone">Phone*</label>
                         </div>
                         <div class="flex-fill h-75">
-                            <input id="phone" type="text" class="form-control h-100 inRound" style="line-height: 0px;">
+                            <input id="phone" type="text" class="form-control h-100" style="line-height: 0px;">
                         </div>
                       </div>
 
+                      <div class="form-group col-12 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                            <label class="pb-0 mb-0  form-text" for="alfanumerico">Alfanumerico*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                            <input id="alfanumerico" type="text" class="form-control h-100" style="line-height: 0px;">
+                        </div>
+                      </div>
 
-                      <div class="form-group col-7 d-flex align-items-end">
+                      <!-- <div class="form-group col-12 d-flex align-items-end">
                         <div class="mr-3 form-label" >
-                            <label class="pb-0 mb-0 text-light" style="font-size: 25px;" for="firstName">Document*</label>
+                            <label class="pb-0 mb-0 text-light form-text" for="firstName">Document*</label>
                         </div>
                         <div class="flex-fill h-75">
                             <select id="documentSelect" class="form-control h-100 inRound p-0 m-0 text-muted" style="line-height: 0px; text-align-last: center;">
@@ -169,10 +177,10 @@
                                 <option>..........</option>
                             </select>
                         </div>
-                      </div>
+                      </div> -->
 
 
-                      <div class="form-group col-5 d-flex justify-content-end align-items-end">
+                      <!-- <div class="form-group col-5 d-flex justify-content-end align-items-end">
                           <div class="upload-btn-wrapper h-75 mr-4">
                               <button class="btnF text-muted inRound pl-4 h-100 pr-4" style="line-height: 0px;">.jgp / .pdf</button>
                               <input class="form-control-file" type="file"  id="file" />
@@ -181,7 +189,7 @@
                               <button class="btnF text-muted rounded-circle h-100 p-0 m-0" style="line-height: 0px; width: 30px;">▼</button>
                               <input type="file" id="fileBtn" />
                           </div>
-                      </div>
+                      </div> -->
 
 
                       <div class="col-12 mt-2 mb-3 d-flex justify-content-start align-items-end justify-content-end">
@@ -194,39 +202,39 @@
             </div>
           </div>
         </div>
-        <div id="copyright" class="footer d-flex pr-5 pl-5">
-          <div class="w-25 d-flex flex-column text-center justify-content-center">
-            <span class="font-weight-bold text-light footer-title ">Conocenos</span>
+        <div id="copyright" class="footer-baraboo d-flex p-3 pr-2 pl-2">
+          <div class="w-25 d-flex flex-column text-center m-0 p-0">
+            <span class="font-weight-bold text-light footer-title">Conocenos</span>
             <div class="row justify-content-start">
               <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
               <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
-              <a href="#" class="col-12 footer-text text-light mb-2">Texto 3</a>
+              <a href="#" class="col-12 footer-text text-light">Texto 3</a>
             </div>
           </div>
 
-          <div class="w-25 d-flex flex-column text-center justify-content-center">
+          <div class="w-25 d-flex flex-column text-center">
             <span class="font-weight-bold text-light footer-title ">Terminos y Condiciones</span>
             <div class="row justify-content-start">
               <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
               <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
-              <a href="#" class="col-12 footer-text text-light mb-2">Texto 3</a>
+              <a href="#" class="col-12 footer-text text-light">Texto 3</a>
             </div>
           </div>
 
-          <div class="w-25 d-flex flex-column text-center justify-content-center">
+          <div class="w-25 d-flex flex-column text-center">
             <span class="font-weight-bold text-light footer-title">Politicas de privacidad</span>
             <div class="row justify-content-start">
               <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
               <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
-              <a href="#" class="col-12 footer-text text-light mb-2">Texto 3</a>
+              <a href="#" class="col-12 footer-text text-light">Texto 3</a>
             </div>
           </div>
-          <div class="w-25 d-flex flex-column text-center justify-content-center">
+          <div class="w-25 d-flex flex-column text-center">
             <span class="font-weight-bold text-light footer-title">Ayuda</span>
             <div class="row justify-content-start">
               <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
               <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
-              <a href="#" class="col-12 footer-text text-light mb-2">Texto 3</a>
+              <a href="#" class="col-12 footer-text text-light">Texto 3</a>
             </div>
           </div>
         </div>
@@ -241,9 +249,12 @@
     <!-- ////////////////// Termina Page 2 /////////////////// -->
   </div>
   {%load static%}
-  <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
   <script src="{% static 'js/popper.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap-material-design.js %'}"></script>
+  <script src="{% static 'js/bootstrap-material-design.min.js %'}"></script>
+  <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
   <script src="{% static 'js/baraboo.js' %}"></script>
   <script src="{% static 'js/dobpicker.js' %}"></script>
   <script>
@@ -259,6 +270,25 @@
             maximumAge: 80 /* Optional */
         });
     });
+
+    
+    var modal = document.getElementById('myModal');
+    var btn = document.getElementById("btnModal");
+
+  var span = document.getElementsByClassName("close")[0];
+btn.onclick = function() {  
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
   </script>
 </body>
 </html>
