@@ -8,7 +8,9 @@ from django.db import models
 class KYCRequest(models.Model):
     idKYCRequest = models.AutoField(primary_key=True)
     idUser = models.ForeignKey('User', on_delete=models.CASCADE)
-
+    reference = models.CharField(max_length=1000)
+    idStatus = models.ForeignKey('StatusRequest', on_delete=models.CASCADE)
+    
 class User(models.Model):
     idUser = models.AutoField(primary_key=True)
     userName = models.CharField(max_length=150)
@@ -70,3 +72,7 @@ class PersonDocument(models.Model):
         'Document',
         on_delete=models.CASCADE,
     )
+
+class StatusRequest(models.Model):
+    idStatus = models.AutoField(primary_key=True)
+    status = models.CharField(max_length=100)
