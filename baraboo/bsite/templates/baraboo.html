@@ -20,8 +20,7 @@
           validos</p> 
         {% endif %}
         {% block content%}
-        <form class="form-inline ml-2 mr-2 mr-md-3" method="POST">
-          {% csrf_token %}
+        <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="GET">
           <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
           <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
           <button class="btn btn-dark my-2 my-sm-0" type="submit">Log In</button>
@@ -103,7 +102,7 @@
               <div class="col-12 col-sm-5"></div>
               <div class="col-12 col-lg-5">
                   <div class="container-fluid pt-3 inRound-Container" style="background-color: black">
-                    <form action="" class="form-group row">
+                    <form action="" class="form-group row" method="POST">
 
 
                       <div class="form-group col-12 d-flex align-items-end">
@@ -111,7 +110,7 @@
                             <label class="pb-0 mb-0 text-light" style="font-size: 25px;" for="firstName">First Name*</label>
                         </div>
                         <div class="flex-fill h-75">
-                            <input id="firstName" type="text" class="form-control inRound h-100" style="line-height: 0px;">
+                            <input id="firstName" type="text" class="form-control inRound h-100" style="line-height: 0px;" value="{{form.name}}">
                         </div>
                       </div>
 

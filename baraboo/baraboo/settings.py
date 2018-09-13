@@ -131,4 +131,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 #Esto nos va a llevar a la pagina de inicio despues de la validacion del login
-LOGIN_REDIRECT_URL = 'investments.html'
+#LOGIN_REDIRECT_URL = 'investments.html'
