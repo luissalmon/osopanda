@@ -9,16 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body class="bg-image" style="min-width: 520px;">
-  
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p>Some text in the Modal..</p>
-        </div>
-      
-      </div>
   <div>
     <!-- //////////////////  Page 1 /////////////////// -->
     <div class="d-flex flex-column screen">
@@ -107,25 +97,34 @@
               <div class="col-12 col-sm-5"></div>
               <div class="col-12 col-lg-5">
                   <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
-                    <form action="" class="row bg-dark">
+                    <form action="" class="row bg-light">
 
 
                       <div class="form-group col-12 d-flex align-items-end">
                         <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0  form-text text-light" for="firstName">First Name*</label>
+                            <label class="pb-0 mb-0  form-text" for="userName">Username</label>
                         </div>
                         <div class="flex-fill h-75">
-                            <input id="firstName" type="text" class="form-control h-100" style="line-height: 0px;">
+                            <input id="userName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                        </div>
+                      </div>
+
+                      <div class="form-group col-6 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                            <label class="pb-0 mb-0  form-text" for="firstName">First Name*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                            <input id="firstName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
                       </div>
 
 
-                      <div class="form-group col-12 d-flex align-items-end">
+                      <div class="form-group col-6 d-flex align-items-end">
                         <div class="mr-3 form-label">
                             <label class="pb-0 mb-0  form-text" for="lastName">Last Name*</label>
                         </div>
                         <div class="flex-fill h-75">
-                            <input id="lastName" type="text" class="form-control h-100" style="line-height: 0px;">
+                            <input id="lastName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
                       </div>
 
@@ -134,7 +133,7 @@
                             <label class="pb-0 mb-0t form-text" for="email">Email*</label>
                         </div>
                         <div class="flex-fill h-75">
-                            <input id="email" type="email" class="form-control h-100" style="line-height: 0px;">
+                            <input id="email" type="email" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
                       </div>
                       
@@ -143,54 +142,30 @@
                         <div class="mr-3 form-label">
                           <label class="pb-0 mb-0 form-text">Birth date*</label>
                         </div>
-                        <select id="dobday" class="flex-fill form-control text-muted mr-3 h-100" style="text-align-last: center;"></select>
-                        <select id="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100" style="text-align-last: center;"></select>
-                        <select id="dobyear" class="flex-fill form-control text-muted pr-2 h-100" style="text-align-last: center;"></select>
+                        <select id="dobday" class="flex-fill form-control text-muted mr-3 h-100 input-form" style="text-align-last: center;"></select>
+                        <select id="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100 input-form" style="text-align-last: center;"></select>
+                        <select id="dobyear" class="flex-fill form-control text-muted pr-2 h-100 input-form" style="text-align-last: center;"></select>
                       </div>
+
+                      <div class="form-group col-12 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                            <label class="pb-0 mb-0  form-text" for="pswdForm">Password*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                            <input id="pswdForm" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                        </div>
+                      </div>
+
+                      <div class="form-group col-12 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                            <label class="pb-0 mb-0  form-text" for="rePswdForm">Re-Password*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                            <input id="rePswdForm" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                        </div>
+                      </div>
+
                       
-                      <div class="form-group col-12 d-flex align-items-end">
-                        <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0  form-text" for="phone">Phone*</label>
-                        </div>
-                        <div class="flex-fill h-75">
-                            <input id="phone" type="text" class="form-control h-100" style="line-height: 0px;">
-                        </div>
-                      </div>
-
-                      <div class="form-group col-12 d-flex align-items-end">
-                        <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0  form-text" for="alfanumerico">Alfanumerico*</label>
-                        </div>
-                        <div class="flex-fill h-75">
-                            <input id="alfanumerico" type="text" class="form-control h-100" style="line-height: 0px;">
-                        </div>
-                      </div>
-
-                      <!-- <div class="form-group col-12 d-flex align-items-end">
-                        <div class="mr-3 form-label" >
-                            <label class="pb-0 mb-0 text-light form-text" for="firstName">Document*</label>
-                        </div>
-                        <div class="flex-fill h-75">
-                            <select id="documentSelect" class="form-control h-100 inRound p-0 m-0 text-muted" style="line-height: 0px; text-align-last: center;">
-                                <option>INE</option>
-                                <option>Pasaporte</option>
-                                <option>..........</option>
-                            </select>
-                        </div>
-                      </div> -->
-
-
-                      <!-- <div class="form-group col-5 d-flex justify-content-end align-items-end">
-                          <div class="upload-btn-wrapper h-75 mr-4">
-                              <button class="btnF text-muted inRound pl-4 h-100 pr-4" style="line-height: 0px;">.jgp / .pdf</button>
-                              <input class="form-control-file" type="file"  id="file" />
-                          </div>
-                          <div class="upload-btn-wrapper h-75">
-                              <button class="btnF text-muted rounded-circle h-100 p-0 m-0" style="line-height: 0px; width: 30px;">▼</button>
-                              <input type="file" id="fileBtn" />
-                          </div>
-                      </div> -->
-
 
                       <div class="col-12 mt-2 mb-3 d-flex justify-content-start align-items-end justify-content-end">
                           <button type="submit" class="h1 btn btn-primary" style="width: 20%;">Send</button>
@@ -249,12 +224,13 @@
     <!-- ////////////////// Termina Page 2 /////////////////// -->
   </div>
   {%load static%}
-  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
   <script src="{% static 'js/popper.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap-material-design.js %'}"></script>
-  <script src="{% static 'js/bootstrap-material-design.min.js %'}"></script>
-  <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+  <script src="{% static 'js/bootstrap-material-design.js' %}"></script>
+  <!-- <script src="{% static 'js/bootstrap-material-design.js' %'}"></script> -->
+  <!-- <script src="{% static 'js/bootstrap-material-design.min.js' %'}"></script> -->
+  <!-- <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script> -->
   <script src="{% static 'js/baraboo.js' %}"></script>
   <script src="{% static 'js/dobpicker.js' %}"></script>
   <script>
@@ -270,25 +246,6 @@
             maximumAge: 80 /* Optional */
         });
     });
-
-    
-    var modal = document.getElementById('myModal');
-    var btn = document.getElementById("btnModal");
-
-  var span = document.getElementsByClassName("close")[0];
-btn.onclick = function() {  
-    modal.style.display = "block";
-}
-
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
   </script>
 </body>
 </html>
