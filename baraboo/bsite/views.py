@@ -85,5 +85,5 @@ def formview(request):
         password = request.POST.get('password')
         passwordConfirmation = request.POST.get('passwordConfirmation')
 
-    return render(request, 'investmens.html')
+    return render(request, 'investments.html')
         #database select to login
