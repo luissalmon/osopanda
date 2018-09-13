@@ -10,6 +10,8 @@ def index(request):
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
+from bsite.models import User
+from django.shortcuts import render
 
 
 def index (request):
@@ -22,37 +24,32 @@ def loginpage(request):
 
     username = request.GET['username']
     password = request.GET['password']
-    url = None
+    url = True
     dbuser = None
     print(username + " " + password)
 
-    #Hacer select a base de datos
-    
-    #-----------------------#
-    if username == 'luis' and password == '123':
-        return HttpResponseRedirect('investments.html')
-    else:
-        return render(request, 'baraboo.html',{'error': True})
+    try:
+        #Hacer select a base de datos
+        dbuser = User.objects.get(userName = username)
+        #-----------------------#
+        #if dbuser.password == password:
+        if url:
+            return HttpResponseRedirect('investments.html')
+        else:
+            return render(request, 'baraboo.html',{'error': True})
+    except:
+        return HttpResponseRedirect('baraboo.html')
         
-
-    
-    # if user is not None and user.is_active:
-    #     print('authenticated')
-    #     # Contraseña correcta y usuario marcado como "activo"
-    #     auth.login(request, user)
-    #     # Redireccciona a una página de entrada correcta.
-    #     return HttpResponseRedirect("investments.html")
-    #     #return render_to_response('investments.html')
-    # else:
-    #     print('not authenticated')
-    #     # Muestra una página de error
-    #     return HttpResponseRedirect("investments.html")
-
-def formulario(request):
+def formview(request):
     if request.method == 'POST':
 
         username = request.POST.get('username')
         name = request.POST.get('name')
         lastName = request.POST.get('lastName')
-        
+        birthDate = request.POST.get('birthDate')
+        country = request.POST.get('country')
+        mail = request.POST.get('mail')
+        password = request.POST.get('password')
+        passwordConfirmation = request.POST.get('passwordConfirmation')
+
         #database select to login

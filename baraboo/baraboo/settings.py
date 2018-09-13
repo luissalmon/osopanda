@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'bsite',
         'USER': 'bsiteuser',
         'PASSWORD': 'toor',
-        'HOST': 'localhost',
+        'HOST': '192.168.0.15',
         'PORT': '5432'
     }
 }
