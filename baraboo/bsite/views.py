@@ -13,7 +13,7 @@ from django.contrib import auth
 
 from django.http import HttpResponse
 
-from bsite.models import cuentaPrueba
+#from bsite.models import cuentaPrueba
 
 from web3 import Web3, HTTPProvider, IPCProvider, WebsocketProvider
 
