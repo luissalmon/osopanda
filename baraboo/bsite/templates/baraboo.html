@@ -83,6 +83,37 @@
     <!-- //////////////////  Page 2 /////////////////// -->
     <div id="info" class="d-none">
       <div class="d-flex flex-column w-100">
+        <!-- //////////////////////////////////Investments && Develop///////////////////////// -->
+        <div class="d-flex flex-column flex-row">
+          <div class="container-fluid mt-5 mb-5">
+            <div class="row">
+              <div class="col-md-1"></div>
+              
+              <div class="col-12 col-sm-5">
+                
+              </div>
+              <div class="col-12 col-lg-5 bg-light">
+                <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
+                  <div class="row">
+                    <div class="col-12 d-flex justify-content-center align-items-center mt-5 mb-5">
+                      <button class="btn w-50 text-light" style="background-color: black;">Investments</button>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center align-items-center mt-5 mb-5">
+                      <button class="btn w-50 text-light" style="background-color: black;">Develop</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-sm-1" style="height: 20px;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- //////////////////////////////////Termina Investments && Develop///////////////////////// -->
+        
+        
+        
+        <!-- ////////////////////////////////// Formulario///////////////////////// -->
         <div class="d-flex flex-column flex-row">
           <div class="container-fluid mt-5 mb-5">
             <div class="row">
@@ -91,45 +122,45 @@
                 <!-- <img src="{% static 'img/'%}" alt=""> -->
               </div>
               <div class="col-12 col-lg-5">
-                  <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
-                    {%block form%}
-                    <form action="/register/" class="row bg-light" method="POST">
-                      {% csrf_token %}
-                      <div class="form-group col-12 d-flex align-items-end">
-                        <div class="mr-3 form-label">
-                          <label class="pb-0 mb-0  form-text" for="firstName">First Name*</label>
-                        </div>
-                        <div class="flex-fill h-75">
-                          <input name="name" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
-                        </div>
+                <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
+                  {%block form%}
+                  <form action="/register/" class="row bg-light" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group col-12 d-flex align-items-end">
+                      <div class="mr-3 form-label">
+                        <label class="pb-0 mb-0  form-text" for="firstName">First Name*</label>
                       </div>
-                      
-                      
-                      <div class="form-group col-12 d-flex align-items-end">
-                        <div class="mr-3 form-label">
-                          <label class="pb-0 mb-0  form-text" for="lastName">Last Name*</label>
-                        </div>
-                        <div class="flex-fill h-75">
-                          <input name="lastName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
-                        </div>
+                      <div class="flex-fill h-75">
+                        <input name="name" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
                       </div>
-                      
-                      
-                      <div class="form-group col-6 d-flex align-items-end">
-                        <div class="mr-3 form-label">
-                          <label class="pb-0 mb-0 form-text" for="email">Email*</label>
-                        </div>
-                        <div class="flex-fill h-75">
-                          <input name="email" type="email" class="form-control h-100 input-form" style="line-height: 0px;">
-                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-group col-12 d-flex align-items-end">
+                      <div class="mr-3 form-label">
+                        <label class="pb-0 mb-0  form-text" for="lastName">Last Name*</label>
                       </div>
-                      
-                      <div class="form-group col-6 d-flex align-items-end">
-                        <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0  form-text" for="userName">Username*</label>
+                      <div class="flex-fill h-75">
+                        <input name="lastName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                      </div>
+                    </div>
+                    
+                    
+                    <div class="form-group col-6 d-flex align-items-end">
+                      <div class="mr-3 form-label">
+                        <label class="pb-0 mb-0 form-text" for="email">Email*</label>
+                      </div>
+                      <div class="flex-fill h-75">
+                        <input name="email" type="email" class="form-control h-100 input-form" style="line-height: 0px;">
+                      </div>
+                    </div>
+                    
+                    <div class="form-group col-6 d-flex align-items-end">
+                      <div class="mr-3 form-label">
+                        <label class="pb-0 mb-0  form-text" for="userName">Username*</label>
                         </div>
                         <div class="flex-fill h-75">
-                            <input name="userName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                          <input name="userName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
                       </div>
                       
@@ -141,32 +172,32 @@
                         <select name="dobmonth" id="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100 input-form" style="text-align-last: center;"></select>
                         <select name="dobyear" id="dobyear" class="flex-fill form-control text-muted pr-2 h-100 input-form" style="text-align-last: center;"></select>
                       </div>
-
+                      
                       <div class="form-group col-6 d-flex align-items-end">
                         <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0  form-text" for="pswdForm">Password*</label>
+                          <label class="pb-0 mb-0  form-text" for="pswdForm">Password*</label>
                         </div>
                         <div class="flex-fill h-75">
-                            <input name="password" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
-                        </div>
-                      </div>
-
-                      <div class="form-group col-6 d-flex align-items-end">
-                        <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0  form-text" for="confirmPsw">Confirm password*</label>
-                        </div>
-                        <div class="flex-fill h-75">
-                            <input id="passwordConfirmation" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                          <input name="password" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
                       </div>
                       
                       <div class="form-group col-6 d-flex align-items-end">
                         <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0  form-text" for="country">Country*</label>
+                          <label class="pb-0 mb-0  form-text" for="confirmPsw">Confirm password*</label>
                         </div>
-                          <select name="country" value class="form-control h-100 input-form country"  style="text-align-last: center;">
-                              <option value="AF">Afghanistan</option>
-                              <option value="AX">Åland Islands</option>
+                        <div class="flex-fill h-75">
+                          <input id="passwordConfirmation" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group col-6 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                          <label class="pb-0 mb-0  form-text" for="country">Country*</label>
+                        </div>
+                        <select name="country" value class="form-control h-100 input-form country"  style="text-align-last: center;">
+                          <option value="AF">Afghanistan</option>
+                          <option value="AX">Åland Islands</option>
                               <option value="AL">Albania</option>
                               <option value="DZ">Algeria</option>
                               <option value="AS">American Samoa</option>
@@ -414,22 +445,27 @@
                               <option value="YE">Yemen</option>
                               <option value="ZM">Zambia</option>
                               <option value="ZW">Zimbabwe</option>
-                          </select>
-                      </div>
+                            </select>
+                          </div>
 
                       
-
+                          
                       <div class="col-12 mt-2 mb-3 d-flex justify-content-start align-items-end justify-content-end">
-                          <button type="submit" class="h1 btn btn-primary" style="width: 20%;">Send</button>
+                        <button type="submit" class="h1 btn btn-primary" style="width: 20%;">Send</button>
                       </div>
                     </form>
                     {%endblock%}
                   </div>
+                </div>
+                <div class="col-sm-1" style="height: 20px;"></div>
               </div>
-              <div class="col-sm-1" style="height: 20px;"></div>
             </div>
           </div>
-        </div>
+          <!-- ////////////////////////////////// Formulario///////////////////////// -->
+
+
+
+
         <div style="height: 100px;"></div>
         <div id="copyright" class="footer-baraboo d-flex p-3 pr-2 pl-2">
           <div class="w-25 d-flex flex-column text-center m-0 p-0">
