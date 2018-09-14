@@ -7,7 +7,6 @@ def index(request):
 
 '''
 
-from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render
@@ -15,10 +14,10 @@ from django.shortcuts import render
 from bsite.models import User, Person
 
 def index (request):
-    return render_to_response('baraboo.html')
+    return render(request,'baraboo.html')
 
-def investmentspage(request):
-    return render_to_response('investments.html')
+def homepage(request):
+    return render(request,'homepage.html')
 
 def loginpage(request):
 
@@ -26,14 +25,12 @@ def loginpage(request):
     password = request.GET['password']
 
     try:
-        #Hacer select a base de datos
-        db = User.objects.filter(userName = username)
-        print(db)
-        #-----------------------#
+        db = User.objects.get(userName = username)
+
         if db.password == password:
-            return HttpResponseRedirect('investments.html')
-        else:
-            return render(request, 'baraboo.html',{'error': True})
+            return HttpResponseRedirect('homepage.html')
+        else:   
+            return render(request,'baraboo.html')
     except:
         return HttpResponseRedirect('/')
         
@@ -57,4 +54,3 @@ def formview(request):
         user.save()
 
     return render(request, 'investments.html')
-        #database select to login

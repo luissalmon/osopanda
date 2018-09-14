@@ -13,11 +13,7 @@
     <!-- //////////////////  Page 1 /////////////////// -->
     <div class="d-flex flex-column screen">
       <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
-        {% if form.errors %}
-          <p class="error">Lo sentimos, la contraseña y el nombre de usuario no son
-          validos</p> 
-        {% endif %}
-        {% block content%}
+        {% block login%}
         <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="GET">
           <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
           <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
@@ -94,6 +90,7 @@
               <div class="col-12 col-sm-5"></div>
               <div class="col-12 col-lg-5">
                   <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
+                    {%block form%}
                     <form action="/register/" class="row bg-light" method="POST">
                       {% csrf_token %}
                       <div class="form-group col-12 d-flex align-items-end">
@@ -138,9 +135,9 @@
                         <div class="mr-3 form-label">
                           <label class="pb-0 mb-0 form-text">Birth date*</label>
                         </div>
-                        <select name="dobday" class="flex-fill form-control text-muted mr-3 h-100 input-form" style="text-align-last: center;"></select>
-                        <select name="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100 input-form" style="text-align-last: center;"></select>
-                        <select name="dobyear" class="flex-fill form-control text-muted pr-2 h-100 input-form" style="text-align-last: center;"></select>
+                        <select name="dobday" id="dobday" class="flex-fill form-control text-muted mr-3 h-100 input-form" style="text-align-last: center;"></select>
+                        <select name="dobmonth" id="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100 input-form" style="text-align-last: center;"></select>
+                        <select name="dobyear" id="dobyear" class="flex-fill form-control text-muted pr-2 h-100 input-form" style="text-align-last: center;"></select>
                       </div>
 
                       <div class="form-group col-6 d-flex align-items-end">
@@ -424,6 +421,7 @@
                           <button type="submit" class="h1 btn btn-primary" style="width: 20%;">Send</button>
                       </div>
                     </form>
+                    {%endblock%}
                   </div>
               </div>
               <div class="col-sm-1" style="height: 20px;"></div>
