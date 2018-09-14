@@ -13,40 +13,12 @@
     <!-- //////////////////  Page 1 /////////////////// -->
     <div class="d-flex flex-column screen">
       <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
-<<<<<<< HEAD
-        {% if form.errors %}
-          <p class="error">Lo sentimos, la contraseña y el nombre de usuario no son
-          validos</p> 
-        {% endif %}
-        {% block content%}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         {% block login%}
->>>>>>> dev-gregor
-=======
->>>>>>> ca40a91648221cbfb0b8aae823317c34cc34e541
         <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="GET">
           <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
           <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
           <button class="bg-dark btn btn-login text-light" type="submit">Log In</button>
         </form>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        <div class="w-50">
-          <form class="form-inline justify-content-end w-100" method="POST">
-            {% csrf_token %}
-            <input name="username" type="text" class="form-control input-login" placeholder="user or email">
-            <input name="password" type="password" class="form-control w-25 input-login" placeholder="Password">
-            <button class="bg-dark btn btn-login text-light" type="submit">Log In</button>
-          </form>
-        </div>
->>>>>>> cac0363c00672c26264fa7439ee44a15b3226513
-=======
->>>>>>> dev-gregor
-=======
->>>>>>> ca40a91648221cbfb0b8aae823317c34cc34e541
         {% endblock %}
       </nav>
       <div class="flex-fill d-flex flex-column align-items-center justify-content-center" style="height: 50vh;">
