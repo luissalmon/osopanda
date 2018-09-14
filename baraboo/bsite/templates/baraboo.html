@@ -20,14 +20,18 @@
         {% endif %}
         {% block content%}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         {% block login%}
 >>>>>>> dev-gregor
+=======
+>>>>>>> ca40a91648221cbfb0b8aae823317c34cc34e541
         <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="GET">
           <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
           <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
           <button class="bg-dark btn btn-login text-light" type="submit">Log In</button>
         </form>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         <div class="w-50">
@@ -41,6 +45,8 @@
 >>>>>>> cac0363c00672c26264fa7439ee44a15b3226513
 =======
 >>>>>>> dev-gregor
+=======
+>>>>>>> ca40a91648221cbfb0b8aae823317c34cc34e541
         {% endblock %}
       </nav>
       <div class="flex-fill d-flex flex-column align-items-center justify-content-center" style="height: 50vh;">
@@ -109,7 +115,9 @@
           <div class="container-fluid mt-5 mb-5">
             <div class="row">
               <div class="col-md-1"></div>
-              <div class="col-12 col-sm-5"></div>
+              <div class="col-12 col-sm-5">
+                <!-- <img src="{% static 'img/'%}" alt=""> -->
+              </div>
               <div class="col-12 col-lg-5">
                   <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
                     {%block form%}
@@ -179,7 +187,7 @@
                             <input id="passwordConfirmation" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
                       </div>
-
+                      
                       <div class="form-group col-6 d-flex align-items-end">
                         <div class="mr-3 form-label">
                             <label class="pb-0 mb-0  form-text" for="country">Country*</label>
@@ -450,6 +458,7 @@
             </div>
           </div>
         </div>
+        <div style="height: 100px;"></div>
         <div id="copyright" class="footer-baraboo d-flex p-3 pr-2 pl-2">
           <div class="w-25 d-flex flex-column text-center m-0 p-0">
             <span class="font-weight-bold text-light footer-title">Conocenos</span>
@@ -500,11 +509,7 @@
   <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
   <script src="{% static 'js/popper.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap-material-design.js' %}"></script>
-  <!-- <script src="{% static 'js/bootstrap-material-design.js' %'}"></script> -->
-  <!-- <script src="{% static 'js/bootstrap-material-design.min.js' %'}"></script> -->
-  <!-- <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script> -->
-  <script src="{% static 'js/baraboo.js' %}"></script>
+  <script src="{% static 'js/bootstrap-material-design.js' %}"></script><script src="{% static 'js/baraboo.js' %}"></script>
   <script src="{% static 'js/dobpicker.js' %}"></script>
   <script>
     $(document).ready(function() {

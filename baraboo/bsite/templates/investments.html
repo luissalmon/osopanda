@@ -1,2 +1,226 @@
+<<<<<<< HEAD
 Pagina de las tarjetas
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+</head>
+<body class="bg-image" style="min-width: 520px;">
+  <div>
+    <!-- /////////////////////////// Login //////////////////////// -->
+    <div class="d-flex flex-column">
+      <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
+        {% if form.errors %}
+        <p class="error">Lo sentimos, la contraseña y el nombre de usuario no son validos</p> 
+        {% endif %}
+        {% block content%}
+        <div class="w-50">
+          <form class="form-inline justify-content-end w-100" method="POST">
+            {% csrf_token %}
+            <input name="username" type="text" class="form-control input-login" placeholder="user or email">
+            <input name="password" type="password" class="form-control w-25 input-login" placeholder="Password">
+            <button class="bg-dark btn btn-login text-light" type="submit">Log In</button>
+          </form>
+        </div>
+        {% endblock %}
+      </nav>
+      <!-- /////////////////////////// Termina Login //////////////////////// -->
+>>>>>>> ca40a91648221cbfb0b8aae823317c34cc34e541
 
+      <!-- /////////////////////////// TITULO //////////////////////// -->
+      <div class="w-100 p-4 text-center text-muted" style="font-family: mont-light;">
+        <h1>Hot and trending Projects</h1>
+      </div>
+      <!-- /////////////////////////// Termina TITULO //////////////////////// -->
+
+      <!-- /////////////////////////// Contenido //////////////////////// -->
+      <div>
+        <div class="container mb-4">
+          <div class="row">
+            <!-- ////////////////////Columnas//////////////////////// -->
+
+            <div class="col-6 col-md-3 d-flex align-items-center justify-content-center" style="height: 375px;">
+              <div class="card rounded-bottom d-flex" style="height: 90%; width: 85%;">
+
+                <div class="d-flex w-100 align-items-center justify-content-center mt-3 mb-2" style="height: 34%;">
+                  <!-- 40% ^^ 85% -->
+                  <div class="cover position-absolute rounded-circle bg-dark" style="opacity: 0.6"></div>
+                  <div class="cover position-absolute d-flex justify-content-center align-items-center rounded-circle">
+                    <span class="h2 text-light">1</span>
+                  </div>
+                  <div class="circle rounded-circle h-100" style="border: 5px solid #ff9b28; overflow: hidden;">
+                    <img class="img-fluid" src="{% static 'img/building.jpg' %}" alt="">
+                  </div>
+                </div>
+
+                <div class="d-flex flex-column w-100 align-items-start text-justify pr-4 pl-4 pb-2 align-items-center" style="height: 60%; font-family: mont-light;">
+                  <a href="#" onclick="">Texto 1</a>
+                  <a href="#" onclick="">Texto 2</a>
+                  <a href="#" onclick="">Texto 3</a>
+                  <a href="#" onclick="">Texto 4</a>
+                </div>
+                
+              </div>
+            </div>
+            <div class="col-6 col-md-3 d-flex align-items-center justify-content-center" style="height: 375px;">
+              <div class="card rounded-bottom d-flex" style="height: 90%; width: 85%;">
+
+                <div class="d-flex w-100 align-items-center justify-content-center mt-3 mb-2" style="height: 34%;">
+                  <!-- 40% ^^ 85% -->
+                  <!-- <div class="cover position-absolute rounded-circle bg-dark" style="opacity: 0.6"></div>
+                  <div class="cover position-absolute d-flex justify-content-center align-items-center rounded-circle">
+                    <span class="h2 text-light">1</span>
+                  </div> -->
+                  <div class="circle rounded-circle h-100" style="border: 5px solid #ff9b28; overflow: hidden;">
+                    <img class="img-fluid" src="{% static 'img/building.jpg' %}" alt="">
+                  </div>
+                </div>
+
+                <div class="d-flex flex-column w-100 align-items-start text-justify pr-4 pl-4 pb-2 align-items-center" style="height: 60%; font-family: mont-light;">
+                  <a href="#" onclick="">Texto 1</a>
+                  <a href="#" onclick="">Texto 2</a>
+                  <a href="#" onclick="">Texto 3</a>
+                  <a href="#" onclick="">Texto 4</a>
+                </div>
+                
+              </div>
+            </div>
+            <div class="col-6 col-md-3 d-flex align-items-center justify-content-center" style="height: 375px;">
+              <div class="card rounded-bottom d-flex" style="height: 90%; width: 85%;">
+
+                <div class="d-flex w-100 align-items-center justify-content-center mt-3 mb-2" style="height: 34%;">
+                  <!-- 40% ^^ 85% -->
+                  <!-- <div class="cover position-absolute rounded-circle bg-dark" style="opacity: 0.6"></div>
+                  <div class="cover position-absolute d-flex justify-content-center align-items-center rounded-circle">
+                    <span class="h2 text-light">1</span>
+                  </div> -->
+                  <div class="circle rounded-circle h-100" style="border: 5px solid #ff9b28; overflow: hidden;">
+                    <img class="img-fluid" src="{% static 'img/building.jpg' %}" alt="">
+                  </div>
+                </div>
+
+                <div class="d-flex flex-column w-100 align-items-start text-justify pr-4 pl-4 pb-2 align-items-center" style="height: 60%; font-family: mont-light;">
+                  <a href="#" onclick="">Texto 1</a>
+                  <a href="#" onclick="">Texto 2</a>
+                  <a href="#" onclick="">Texto 3</a>
+                  <a href="#" onclick="">Texto 4</a>
+                </div>
+                
+              </div>
+            </div>
+            <div class="col-6 col-md-3 d-flex align-items-center justify-content-center" style="height: 375px;">
+              <div class="card rounded-bottom d-flex" style="height: 90%; width: 85%;">
+
+                <div class="d-flex w-100 align-items-center justify-content-center mt-3 mb-2" style="height: 34%;">
+                  <!-- 40% ^^ 85% -->
+                  <!-- <div class="cover position-absolute rounded-circle bg-dark" style="opacity: 0.6"></div>
+                  <div class="cover position-absolute d-flex justify-content-center align-items-center rounded-circle">
+                    <span class="h2 text-light">1</span>
+                  </div> -->
+                  <div class="circle rounded-circle h-100" style="border: 5px solid #ff9b28; overflow: hidden;">
+                    <img class="img-fluid" src="{% static 'img/building.jpg' %}" alt="">
+                  </div>
+                </div>
+
+                <div class="d-flex flex-column w-100 align-items-start text-justify pr-4 pl-4 pb-2 align-items-center" style="height: 60%; font-family: mont-light;">
+                  <a href="#" onclick="">Texto 1</a>
+                  <a href="#" onclick="">Texto 2</a>
+                  <a href="#" onclick="">Texto 3</a>
+                  <a href="#" onclick="">Texto 4</a>
+                </div>
+                
+              </div>
+            </div>
+
+            <!-- ////////////////////Termina Columnas//////////////////////// -->
+          </div>
+        </div>
+      </div>
+      <!-- /////////////////////////// Termina Contenido //////////////////////// -->
+    </div>
+    
+    <!-- /////////////////////////// Footer //////////////////////// -->
+    <div id="copyright" class="footer-baraboo d-flex p-3 pr-2 pl-2">
+        <div class="w-25 d-flex flex-column text-center m-0 p-0">
+          <span class="font-weight-bold text-light footer-title">Conocenos</span>
+          <div class="row justify-content-start">
+            <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+            <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+            <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+          </div>
+        </div>
+
+        <div class="w-25 d-flex flex-column text-center">
+          <span class="font-weight-bold text-light footer-title ">Terminos y Condiciones</span>
+          <div class="row justify-content-start">
+            <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+            <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+            <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+          </div>
+        </div>
+
+        <div class="w-25 d-flex flex-column text-center">
+          <span class="font-weight-bold text-light footer-title">Politicas de privacidad</span>
+          <div class="row justify-content-start">
+            <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+            <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+            <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+          </div>
+        </div>
+        <div class="w-25 d-flex flex-column text-center">
+          <span class="font-weight-bold text-light footer-title">Ayuda</span>
+          <div class="row justify-content-start">
+            <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+            <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+            <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom w-100 m-0 p-2 pt-3 pb-3 text-center">
+          <span class="text-center text-muted "><a class="text-light" href="">Condiciones de uso | Aviso de privacidad</a> 2018 Baraboo.com, Inc. o afiliados. Todos los derechos reservados.</span>
+      </div>
+    <!-- /////////////////////////// Termina Footer //////////////////////// -->
+    
+  </div>
+
+    {%load static%}
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-material-design.js' %}"></script>
+    <script src="{% static 'js/dobpicker.js' %}"></script>
+    <script type="text/javascript">
+      circleResize();
+      window.addEventListener("resize", circleResize);
+
+      function circleResize() {
+      var listCircle = document.querySelectorAll('.circle');
+      var listCovers = document.querySelectorAll('.cover');
+      var height = null;
+
+      var elements = Array.prototype.slice.call(listCircle).map(function(element) {
+        height = element.getBoundingClientRect().height;
+        element.style.width = `${height}px`;
+        return element;
+      });
+
+      var coverElem = Array.prototype.slice.call(listCovers).map(function(element) {
+        console.log(height)
+        element.style.width = `${height - 5}px`;
+        element.style.height = `${height -5}px`;
+        console.log(element.getBoundingClientRect())
+        return element;
+      });
+      
+      }
+
+    </script>
+</body>
+</html>
