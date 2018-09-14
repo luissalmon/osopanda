@@ -46,7 +46,8 @@ class Person(models.Model):
     idPerson = models.AutoField(primary_key=True)
     name = models.CharField(max_length=150)
     lastName = models.CharField(max_length=150)
-    birdDate = models.DateField()
+    birthDate = models.DateField()
+    country = models.CharField(max_length=50)
     lastModification = models.DateTimeField(auto_now=True)
     mail = models.EmailField('e-mail', blank=False)
 
