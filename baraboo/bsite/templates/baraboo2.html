@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body class="bg-image" style="min-width: 520px;">
+  <div>
+    <!-- //////////////////  Page 1 /////////////////// -->
+    <div class="d-flex flex-column screen">
+      <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
+        {% if form.errors %}
+          <p class="error">Lo sentimos, la contraseña y el nombre de usuario no son
+          validos</p> 
+        {% endif %}
+        {% block content%}
+        <div class="w-50">
+          <form class="form-inline justify-content-end w-100" method="POST">
+            {% csrf_token %}
+            <input name="username" type="text" class="form-control input-login" placeholder="User or email">
+            <input name="password" type="password" class="form-control w-25 input-login" placeholder="Password">
+            <button class="bg-dark btn btn-login text-light" type="submit">Log In</button>
+          </form>
+        </div>
+        {% endblock %}
+      </nav>
+      <div class="flex-fill d-flex flex-column align-items-center justify-content-center" style="height: 50vh;">
+        <div class="container-fluid h-100">
+          <div class="row h-100">
+            <div class="col-sm-1"></div>
+
+            <div class="col-12 col-md-10 h-100">
+              <div class="container-fluid h-100 p-0">
+                <div class="row h-100 align-items-center justify-content-center">
+                  <!-- ///////////////////////SEGMENTO IZQUIERDO//////////////// -->
+                  <div class="col-5 d-flex justify-content-end align-items-center h-100 p-0">
+                    
+                    <div id="bgSectL" class="position-absolute d-flex flex-column w-100 align-items-center bgContainerL">
+                      {%load static%}
+                      <img src="{%static 'img/criptomoneda.png' %}" class="bgImage" alt="">
+                      <p id="bgPL" class="w-100 text-justify bgText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate deserunt fugiat iusto enim rem dolore eos ducimus distinctio est?</p>
+                    </div>
+                    
+                    <div id="imgL" class="d-flex position-absolute justify-content-end align-items-center w-100 pr-3">
+                      {%load static%}
+                      <img id="imgLS" src="{% static 'img/bara.png' %}" class="w-100 float-right" alt="">
+                    </div>
+
+                    <div id="areaL" onmouseover="actionArea('imgL', 'start')" onmouseout="actionArea('imgL', 'stop')" class="position-absolute w-100 "></div>
+                  
+                  </div>
+                  <!-- ///////////////////////TERMINA SEGMENTO IZQUIERDO//////////////// -->
+                  <!-- ///////////////////////SEGMENTO DERECHO//////////////// -->
+                  <div class="col-5 d-flex justify-content-start align-items-center h-100 p-0">
+
+                    <div id="bgSectR" class="position-absolute d-flex flex-column w-100 align-items-center bgContainerR" style="opacity: 0; padding-left:12%; padding-right: 25%;">
+                      {%load static%}
+                      <img src="{% static 'img/edificios.png' %}" style="height: 10vw; width: 10vw; min-width: 70px; min-height: 70px;" alt="">
+                      <p id="bgPR" class="w-100">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate deserunt fugiat iusto enim rem dolore eos ducimus distinctio est?</p>
+                    </div>
+
+                    <div id="imgR" class="d-flex position-absolute justify-content-start align-items-center w-100 pl-3">
+                      {%load static%}
+                      <img src="{% static 'img/boo 2.png' %}" class="w-100 float-left" alt="">
+                    </div>
+                    
+                    <div id="areaR" onmouseover="actionArea('imgR', 'start')" onmouseout="actionArea('imgR', 'stop')" class="bg-transparent position-absolute w-100"></div>
+                  
+                  </div>
+                  <!-- ///////////////////////TERMINA SEGMENTO DERECHO//////////////// -->
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-sm-1"></div>
+          </div>
+        </div>
+      </div>
+      <footer class="d-flex align-items-center justify-content-center footShow">
+        <!-- <input id="showSection" to="info"  onclick="showBtn(this)" type="image" src="{% static 'img/boton2.png' %}" class="btnShow" /> -->
+      </footer>
+    </div>
+    <!-- ////////////////// Termina Page 1 /////////////////// -->
+    <!-- //////////////////  Page 2 /////////////////// -->
+    <div>
+      <div class="d-flex flex-column w-100">
+
+
+        <div class="d-flex flex-column flex-row">
+          <div class="container-fluid mt-5 mb-5">
+            <div class="row">
+              <div class="col-md-1"></div>
+
+              <div class="col-12 col-sm-5">
+
+              </div>
+              <div class="col-12 col-lg-5 bg-light">
+                  <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
+                    <div class="row">
+                      <div class="col-12 d-flex justify-content-center align-items-center mt-5 mb-5">
+                        <button class="btn w-50 text-light" style="background-color: black;">Investments</button>
+                      </div>
+                      <div class="col-12 d-flex justify-content-center align-items-center mt-5 mb-5">
+                        <button class="btn w-50 text-light" style="background-color: black;">Develop</button>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-sm-1" style="height: 20px;"></div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div style="height: 200px;"></div>
+
+
+        <div id="copyright" class="footer-baraboo d-flex p-3 pr-2 pl-2">
+          <div class="w-25 d-flex flex-column text-center m-0 p-0">
+            <span class="font-weight-bold text-light footer-title">Conocenos</span>
+            <div class="row justify-content-start">
+              <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+              <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+              <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+            </div>
+          </div>
+
+          <div class="w-25 d-flex flex-column text-center">
+            <span class="font-weight-bold text-light footer-title ">Terminos y Condiciones</span>
+            <div class="row justify-content-start">
+              <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+              <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+              <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+            </div>
+          </div>
+
+          <div class="w-25 d-flex flex-column text-center">
+            <span class="font-weight-bold text-light footer-title">Politicas de privacidad</span>
+            <div class="row justify-content-start">
+              <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+              <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+              <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+            </div>
+          </div>
+          <div class="w-25 d-flex flex-column text-center">
+            <span class="font-weight-bold text-light footer-title">Ayuda</span>
+            <div class="row justify-content-start">
+              <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+              <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+              <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom w-100 m-0 p-2 pt-3 pb-3 text-center">
+            <span class="text-center text-muted "><a class="text-light" href="">Condiciones de uso | Aviso de privacidad</a> 2018 Baraboo.com, Inc. o afiliados. Todos los derechos reservados.</span>
+        </div>
+
+
+      </div>
+    </div>
+    <!-- ////////////////// Termina Page 2 /////////////////// -->
+  </div>
+  {%load static%}
+  <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap-material-design.js' %}"></script><script src="{% static 'js/baraboo.js' %}"></script>
+  <script src="{% static 'js/dobpicker.js' %}"></script>
+  <script>
+    $(document).ready(function() {
+        $.dobPicker({
+            daySelector: '#dobday', /* Required */
+            monthSelector: '#dobmonth', /* Required */
+            yearSelector: '#dobyear', /* Required */
+            dayDefault: 'Day', /* Optional */
+            monthDefault: 'Month', /* Optional */
+            yearDefault: 'Year', /* Optional */
+            minimumAge: 12, /* Optional */
+            maximumAge: 80 /* Optional */
+        });
+    });
+  </script>
+</body>
+</html>
