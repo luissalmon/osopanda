@@ -30,28 +30,32 @@ def homepage(request):
 
 def hola (request):
     
-    #TODO:Revisar transacciones cumulativas
-    #TODO:Comprobar el índice transaccion
-    
+    #TODO:Funcion Treaer bloque de wallets transacciones cumulativas DONE
+    #TODO:Leer artículo DONE
+    #TODO:PReguntar en el chat, investigar como obtener el numero de transaction hases between 2 wallets
+    #TODO:
     web3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
-    
+    ethPrice = web3.eth.generateGasPrice()
+    pprint(ethPrice)
     #Seleccionar cuenta de servidor
-    cuentaBaraboo = Web3.toChecksumAddress('0x10a92e6e102bd000efa78d5d36b87b1d1159e0d9')
+    cuentaBaraboo = web3.toChecksumAddress(web3.eth.accounts[0])
     balanceCuentaBaraboo = getAccountBalance(cuentaBaraboo,web3)
     #Seleccionar cuenta de cliente
-    cuentaCliente = Web3.toChecksumAddress('0xe1665fae1cfa60de5ad26baef29cd1b7f3d0742a')
+    cuentaCliente = web3.toChecksumAddress(web3.eth.accounts[1])
     balanceCuentaCliente = getAccountBalance(cuentaCliente,web3)
     #Operación de depósito que retorna hash de la transacción
-    TransactionHash1 = getWalletPull(cuentaCliente,cuentaBaraboo,10,web3)
-    TransactionHash2 = getWalletPull(cuentaCliente,cuentaBaraboo,50,web3)
-    TransactionHash3 = getWalletPull(cuentaCliente,cuentaBaraboo,100,web3)
+    TransactionHash1 = hacerTransaccion(cuentaCliente,cuentaBaraboo,10,web3)
+    TransactionHash2 = hacerTransaccion(cuentaCliente,cuentaBaraboo,50,web3)
+    TransactionHash3 = hacerTransaccion(cuentaCliente,cuentaBaraboo,100,web3)
     #Numero de transacciones que se hicieron
-    NumeroTransacciones = web3.eth.getTransaction(TransactionHash).blockNumber
+    NumeroTransacciones = web3.eth.getTransaction(TransactionHash3).blockNumber
     
-    TransferenciaEntreCuentas = web3.eth.getTransactionByBlock(TransactionHash,0)
+    reciboTransaccion = web3.eth.getTransactionReceipt(TransactionHash3)
     
-    
-
+    pprint('Transferencia:')
+    pprint(web3.eth.getTransactionByBlock(TransactionHash3,0))
+    pprint(web3.eth.getTransactionByBlock(TransactionHash3,1))
+    pprint(web3.eth.getTransactionByBlock(TransactionHash3,2))
 
     #hacer una funcion que pase ethereum de una cuenta a otra
     #ejecutar 2 veces
@@ -76,7 +80,6 @@ def hola (request):
     
 
     #lista_cuentas = web3.personal.listAccounts
-    #cuentas = web3.eth.accounts
     
     #depositWalletAdress = '0xf8438fF4cEB3b7465028CC3AaE11f9A147738223'
     
@@ -116,14 +119,16 @@ def hola (request):
         'balanceCuentaBaraboo':balanceCuentaBaraboo,
         'balanceCuentaCliente':balanceCuentaCliente,
         ##'splitedWord':splitedWord,
-        'TransactionHash':TransactionHash,
+        'TransactionHash1':TransactionHash1,
+        'TransactionHash2':TransactionHash2,
+        'TransactionHash3':TransactionHash3,
         'NumeroTransacciones':NumeroTransacciones,
-        'TransferenciaEntreCuentas':TransferenciaEntreCuentas
+        'reciboTransaccion':reciboTransaccion
         #'accBalance':accBalance
     })
 
 
-def getWalletPull(de,para,value,web3):
+def hacerTransaccion(de,para,value,web3):
     hashT = binascii.hexlify(web3.eth.sendTransaction({'to':para,'from':de,'value':value}))
     return hashT.decode() 
 
