@@ -19,6 +19,11 @@ def index (request):
 def homepage(request):
     return render(request,'homepage.html')
 
+def investments(request):
+    return render(request, 'investments.html')
+
+
+
 def loginpage(request):
 
     username = request.GET['username']
@@ -28,7 +33,7 @@ def loginpage(request):
         db = User.objects.get(userName = username)
 
         if db.password == password:
-            return HttpResponseRedirect('homepage.html')
+            return HttpResponseRedirect('homepage')
         else:   
             return render(request,'baraboo.html')
     except:
@@ -53,4 +58,4 @@ def formview(request):
         user = User(userName=username, password=password, idPerson=person)
         user.save()
 
-    return render(request, 'investments.html')
+    return HttpResponseRedirect('homepage')
