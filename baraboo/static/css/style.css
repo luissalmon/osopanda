@@ -606,7 +606,7 @@ background-attachment: fixed;
 }
 
 .input-login {
-  width: 20% !important;
+  width: 25% !important;
   margin-right: 8px;
 }
 
@@ -674,6 +674,11 @@ select.form-control:focus::-ms-value {
   font-size: 10px;
 }
 
+.country {
+  padding: 6px 10px;
+  line-height: 17px !important;
+}
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -711,3 +716,4 @@ select.form-control:focus::-ms-value {
   text-decoration: none;
   cursor: pointer;
 }
+
