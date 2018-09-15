@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls import url
 
 from . import views
@@ -9,4 +9,6 @@ urlpatterns = [
     path('register/', views.formview, name="register"),
     path('login/homepage/', views.homepage, name="homepage"),
     path('investments/', views.investments, name="investments")
+    path('adios/', views.hola, name= 'holamundo')
 ]
+
