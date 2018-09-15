@@ -212,6 +212,13 @@ function showBtn(el) {
   }
 }
 
+function moveScrollTo(el) {
+  var to = el.getAttribute("to"),
+      page = document.getElementById(to);
+
+  var elY = page.getBoundingClientRect().top;
+  this.doScrolling(elY, 400);
+}
 
 function hideShow(el) {
   var id = el.getAttribute('id');
@@ -254,3 +261,22 @@ function doScrolling(elementY, duration) {
     }
   });
 };
+
+function dropdown(el) {
+  document.getElementById("dropLogin").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+  var i;
+  for (i = 0; i < dropdowns.length; i++) {
+    var openDropdown = dropdowns[i];
+    if (openDropdown.classList.contains('show')) {
+      openDropdown.classList.remove('show');
+    }
+  }
+}
+}
