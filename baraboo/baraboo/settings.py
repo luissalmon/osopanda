@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'bsite',
         'USER': 'bsiteuser',
         'PASSWORD': 'toor',
-        'HOST': '192.168.0.15',
+        'HOST': 'localhost',
         'PORT': '5432'
     }
 }
@@ -123,7 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-CSRF_COOKIE_SECURE = False
+#AUTH_USER_MODEL = 'bsite.User'
 
 STATIC_URL = '/static/'
 

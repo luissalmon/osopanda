@@ -10,6 +10,7 @@ def index(request):
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render
+from django.contrib.auth import authenticate
 
 from bsite.models import User, Person
 
@@ -24,10 +25,10 @@ from bsite.models import User, Person
 def index (request):
     return render(request,'baraboo.html')
 
-def homepage(request):
+def homepage(request, username='Default User'):
     return render(request,'homepage.html')
 
-def investments(request):
+def projects(request, username="Default User"):
 
     proj = project()
     proj.Name = "Urbane"
@@ -42,16 +43,20 @@ def investments(request):
 
     return render(request, 'investments.html', {'projects':projects})
 
+# def gotoprojects(request, username='Default User'):
+#     return HttpResponseRedirect('projects/')
+
 def loginpage(request):
 
     username = request.GET['username']
     password = request.GET['password']
 
     try:
+        #db = authenticate(userName = username, password = password)
         db = User.objects.get(userName = username)
 
         if db.password == password:
-            return HttpResponseRedirect('homepage')
+            return HttpResponseRedirect('homepage/' + username + '/')
         else:   
             return render(request,'baraboo.html')
     except:
@@ -76,7 +81,7 @@ def formview(request):
         user = User(userName=username, password=password, idPerson=person)
         user.save()
 
-    return HttpResponseRedirect('homepage')
+    return HttpResponseRedirect('/')
 
 class project():
     Name = ""
