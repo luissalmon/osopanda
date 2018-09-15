@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.conf.urls import url
 from django.urls import include, path
 from bsite import views
-from django.contrib.auth.views import LoginView
 
 urlpatterns = [
     url(r'', include('bsite.urls')),

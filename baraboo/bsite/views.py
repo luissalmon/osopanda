@@ -20,7 +20,19 @@ def homepage(request):
     return render(request,'homepage.html')
 
 def investments(request):
-    return render(request, 'investments.html')
+
+    proj = project()
+    proj.Name = "Urbane"
+    proj.Location = "San Pedro"
+    proj.Time = "2 years"
+    proj.FinancialReturn = "10%"
+    proj.RisedMoney = "500,000"
+    proj.MaximumAmount = "3,000,000"
+
+    projects = []
+    projects.append(proj)
+
+    return render(request, 'investments.html', {'projects':projects})
 
 
 
@@ -59,3 +71,11 @@ def formview(request):
         user.save()
 
     return HttpResponseRedirect('homepage')
+
+class project():
+    Name = ""
+    Location = ""
+    Time = ""
+    FinancialReturn = ""
+    RisedMoney = ""
+    MaximumAmount = ""
