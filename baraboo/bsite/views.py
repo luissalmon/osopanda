@@ -203,7 +203,7 @@ class project():
 #     })
 
 
-# def hacerTransaccion(de,para,value,web3):
+# def hacerTransaccion(de,para,value):
 #     hashT = binascii.hexlify(web3.eth.sendTransaction({'to':para,'from':de,'value':value}))
 #     return hashT.decode() 
 
