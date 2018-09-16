@@ -10,10 +10,9 @@ def index(request):
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render
-from django.contrib.auth import authenticate
-from django.urls import reverse
-from django.contrib.sessions.models import SessionManager
-from bsite.models import User, Person
+from django.contrib.auth import authenticate, login
+from bsite.models import Person, User
+from django.contrib.auth.models import User as djUser
 
 #from django.http import HttpResponse
 
@@ -24,11 +23,11 @@ from bsite.models import User, Person
 #import binascii
 
 def index (request):
+    #Person.objects.get(idPerson = 4).delete()
     return render(request,'baraboo.html', {'isLogged':False})
 
 def homepage(request):
     return render(request,'homepage.html')
-
 def projects(request):
 
     isLogged = False
@@ -46,21 +45,22 @@ def projects(request):
     projects = []
     projects.append(proj)
 
-    return render(request, 'investments.html', {'projects':projects})
+    return render(request, 'investments.html', {'projects':projects, 'isLogged':isLogged})
 
 def loginpage(request):
 
     username = request.POST.get('username')
     password = request.POST.get('password')
 
-    try:
-        #db = authenticate(userName = username, password = password)
-        db = User.objects.get(userName = username)
-        isLogged = False
+    
 
-        if db.password == password:
+    try:
+
+        user = authenticate(request, username = username, password = password)
+        login(request, user)
+
+        if user:
             isLogged = True
-            request.user.id = db.idUser
             return render(request, 'baraboo.html', {'isLogged':isLogged})
             #return HttpResponseRedirect('' + username + '/')
         else:   
@@ -80,13 +80,21 @@ def formview(request):
         country = request.POST.get('country')
         email = request.POST.get('email')
         password = request.POST.get('password')
-        passwordConfirmation = request.POST.get('passwordConfirmation')
-
-        birthDate = dobyear + "-" + dobmonth + "-" + dobday
-        person = Person(name=name, lastName=lastName, birthDate=birthDate, mail=email)
-        person.save()
-        user = User(userName=username, password=password, idPerson=person)
-        user.save()
+        #passwordConfirmation = request.POST.get('passwordConfirmation')
+        
+        try:
+            birthDate = dobyear + "-" + dobmonth + "-" + dobday
+            person = Person(name=name, lastName=lastName, birthDate=birthDate, mail=email, country=country)
+            
+            #user = User(username = User.normalize_username(username))
+            #user.set_password(password)
+            #user.idPerson = person.idPerson
+            if person:
+                person.save()
+                User.objects.create_user(username, password, person)
+        except:
+            return render(request,'baraboo.html', {'isLogged':False})
+        
 
     return HttpResponseRedirect('/')
 

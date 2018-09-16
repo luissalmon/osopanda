@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 from django.db import models
 
@@ -11,13 +11,34 @@ class KYCRequest(models.Model):
     idUser = models.ForeignKey('User', on_delete=models.CASCADE)
     reference = models.CharField(max_length=1000)
     idStatus = models.ForeignKey('StatusRequest', on_delete=models.CASCADE)
+
+class UserManager(BaseUserManager):
+    def create_user(self, userName, password, Person):
+        """
+        Creates and saves a User with the given username and password.
+        """
+
+        user = self.model(
+            username=userName
+        )
+        user.set_password(password)
+        user.idPerson = Person
+        user.save()
+        return user
+
+    def create_superuser(self):
+        return None
     
-class User(models.Model):
-    idUser = models.AutoField(primary_key=True)
-    userName = models.CharField(max_length=150)
-    password = models.CharField(max_length=150)
+class User(AbstractBaseUser):
+    #idUser = models.AutoField(primary_key=True)
+    username = models.CharField(max_length=150, unique=True)
     idPerson = models.ForeignKey('Person', on_delete=models.CASCADE)
     active = models.IntegerField(default=1)
+
+    objects = UserManager()
+
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['password']
 
 class Wallet(models.Model):
     idWallet = models.AutoField(primary_key=True)
