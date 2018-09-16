@@ -52,8 +52,6 @@ def loginpage(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
 
-    
-
     try:
 
         user = authenticate(request, username = username, password = password)
@@ -86,17 +84,16 @@ def formview(request):
             birthDate = dobyear + "-" + dobmonth + "-" + dobday
             person = Person(name=name, lastName=lastName, birthDate=birthDate, mail=email, country=country)
             
-            #user = User(username = User.normalize_username(username))
-            #user.set_password(password)
-            #user.idPerson = person.idPerson
+            user = User(username = User.normalize_username(username))
+            user.set_password(password)
+            user.idPerson = person.idPerson
             if person:
                 person.save()
                 User.objects.create_user(username, password, person)
         except:
             return render(request,'baraboo.html', {'isLogged':False})
         
-
-    return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/')
 
 class project():
     Name = ""

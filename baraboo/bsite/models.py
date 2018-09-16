@@ -99,3 +99,36 @@ class PersonDocument(models.Model):
 class StatusRequest(models.Model):
     idStatus = models.AutoField(primary_key=True)
     status = models.CharField(max_length=100)
+
+class Project(models.Model):
+    idProject = models.IntegerField(primary_key=True)
+    projectName = models.CharField(max_length=150)
+    User = models.CharField(max_length=150)
+    location = models.CharField(max_length=150)
+    requiredCapital = models.DecimalField(max_digits=10, decimal_places=2)
+    projectPhase = models.CharField(max_length=100)
+    projectOwner = models.ForeignKey(
+        'User',
+        on_delete=models.CASCADE,
+    )
+
+class ProjectUser(models.Model):
+    idProject = models.ForeignKey(
+        'Project',
+        on_delete = models.CASCADE,
+    )
+    idUser = models.ForeignKey(
+        'User',
+        on_delete = models.CASCADE
+    )
+
+class UserTransactionLog(models.Model):
+    idTransaction = models.AutoField(primary_key=True)
+    transactionHash = models.CharField(max_length=80)
+    blockHash = models.CharField(max_length=80)
+    date = models.DateTimeField()
+    value = models.DecimalField(max_digits=12, decimal_places=2)
+    idProjectUser = models.ForeignKey(
+        'ProjectUser',
+        on_delete=models.CASCADE
+    )
