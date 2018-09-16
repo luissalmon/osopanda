@@ -11,7 +11,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render
 from django.contrib.auth import authenticate
-
+from django.urls import reverse
+from django.contrib.sessions.models import SessionManager
 from bsite.models import User, Person
 
 #from django.http import HttpResponse
@@ -23,12 +24,16 @@ from bsite.models import User, Person
 #import binascii
 
 def index (request):
-    return render(request,'baraboo.html')
+    return render(request,'baraboo.html', {'isLogged':False})
 
-def homepage(request, username='Default User'):
+def homepage(request):
     return render(request,'homepage.html')
 
-def projects(request, username="Default User"):
+def projects(request):
+
+    isLogged = False
+    if request.user.id:
+        isLogged = True
 
     proj = project()
     proj.Name = "Urbane"
@@ -43,21 +48,23 @@ def projects(request, username="Default User"):
 
     return render(request, 'investments.html', {'projects':projects})
 
-# def gotoprojects(request, username='Default User'):
-#     return HttpResponseRedirect('projects/')
-
 def loginpage(request):
 
-    username = request.GET['username']
-    password = request.GET['password']
+    username = request.POST.get('username')
+    password = request.POST.get('password')
 
     try:
         #db = authenticate(userName = username, password = password)
         db = User.objects.get(userName = username)
+        isLogged = False
 
         if db.password == password:
-            return HttpResponseRedirect('homepage/' + username + '/')
+            isLogged = True
+            request.user.id = db.idUser
+            return render(request, 'baraboo.html', {'isLogged':isLogged})
+            #return HttpResponseRedirect('' + username + '/')
         else:   
+            isLogged = False
             return render(request,'baraboo.html')
     except:
         return HttpResponseRedirect('/')
