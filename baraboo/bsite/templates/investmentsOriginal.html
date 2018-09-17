@@ -7,8 +7,6 @@
     <title>Document</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200,200i,300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
-
 </head>
 <body class="bg-image" style="min-width: 520px;">
   <div>
@@ -17,7 +15,7 @@
         <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
             {% if isLogged %}
             <div class="d-flex pr-2 align-items-center">
-                <strong class="pr-2 text-muted">correo@mail.com</strong>
+              <strong class="pr-2 text-muted">{{username}}</strong>
                 <button class="btn circle rounded-circle bg-transparent p-0 m-0" style="height: 40px; width: 40px; overflow: hidden;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {%load static%}
                     <img src="{% static 'img/building.jpg' %}" class="img-fluid" alt="">
@@ -27,7 +25,7 @@
                   <a class="dropdown-item" href="#">Another action</a>
                   <a class="dropdown-item" href="#">Something else here</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Separated link</a>
+                  <a class="dropdown-item" href="/logout/">Logout</a>
                 </div>
             </div>
             {% else %}
@@ -42,7 +40,7 @@
       <!-- /////////////////////////// Termina Login //////////////////////// -->
         
       <!-- /////////////////////////// TITULO //////////////////////// -->
-      <div class="w-100 p-4 text-center text-muted">
+      <div class="w-100 p-4 text-center text-muted" style="font-family: mont-light;">
         <h1>Hot and trending Projects</h1>
       </div>
       <!-- /////////////////////////// Termina TITULO //////////////////////// -->
@@ -54,21 +52,23 @@
             <!-- ////////////////////Columnas//////////////////////// -->
             <!--for card in query_ds   -->
             <!-- ////////////// Card ////////////// -->
-             <!--{% for item in projects %}
-            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 d-flex align-items-center justify-content-center" style="height: 375px;">
-               <div class="card rounded-bottom d-flex" style="height: 90%; width: 85%;">
-                  <div class="d-flex w-100 align-items-center justify-content-center mt-3 mb-2" style="height: 34%;">
-                  40% ^^ 85% -->
+            {% for item in projects %}
+            <div class="col-6 col-md-3 d-flex align-items-center justify-content-center" style="height: 375px;">
+              
+              <div class="card rounded-bottom d-flex" style="height: 90%; width: 85%;">
+                
+                <div class="d-flex w-100 align-items-center justify-content-center mt-3 mb-2" style="height: 34%;">
+                  <!-- 40% ^^ 85% -->
                   <!-- <div class="position-absolute rounded-circle bg-dark" style="opacity: 0.6"></div>
                     <div class="position-absolute d-flex justify-content-center align-items-center rounded-circle">
                       <span class="h2 text-light">1</span>
                     </div> -->
-                    <!--<div class="circle rounded-circle h-100" style="border: 5px solid #ff9b28; overflow: hidden;">
+                    <div class="circle rounded-circle h-100" style="border: 5px solid #ff9b28; overflow: hidden;">
                       <img class="img-fluid" src="{% static 'img/building.jpg' %}" alt="">
                     </div>
                   </div>
                   
-                  <div class="d-flex flex-column w-100 align-items-start text-left" style="height: 60%;">
+                  <div class="d-flex flex-column w-100 align-items-start text-left" style="height: 60%; font-family: mont-light;">
                     <p class="pl-3 pr-3 w-100" >
                       Name: {{item.Name}}<br>
                       Location: {{item.Location}}<br>
@@ -81,132 +81,8 @@
                   
                 </div>
               </div>
-              {%endfor%}-->
+              {%endfor%}
               <!-- ////////////// Card ////////////// -->
-
-
-
-              <!-- ////////////// Cards ////////////// -->
-              <!-- Card deck -->
-              <div class="card-deck">
-
-                <!-- Card -->
-                <div class="card mb-3 card_prject">
-
-                  <!--Card image-->
-                  <div class="view overlay">
-                      <div class="img">
-                        <div class="corner_card"></div>
-                        <div class="corner_wh_card"></div>
-                      </div>
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
-                  </div>
-
-                  <!--Card content-->
-                  <div class="card-body">
-
-                    <!--Title-->
-                    <p class="card-title titulo m-0 p-0">Urbane</p>
-                    <p class="ubicacion mb-3">San pedro</p>
-                    <p class="m-0"> Financial Performance</p>
-                    <p class="bigfont m-0"> 10%</p>
-                    
-
-                  </div>
-
-                </div>
-                <!-- Card -->
-
-                <!-- Card -->
-                <div class="card mb-3 card_prject">
-
-                  <!--Card image-->
-                  <div class="view overlay">
-                      <div class="img">
-                        <div class="corner_card"></div>
-                        <div class="corner_wh_card"></div>
-                      </div>
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
-                  </div>
-
-                  <!--Card content-->
-                  <div class="card-body">
-
-                    <!--Title-->
-                    <p class="card-title titulo m-0 p-0">Urbane</p>
-                    <p class="ubicacion mb-3">San pedro</p>
-                    <p class="m-0"> Financial Performance</p>
-                    <p class="bigfont m-0"> 10%</p>
-                    
-
-                  </div>
-                </div>
-                <!-- Card -->
-
-                <!-- Card -->
-                <div class="card mb-3 card_prject">
-
-                  <!--Card image-->
-                  <div class="view overlay">
-                      <div class="img">
-                        <div class="corner_card"></div>
-                        <div class="corner_wh_card"></div>
-                      </div>
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
-                  </div>
-
-                  <!--Card content-->
-                  <div class="card-body">
-
-                    <!--Title-->
-                    <p class="card-title titulo m-0 p-0">Urbane</p>
-                    <p class="ubicacion mb-3">San pedro</p>
-                    <p class="m-0"> Financial Performance</p>
-                    <p class="bigfont m-0"> 10%</p>
-                    
-
-                  </div>
-
-                </div>
-                <!-- Card -->
-
-                 <!-- Card -->
-                 <div class="card mb-3 card_prject">
-
-                  <!--Card image-->
-                  <div class="view overlay">
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-                    <a href="#!">
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
-                  </div>
-
-                 <!--Card content-->
-                 <div class="card-body">
-
-                    <!--Title-->
-                    <p class="card-title titulo m-0 p-0">Urbane</p>
-                    <p class="ubicacion mb-3">San pedro</p>
-                    <p class="m-0"> Financial Performance</p>
-                    <p class="bigfont m-0"> 10%</p>
-                    
-
-                  </div>
-
-                </div>
-                <!-- Card -->
-
-
-              </div>
-              <!-- Card deck -->
-
-              <!-- ////////////// Cards END ////////////// -->
-
-              
-              
               <!-- end for-->
            
 
