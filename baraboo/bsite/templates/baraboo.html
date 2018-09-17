@@ -17,6 +17,7 @@
          <div class="logo_left"><img src="{% static 'img/simbolo-fraktall.svg' %}"></div>
          <div class="logofull_left"><img src="{% static 'img/letras_fraktall.svg' %}"></div>
           <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="POST">
+            {% csrf_token%}
             <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
             <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
             <button class="btn_login" type="submit"><div class="btn_login_triengle"><span>LOG IN</span></div></button>
@@ -129,7 +130,7 @@
                 <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
 
                   <form action="/register/" class="row" method="POST">
-                 
+                   {% csrf_token %} 
                    <div class="col-12 text-center mb-5"><h3>JOIN US</h3></div>
                     <div class="col-6">
                       <div class="form-group col-12 d-flex align-items-end">
@@ -459,7 +460,7 @@
                         </div>
 
                         <div class="col-12 text-center">
-                          <a class="btn_black w-50">START</a>
+                          <button type="submit" class="btn_black w-50">START</a>
                         </div>
                     </form>
 
