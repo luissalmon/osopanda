@@ -145,78 +145,109 @@
                 <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
                     {% if isLogged %}
                     {% else %}
-                    <form action="/register/" class="row bg-light" method="POST">
+                    <form id="registerForm" action="/register/" class="row bg-light" method="POST">
                       {% csrf_token %}
+
+
                       <div class="form-group col-12 d-flex align-items-end">
                         <div class="mr-3 form-label">
-                          <label class="pb-0 mb-0  form-text" for="firstName">First Name*</label>
-                        </div>
-                        <div class="flex-fill h-75">
-                          <input name="name" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                          <label class="pb-0 mb-0 form-text" for="firstName">First Name*</label>
+                        </div>      
+                        <div class="flex-fill h-75">    
+                          <input name="name" type="text" class="form-control h-100 input-form"
+                           style="line-height: 0px;" minlength="1" maxlength="32" required autocomplete="off"
+                           data-parsley-required-message="This field is required!"
+                           >
                         </div>
                       </div>
-                      
-                      
+
+
                       <div class="form-group col-12 d-flex align-items-end">
                         <div class="mr-3 form-label">
                           <label class="pb-0 mb-0  form-text" for="lastName">Last Name*</label>
                         </div>
                         <div class="flex-fill h-75">
-                          <input name="lastName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                          <input name="lastName" type="text" class="form-control h-100 input-form"
+                          style="line-height: 0px;" minlength="2" maxlength="32" required autocomplete="off"
+                          data-parsley-required-message="This field is required!" 
+                          >
                         </div>
+
                       </div>
                       
+
                       
                       <div class="form-group col-6 d-flex align-items-end">
                         <div class="mr-3 form-label">
                           <label class="pb-0 mb-0 form-text" for="email">Email*</label>
                         </div>
                         <div class="flex-fill h-75">
-                          <input name="email" type="email" class="form-control h-100 input-form" style="line-height: 0px;">
+                          <input name="email" type="email" class="form-control h-100 input-form"
+                          style="line-height: 0px;" required autocomplete="off"
+                          >
+                        </div>
+                      </div>
+                      
+
+                      <div class="form-group col-6 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                          <label class="pb-0 mb-0  form-text" for="userName">Username*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                          <input id="username" name="userName" type="text"
+                          class="form-control h-100 input-form" style="line-height: 0px;"
+                          minlength="2" maxlength="32" required autocomplete="off"
+                          data-parsley-required-message="This field is required!"
+                          >
+                        </div>
+                      </div>
+
+                      <div class="form-group col-12 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                          <label class="pb-0 mb-0 form-text">Birth date*</label>
+                        </div>
+                        <select name="dobday" id="dobday" class="flex-fill form-control text-muted mr-3 h-100 input-form"
+                        style="text-align-last: center;" required
+                        ></select>
+                        <select name="dobmonth" id="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100 input-form"
+                        style="text-align-last: center;" required
+                        ></select>
+                        <select name="dobyear" id="dobyear" class="flex-fill form-control text-muted pr-2 h-100 input-form"
+                        style="text-align-last: center;" required 
+                        ></select>
+                      </div>
+
+                      <div class="form-group col-6 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                          <label class="pb-0 mb-0  form-text" for="pswdForm">Password*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                          <input id="pswdForm" name="password" type="password"
+                          class="form-control h-100 input-form" style="line-height: 0px;"
+                          pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" autocomplete="off"
+                          required data-parsley-error-message="Minimum eight characters, at least one letter and one number"
+                          >
+                        </div>
+                      </div>
+
+                      <div class="form-group col-6 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                          <label class="pb-0 mb-0  form-text" for="confirmPsw">Confirm password*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                          <input id="confirmPsw" type="password" class="form-control h-100 input-form"
+                          style="line-height: 0px;" required autocomplete="off" data-parsley-equalto="#pswdForm"
+                          data-parsley-error-message="This value must match email"
+                          >
                         </div>
                       </div>
                       
                       <div class="form-group col-6 d-flex align-items-end">
-                        <div class="mr-3 form-label">
-                          <label class="pb-0 mb-0  form-text" for="userName">Username*</label>
-                          </div>
-                          <div class="flex-fill h-75">
-                            <input name="userName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
-                          </div>
-                        </div>
-                        
-                        <div class="form-group col-12 d-flex align-items-end">
-                          <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0 form-text">Birth date*</label>
-                          </div>
-                          <select name="dobday" id="dobday" class="flex-fill form-control text-muted mr-3 h-100 input-form" style="text-align-last: center;"></select>
-                          <select name="dobmonth" id="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100 input-form" style="text-align-last: center;"></select>
-                          <select name="dobyear" id="dobyear" class="flex-fill form-control text-muted pr-2 h-100 input-form" style="text-align-last: center;"></select>
-                        </div>
-                        
-                        <div class="form-group col-6 d-flex align-items-end">
-                          <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0  form-text" for="pswdForm">Password*</label>
-                          </div>
-                          <div class="flex-fill h-75">
-                            <input name="password" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
-                          </div>
-                        </div>
-                        
-                        <div class="form-group col-6 d-flex align-items-end">
-                          <div class="mr-3 form-label">
-                            <label class="pb-0 mb-0  form-text" for="confirmPsw">Confirm password*</label>
-                          </div>
-                          <div class="flex-fill h-75">
-                            <input id="passwordConfirmation" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
-                          </div>
-                        </div>
-                        
-                        <div class="form-group col-6 d-flex align-items-end">
                           <div class="mr-3 form-label">
                             <label class="pb-0 mb-0  form-text" for="country">Country*</label>
                           </div>
-                          <select name="country" value class="form-control h-100 input-form country"  style="text-align-last: center;">
+                          <select name="country" value class="form-control h-100 input-form country"  style="text-align-last: center;"
+                          >
                             <option value="AF">Afghanistan</option>
                             <option value="AX">Åland Islands</option>
                                 <option value="AL">Albania</option>
@@ -468,13 +499,12 @@
                                 <option value="ZW">Zimbabwe</option>
                               </select>
                             </div>
-  
-                        
-                            
-                        <div class="col-12 mt-2 mb-3 d-flex justify-content-start align-items-end justify-content-end">
-                          <button type="submit" class="h1 btn btn-primary" style="width: 20%;">Send</button>
-                        </div>
-                      </form>
+
+
+                      <div class="col-12 mt-2 mb-3 d-flex justify-content-start align-items-end justify-content-end">
+                        <button type="submit" class="h1 btn btn-primary" style="width: 20%;">Send</button>
+                      </div>
+                    </form>
                     {% endif %}
                   </div>
                 </div>
@@ -541,7 +571,10 @@
   <script src="{% static 'js/bootstrap-material-design.js' %}"></script>
   <script src="{% static 'js/baraboo.js' %}"></script>
   <script src="{% static 'js/dobpicker.js' %}"></script>
+  <script src="{% static 'js/parsley.js' %}"></script>
   <script>
+    var isValid = false;
+
     $(document).ready(function() {
         $.dobPicker({
             daySelector: '#dobday', /* Required */
@@ -550,10 +583,18 @@
             dayDefault: 'Day', /* Optional */
             monthDefault: 'Month', /* Optional */
             yearDefault: 'Year', /* Optional */
-            minimumAge: 12, /* Optional */
+            minimumAge: 18, /* Optional */
             maximumAge: 80 /* Optional */
         });
     });
+
+     $("#registerForm").parsley({
+      errorClass: 'is-invalid text-danger',
+      successClass: 'is-valid', // Comment this option if you don't want the field to become green when valid. Recommended in Google material design to prevent too many hints for user experience. Only report when a field is wrong.
+      errorsWrapper: '<span class="form-text text-danger"></span>',
+      errorTemplate: '<span></span>',
+      trigger: 'change'
+    })
   </script>
 </body>
 </html>
