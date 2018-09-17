@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-
-  {% load static %}
+  {%load static%}
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -37,13 +36,13 @@
                     
                     <div id="bgSectL" class="position-absolute d-flex flex-column w-100 align-items-center bgContainerL">
                
-                      <img src="{% static 'img/criptomoneda.png'%}" class="bgImage" alt="">
+                      <img src="{% static 'img/criptomoneda.png' %}" class="bgImage" alt="">
                       <p id="bgPL" class="w-100 text-justify bgText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate deserunt fugiat iusto enim rem dolore eos ducimus distinctio est?</p>
                     </div>
                     
                     <div id="imgL" class="d-flex position-absolute justify-content-end align-items-center w-100 pr-0">
                     
-                      <img id="imgLS" src="{% static 'img/bara.png'%}" class="w-100 float-right" alt="">
+                      <img id="imgLS" src="{% static 'img/bara.png' %}" class="w-100 float-right" alt="">
                     </div>
 
                     <div id="areaL" onmouseover="actionArea('imgL', 'start')" onmouseout="actionArea('imgL', 'stop')" class="position-absolute w-100 "></div>
@@ -55,13 +54,13 @@
 
                     <div id="bgSectR" class="position-absolute d-flex flex-column w-100 align-items-center bgContainerR" style="opacity: 0; padding-left:12%; padding-right: 25%;">
 
-                      <img src="{% static 'img/edificios.png'%}" style="height: 10vw; width: 10vw; min-width: 70px; min-height: 70px;" alt="">
+                      <img src="{% static 'img/edificios.png' %}" style="height: 10vw; width: 10vw; min-width: 70px; min-height: 70px;" alt="">
                       <p id="bgPR" class="w-100">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate deserunt fugiat iusto enim rem dolore eos ducimus distinctio est?</p>
                     </div>
 
                     <div id="imgR" class="d-flex position-absolute justify-content-start align-items-center w-100 pl-0">
 
-                      <img src="{% static 'img/boo 2.png'%}" class="w-100 float-left" alt="">
+                      <img src="{% static 'img/boo 2.png' %}" class="w-100 float-left" alt="">
                     </div>
                     
                     <div id="areaR" onmouseover="actionArea('imgR', 'start')" onmouseout="actionArea('imgR', 'stop')" class="bg-transparent position-absolute w-100"></div>
@@ -86,7 +85,7 @@
     </div>
     <!-- ////////////////// Termina Page 1 /////////////////// -->
     <!-- //////////////////  Page 2 /////////////////// -->
-<div id="info" class="col-md-12" style="">
+<div id="info" class="col-md-12">
     <div id="info">
       <div class="d-flex flex-column w-100">
         <!-- //////////////////////////////////Investments && Develop///////////////////////// -->
@@ -96,7 +95,7 @@
               <div class="col-md-2"></div>
               
               <div class="col-12 col-sm-4 card_invest">
-                <div class="col-12 text-center mb-5"><img src="{% static 'img/return.svg'%}" width="63"></div>
+                <div class="col-12 text-center mb-5"><img src="{% static 'img/return.svg' %}" width="63"></div>
                 <div class="col-12 text-center form-group"><a href="/investments/" class="btn_white">INVESTMENTS</a></div>
                 <div class="col-12 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>      
               </div>
@@ -477,7 +476,7 @@
   <div class="col-md-12 p-0">                       
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
     viewBox="230.3 188 1422.2 188" style="enable-background:new 230.3 188 1422.2 188;" xml:space="preserve">
-    <polygon points="230.5,376 1652.5,376 230.5,188" />
+    <polygon points="230.5,376 1652.5,376 230.5,188 "/>
  </svg>
         <div id="copyright" class="footer-baraboo row p-4 m-0">
           <div class="w-25 d-flex flex-column text-center m-0 p-0">
@@ -522,12 +521,13 @@
    </div>
 
 
-  <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
-  <script src="{% static 'js/popper.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap-material-design.js' %}"></script>
-  <script src="{% static 'js/baraboo.js' %}"></script>
-  <script src="{% static 'js/dobpicker.js' %}"></script>
+  {%load static%}
+  <script src="{% static 'js/jquery-3.3.1.slim.min.js'%}"></script>
+  <script src="{% static 'js/popper.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap-material-design.js'%}"></script>
+  <script src="{% static 'js/baraboo.js'%}"></script>
+  <script src="{% static 'js/dobpicker.js'%}"></script>
   <script>
     $(document).ready(function() {
         $.dobPicker({
