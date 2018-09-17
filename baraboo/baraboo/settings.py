@@ -137,3 +137,9 @@ STATICFILES_DIRS = [
 #LOGIN_REDIRECT_URL = 'investments.html'
 
 WEB3_PROVIDER_URI = 'ws://127.0.0.1:8545'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'gregorio.garza.garcia@gmail.com'
+EMAIL_HOST_PASSWORD = '33gregorio88'
