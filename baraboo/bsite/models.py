@@ -34,7 +34,8 @@ class User(AbstractBaseUser):
     username = models.CharField(max_length=150, unique=True)
     idPerson = models.ForeignKey('Person', on_delete=models.CASCADE)
     active = models.IntegerField(default=1)
-
+    confirm = models.BooleanField(default=False)
+    confirmationCode = models.CharField(max_length=32, null=True)
     objects = UserManager()
 
     USERNAME_FIELD = 'username'
@@ -128,7 +129,39 @@ class UserTransactionLog(models.Model):
     blockHash = models.CharField(max_length=80)
     date = models.DateTimeField()
     value = models.DecimalField(max_digits=12, decimal_places=2)
+    transactionStatus = models.BooleanField(default=False)
     idProjectUser = models.ForeignKey(
         'ProjectUser',
         on_delete=models.CASCADE
+)
+
+class PresentationProjectData(models.Model):
+    idpresentationProjectData = models.AutoField(primary_key=True)
+    idProject = models.ForeignKey(
+        'Project',
+        on_delete=models.CASCADE,
     )
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=1000)
+    returnOfInversion = models.DecimalField(max_digits=3, decimal_places=2)
+    expirationDate = models.DateField()
+    initialInvestmentRound = models.DecimalField(max_digits=10, decimal_places=2)
+    taretCapital = models.DecimalField(max_digits=10, decimal_places=2)
+    video = models.FileField(upload_to='videos/%m/%d')
+
+class ImageType(models.Model):
+    idImageType = models.AutoField(primary_key=True)
+    imageType = models.CharField(max_length=100)
+
+
+class PresentationProjectImage(models.Model):
+    idPresentationProjectImage = models.AutoField(primary_key=True)
+    idPresentationProjectData = models.ForeignKey(
+        'PresentationProjectData',
+        on_delete=models.CASCADE,
+    )
+    idImageType = models.ForeignKey(
+        'ImageType',
+        on_delete=models.CASCADE,
+    )
+    image = models.ImageField(upload_to='images/%m/%d')
