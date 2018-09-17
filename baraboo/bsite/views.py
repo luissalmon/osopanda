@@ -10,9 +10,10 @@ def index(request):
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from bsite.models import Person, User
-from django.contrib.auth.models import User as djUser
+from django.core.mail import send_mail
+from django.utils.crypto import get_random_string
 
 #from django.http import HttpResponse
 
@@ -23,11 +24,14 @@ from django.contrib.auth.models import User as djUser
 #import binascii
 
 def index (request):
-    #Person.objects.get(idPerson = 4).delete()
-    return render(request,'baraboo.html', {'isLogged':False})
+    isLogged = False
+    if request.user.id:
+        isLogged = True
+    return render(request,'baraboo.html', {'isLogged':isLogged, 'username': request.user.username})
 
 def homepage(request):
     return render(request,'homepage.html')
+
 def projects(request):
 
     isLogged = False
@@ -58,16 +62,18 @@ def loginpage(request):
         login(request, user)
 
         if user:
-            isLogged = True
-            return render(request, 'baraboo.html', {'isLogged':isLogged})
-            #return HttpResponseRedirect('' + username + '/')
-        else:   
-            isLogged = False
+            return HttpResponseRedirect('/')
+        else:
             return render(request,'baraboo.html')
     except:
         return HttpResponseRedirect('/')
+
+def logoutUser(request):
+    logout(request)
+
+    return HttpResponseRedirect('/')
         
-def formview(request):
+def register(request):
     if request.method == 'POST':
         username = request.POST.get('userName')
         name = request.POST.get('name')
@@ -78,18 +84,22 @@ def formview(request):
         country = request.POST.get('country')
         email = request.POST.get('email')
         password = request.POST.get('password')
-        #passwordConfirmation = request.POST.get('passwordConfirmation')
         
         try:
             birthDate = dobyear + "-" + dobmonth + "-" + dobday
             person = Person(name=name, lastName=lastName, birthDate=birthDate, mail=email, country=country)
-            
-            user = User(username = User.normalize_username(username))
-            user.set_password(password)
-            user.idPerson = person.idPerson
+
             if person:
                 person.save()
                 User.objects.create_user(username, password, person)
+
+                code = get_random_string(length=32)
+                emailMessage = "Your confirmation code is : " + code
+                send_mail('Confirm your account',
+                    emailMessage,
+                    'gregorio.garza.garcia@gmail.com',
+                    [email],
+                    fail_silently=False)
         except:
             return render(request,'baraboo.html', {'isLogged':False})
         
@@ -102,6 +112,31 @@ class project():
     FinancialReturn = ""
     RisedMoney = ""
     MaximumAmount = ""
+
+
+def forgotpassword(request):
+    return render(request, 'forgotpassword.html')
+
+def recoverpassword(request):
+    email = request.POST.get('email')
+            
+    try:
+        person = Person.objects.get(mail = email)
+        if person:
+            user = User.objects.get(idPerson = person.idPerson)
+            newpassword = User.objects.make_random_password(length=10, allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')
+            emailMessage = "Username: " + user.username + "\n" + "Password: " + newpassword
+        
+            send_mail('Recover Password',
+                emailMessage,
+                'gregorio.garza.garcia@gmail.com',
+                [email],
+                fail_silently=False)
+            user.set_password(newpassword)
+            user.save() 
+        return HttpResponseRedirect('/')
+    except:
+        return HttpResponseRedirect('/')
 
 # def hola (request):
     
