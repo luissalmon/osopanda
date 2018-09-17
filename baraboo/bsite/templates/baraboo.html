@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+
   {% load static %}
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -14,50 +15,35 @@
     <!-- //////////////////  Page 1 /////////////////// -->
     <div class="d-flex flex-column screen">
       <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
-          {% if isLogged %}
-          <div class="d-flex pr-2 align-items-center">
-              <strong class="pr-2 text-muted">{{username}}</strong>
-              <button class="btn circle rounded-circle bg-transparent p-0 m-0" style="height: 40px; width: 40px; overflow: hidden;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {%load static%}
-                  <img src="{% static 'img/building.jpg' %}" class="img-fluid" alt="">
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/logout/">Logout</a>
-              </div>
-          </div>
-          {% else %}
+         <div class="logo_left"><img src="{% static 'img/simbolo-fraktall.svg' %}"></div>
+         <div class="logofull_left"><img src="{% static 'img/letras_fraktall.svg' %}"></div>
           <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="POST">
-            {% csrf_token %}
             <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
             <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
-            <button class="bg-dark btn btn-login text-light" type="submit">Log In</button>
+            <button class="btn_login" type="submit"><div class="btn_login_triengle"><span>LOG IN</span></div></button>
           </form>
-          {% endif %}
+  
       </nav>
       <div class="flex-fill d-flex flex-column align-items-center justify-content-center" style="height: 50vh;">
         <div class="container-fluid h-100">
           <div class="row h-100">
-            <div class="col-sm-1"></div>
+            <div class="col-sm-2"></div>
 
-            <div class="col-12 col-md-10 h-100">
+            <div class="col-12 col-md-9 h-100">
               <div class="container-fluid h-100 p-0">
                 <div class="row h-100 align-items-center justify-content-center">
                   <!-- ///////////////////////SEGMENTO IZQUIERDO//////////////// -->
-                  <div class="col-5 d-flex justify-content-end align-items-center h-100 p-0">
+                  <div class="col-6 d-flex justify-content-end align-items-center h-100 p-0">
                     
                     <div id="bgSectL" class="position-absolute d-flex flex-column w-100 align-items-center bgContainerL">
-                      {%load static%}
-                      <img src="{%static 'img/criptomoneda.png' %}" class="bgImage" alt="">
+               
+                      <img src="{% static 'img/criptomoneda.png'%}" class="bgImage" alt="">
                       <p id="bgPL" class="w-100 text-justify bgText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate deserunt fugiat iusto enim rem dolore eos ducimus distinctio est?</p>
                     </div>
                     
-                    <div id="imgL" class="d-flex position-absolute justify-content-end align-items-center w-100 pr-3">
-                      {%load static%}
-                      <img id="imgLS" src="{% static 'img/bara.png' %}" class="w-100 float-right" alt="">
+                    <div id="imgL" class="d-flex position-absolute justify-content-end align-items-center w-100 pr-0">
+                    
+                      <img id="imgLS" src="{% static 'img/bara.png'%}" class="w-100 float-right" alt="">
                     </div>
 
                     <div id="areaL" onmouseover="actionArea('imgL', 'start')" onmouseout="actionArea('imgL', 'stop')" class="position-absolute w-100 "></div>
@@ -65,17 +51,17 @@
                   </div>
                   <!-- ///////////////////////TERMINA SEGMENTO IZQUIERDO//////////////// -->
                   <!-- ///////////////////////SEGMENTO DERECHO//////////////// -->
-                  <div class="col-5 d-flex justify-content-start align-items-center h-100 p-0">
+                  <div class="col-6 d-flex justify-content-start align-items-center h-100 p-0">
 
                     <div id="bgSectR" class="position-absolute d-flex flex-column w-100 align-items-center bgContainerR" style="opacity: 0; padding-left:12%; padding-right: 25%;">
-                      {%load static%}
-                      <img src="{% static 'img/edificios.png' %}" style="height: 10vw; width: 10vw; min-width: 70px; min-height: 70px;" alt="">
+
+                      <img src="{% static 'img/edificios.png'%}" style="height: 10vw; width: 10vw; min-width: 70px; min-height: 70px;" alt="">
                       <p id="bgPR" class="w-100">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate deserunt fugiat iusto enim rem dolore eos ducimus distinctio est?</p>
                     </div>
 
-                    <div id="imgR" class="d-flex position-absolute justify-content-start align-items-center w-100 pl-3">
-                      {%load static%}
-                      <img src="{% static 'img/boo 2.png' %}" class="w-100 float-left" alt="">
+                    <div id="imgR" class="d-flex position-absolute justify-content-start align-items-center w-100 pl-0">
+
+                      <img src="{% static 'img/boo 2.png'%}" class="w-100 float-left" alt="">
                     </div>
                     
                     <div id="areaR" onmouseover="actionArea('imgR', 'start')" onmouseout="actionArea('imgR', 'stop')" class="bg-transparent position-absolute w-100"></div>
@@ -92,7 +78,7 @@
         </div>
       </div>
 
-      <footer class="d-flex align-items-center justify-content-center footShow">
+      <footer class="d-flex align-items-center justify-content-center footShow bt_down">
         <button class="btn bg-transparent" to="info" type="button" onclick="moveScrollTo(this)">
           <i class="fas fa-angle-down" style="font-size: 25px;"></i>
         </button>
@@ -100,30 +86,28 @@
     </div>
     <!-- ////////////////// Termina Page 1 /////////////////// -->
     <!-- //////////////////  Page 2 /////////////////// -->
-    {% comment %} <div id="info" class="d-none"> {% endcomment %}
+<div id="info" class="col-md-12" style="">
     <div id="info">
       <div class="d-flex flex-column w-100">
         <!-- //////////////////////////////////Investments && Develop///////////////////////// -->
         <div class="d-flex flex-column flex-row">
           <div class="container-fluid mt-5 mb-5">
             <div class="row">
-              <div class="col-md-1"></div>
+              <div class="col-md-2"></div>
               
-              <div class="col-12 col-sm-5">
-                
+              <div class="col-12 col-sm-4 card_invest">
+                <div class="col-12 text-center mb-5"><img src="{% static 'img/return.svg'%}" width="63"></div>
+                <div class="col-12 text-center form-group"><a href="/investments/" class="btn_white">INVESTMENTS</a></div>
+                <div class="col-12 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>      
               </div>
-              <div class="col-12 col-lg-5 bg-light">
-                <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
-                  <div class="row">
-                    <div class="col-12 d-flex justify-content-center align-items-center mt-5 mb-5">
-                      <a href="/investments/" class="btn w-50 text-light" style="background-color: black;">Investments</a>
-                    </div>
-                    <div class="col-12 d-flex justify-content-center align-items-center mt-5 mb-5">
-                      <button class="btn w-50 text-light" style="background-color: black;">Develop</button>
-                    </div>
-                  </div>
-                </div>
+
+              <div class="col-12 col-sm-4 card_invest">
+                  <div class="col-12 text-center mb-5"><img src="{% static 'img/return.svg' %}" width="63"></div>
+                  <div class="col-12 text-center form-group"><a href="/investments/" class="btn_white">DEVELOP</a></div>
+                  <div class="col-12 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>      
               </div>
+
+
               
               <div class="col-sm-1" style="height: 20px;"></div>
             </div>
@@ -131,123 +115,97 @@
         </div>
         <!-- //////////////////////////////////Termina Investments && Develop///////////////////////// -->
         
-        
-        
-        <!-- ////////////////////////////////// Formulario///////////////////////// -->
-        <div class="d-flex flex-column flex-row">
+
+      </div>
+    </div>
+    <img src="{% static 'img/fraktall_city_BG.png' %}" class="city_bg_img">
+  </div>
+    <!-- ////////////////// Termina Page 2 /////////////////// -->
+
+<!-- ////////////////////////////////// Formulario///////////////////////// -->
+<div class="col-md-12">
           <div class="container-fluid mt-5 mb-5">
             <div class="row">
-              <div class="col-md-1"></div>
-              <div class="col-12 col-sm-5">
-                <!-- <img src="{% static 'img/'%}" alt=""> -->
-              </div>
-              <div class="col-12 col-lg-5">
+              <div class="col-12">
                 <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
-                    {% if isLogged %}
-                    {% else %}
-                    <form id="registerForm" action="/register/" class="row bg-light" method="POST">
-                      {% csrf_token %}
 
-
+                  <form action="/register/" class="row" method="POST">
+                 
+                   <div class="col-12 text-center mb-5"><h3>JOIN US</h3></div>
+                    <div class="col-6">
                       <div class="form-group col-12 d-flex align-items-end">
                         <div class="mr-3 form-label">
-                          <label class="pb-0 mb-0 form-text" for="firstName">First Name*</label>
-                        </div>      
-                        <div class="flex-fill h-75">    
-                          <input name="name" type="text" class="form-control h-100 input-form"
-                           style="line-height: 0px;" minlength="1" maxlength="32" required autocomplete="off"
-                           data-parsley-required-message="This field is required!"
-                           >
+                          <label class="pb-0 mb-0  form-text" for="firstName">First Name*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                          <input name="name" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
                       </div>
-
-
+                      
+                      
                       <div class="form-group col-12 d-flex align-items-end">
                         <div class="mr-3 form-label">
                           <label class="pb-0 mb-0  form-text" for="lastName">Last Name*</label>
                         </div>
                         <div class="flex-fill h-75">
-                          <input name="lastName" type="text" class="form-control h-100 input-form"
-                          style="line-height: 0px;" minlength="2" maxlength="32" required autocomplete="off"
-                          data-parsley-required-message="This field is required!" 
-                          >
+                          <input name="lastName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
-
                       </div>
                       
-
                       
                       <div class="form-group col-6 d-flex align-items-end">
                         <div class="mr-3 form-label">
                           <label class="pb-0 mb-0 form-text" for="email">Email*</label>
                         </div>
                         <div class="flex-fill h-75">
-                          <input name="email" type="email" class="form-control h-100 input-form"
-                          style="line-height: 0px;" required autocomplete="off"
-                          >
+                          <input name="email" type="email" class="form-control h-100 input-form" style="line-height: 0px;">
                         </div>
                       </div>
                       
-
                       <div class="form-group col-6 d-flex align-items-end">
                         <div class="mr-3 form-label">
                           <label class="pb-0 mb-0  form-text" for="userName">Username*</label>
-                        </div>
-                        <div class="flex-fill h-75">
-                          <input id="username" name="userName" type="text"
-                          class="form-control h-100 input-form" style="line-height: 0px;"
-                          minlength="2" maxlength="32" required autocomplete="off"
-                          data-parsley-required-message="This field is required!"
-                          >
+                          </div>
+                          <div class="flex-fill h-75">
+                            <input name="userName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                          </div>
                         </div>
                       </div>
 
-                      <div class="form-group col-12 d-flex align-items-end">
-                        <div class="mr-3 form-label">
-                          <label class="pb-0 mb-0 form-text">Birth date*</label>
-                        </div>
-                        <select name="dobday" id="dobday" class="flex-fill form-control text-muted mr-3 h-100 input-form"
-                        style="text-align-last: center;" required
-                        ></select>
-                        <select name="dobmonth" id="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100 input-form"
-                        style="text-align-last: center;" required
-                        ></select>
-                        <select name="dobyear" id="dobyear" class="flex-fill form-control text-muted pr-2 h-100 input-form"
-                        style="text-align-last: center;" required 
-                        ></select>
-                      </div>
 
-                      <div class="form-group col-6 d-flex align-items-end">
-                        <div class="mr-3 form-label">
-                          <label class="pb-0 mb-0  form-text" for="pswdForm">Password*</label>
+                      <div class="col-6 mt-5">  
+                        <div class="form-group col-12 d-flex align-items-end">
+                          <div class="mr-3 form-label">
+                            <label class="pb-0 mb-0 form-text">Birth date*</label>
+                          </div>
+                          <select name="dobday" id="dobday" class="flex-fill form-control text-muted mr-3 h-100 input-form" style="text-align-last: center;"></select>
+                          <select name="dobmonth" id="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100 input-form" style="text-align-last: center;"></select>
+                          <select name="dobyear" id="dobyear" class="flex-fill form-control text-muted pr-2 h-100 input-form" style="text-align-last: center;"></select>
                         </div>
-                        <div class="flex-fill h-75">
-                          <input id="pswdForm" name="password" type="password"
-                          class="form-control h-100 input-form" style="line-height: 0px;"
-                          pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" autocomplete="off"
-                          required data-parsley-error-message="Minimum eight characters, at least one letter and one number"
-                          >
+                        
+                        <div class="form-group col-6 d-flex align-items-end">
+                          <div class="mr-3 form-label">
+                            <label class="pb-0 mb-0  form-text" for="pswdForm">Password*</label>
+                          </div>
+                          <div class="flex-fill h-75">
+                            <input name="password" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                          </div>
                         </div>
-                      </div>
-
-                      <div class="form-group col-6 d-flex align-items-end">
-                        <div class="mr-3 form-label">
-                          <label class="pb-0 mb-0  form-text" for="confirmPsw">Confirm password*</label>
+                        
+                        <div class="form-group col-6 d-flex align-items-end">
+                          <div class="mr-3 form-label">
+                            <label class="pb-0 mb-0  form-text" for="confirmPsw">Confirm password*</label>
+                          </div>
+                          <div class="flex-fill h-75">
+                            <input id="passwordConfirmation" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                          </div>
                         </div>
-                        <div class="flex-fill h-75">
-                          <input id="confirmPsw" type="password" class="form-control h-100 input-form"
-                          style="line-height: 0px;" required autocomplete="off" data-parsley-equalto="#pswdForm"
-                          data-parsley-error-message="This value must match email"
-                          >
-                        </div>
-                      </div>
-                      
-                      <div class="form-group col-6 d-flex align-items-end">
+                        
+                        <div class="form-group col-6 d-flex align-items-end">
                           <div class="mr-3 form-label">
                             <label class="pb-0 mb-0  form-text" for="country">Country*</label>
                           </div>
-                          <select name="country" value class="form-control h-100 input-form country"  style="text-align-last: center;"
-                          >
+                          <select name="country" value class="form-control h-100 input-form country"  style="text-align-last: center;">
                             <option value="AF">Afghanistan</option>
                             <option value="AX">Åland Islands</option>
                                 <option value="AL">Albania</option>
@@ -498,27 +456,30 @@
                                 <option value="ZM">Zambia</option>
                                 <option value="ZW">Zimbabwe</option>
                               </select>
-                            </div>
+                         </div>
+                        </div>
 
-
-                      <div class="col-12 mt-2 mb-3 d-flex justify-content-start align-items-end justify-content-end">
-                        <button type="submit" class="h1 btn btn-primary" style="width: 20%;">Send</button>
-                      </div>
+                        <div class="col-12 text-center">
+                          <a class="btn_black w-50">START</a>
+                        </div>
                     </form>
-                    {% endif %}
+
                   </div>
                 </div>
-                <div class="col-sm-1" style="height: 20px;"></div>
+               <div class="col-sm-1" style="height: 20px;"></div>
               </div>
             </div>
-          </div>
-          <!-- ////////////////////////////////// Formulario///////////////////////// -->
+</div>
+<!-- ////////////////////////////////// Termina Formulario///////////////////////// -->
 
 
 
-
-        <div style="height: 100px;"></div>
-        <div id="copyright" class="footer-baraboo d-flex p-3 pr-2 pl-2">
+  <div class="col-md-12 p-0">                       
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    viewBox="230.3 188 1422.2 188" style="enable-background:new 230.3 188 1422.2 188;" xml:space="preserve">
+    <polygon points="230.5,376 1652.5,376 230.5,188" />
+ </svg>
+        <div id="copyright" class="footer-baraboo row p-4 m-0">
           <div class="w-25 d-flex flex-column text-center m-0 p-0">
             <span class="font-weight-bold text-light footer-title">Conocenos</span>
             <div class="row justify-content-start">
@@ -558,23 +519,16 @@
         <div class="footer-bottom w-100 m-0 p-2 pt-3 pb-3 text-center">
             <span class="text-center text-muted "><a class="text-light" href="">Condiciones de uso | Aviso de privacidad</a> 2018 Baraboo.com, Inc. o afiliados. Todos los derechos renrvados.</span>
         </div>
+   </div>
 
 
-      </div>
-    </div>
-    <!-- ////////////////// Termina Page 2 /////////////////// -->
-  </div>
-  {%load static%}
   <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
   <script src="{% static 'js/popper.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
   <script src="{% static 'js/bootstrap-material-design.js' %}"></script>
   <script src="{% static 'js/baraboo.js' %}"></script>
   <script src="{% static 'js/dobpicker.js' %}"></script>
-  <script src="{% static 'js/parsley.js' %}"></script>
   <script>
-    var isValid = false;
-
     $(document).ready(function() {
         $.dobPicker({
             daySelector: '#dobday', /* Required */
@@ -583,18 +537,25 @@
             dayDefault: 'Day', /* Optional */
             monthDefault: 'Month', /* Optional */
             yearDefault: 'Year', /* Optional */
-            minimumAge: 18, /* Optional */
+            minimumAge: 12, /* Optional */
             maximumAge: 80 /* Optional */
         });
-    });
 
-     $("#registerForm").parsley({
-      errorClass: 'is-invalid text-danger',
-      successClass: 'is-valid', // Comment this option if you don't want the field to become green when valid. Recommended in Google material design to prevent too many hints for user experience. Only report when a field is wrong.
-      errorsWrapper: '<span class="form-text text-danger"></span>',
-      errorTemplate: '<span></span>',
-      trigger: 'change'
-    })
+        $(window).scroll(function() {  
+          if($(document).scrollTop() > 100){    
+            $('.bt_down').addClass("hide_arrow");
+          }
+          else{
+            $('.bt_down').removeClass("hide_arrow");
+          };
+          if($(document).scrollTop() > 300){    
+            $('.logofull_left').addClass("show_logo");
+          }
+          else{
+            $('.logofull_left').removeClass("show_logo");
+          }
+        });
+    });
   </script>
 </body>
 </html>

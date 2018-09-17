@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body class="bg-image" style="min-width: 520px;">
+  <div>
+    <!-- //////////////////  Page 1 /////////////////// -->
+    <div class="d-flex flex-column screen">
+      <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
+          {% if isLogged %}
+          <div class="d-flex pr-2 align-items-center">
+              <strong class="pr-2 text-muted">{{username}}</strong>
+              <button class="btn circle rounded-circle bg-transparent p-0 m-0" style="height: 40px; width: 40px; overflow: hidden;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {%load static%}
+                  <img src="{% static 'img/building.jpg' %}" class="img-fluid" alt="">
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/logout/">Logout</a>
+              </div>
+          </div>
+          {% else %}
+          <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="POST">
+            {% csrf_token %}
+            <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
+            <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
+            <button class="bg-dark btn btn-login text-light" type="submit">Log In</button>
+          </form>
+          {% endif %}
+      </nav>
+      <div class="flex-fill d-flex flex-column align-items-center justify-content-center" style="height: 50vh;">
+        <div class="container-fluid h-100">
+          <div class="row h-100">
+            <div class="col-sm-1"></div>
+
+            <div class="col-12 col-md-10 h-100">
+              <div class="container-fluid h-100 p-0">
+                <div class="row h-100 align-items-center justify-content-center">
+                  <!-- ///////////////////////SEGMENTO IZQUIERDO//////////////// -->
+                  <div class="col-5 d-flex justify-content-end align-items-center h-100 p-0">
+                    
+                    <div id="bgSectL" class="position-absolute d-flex flex-column w-100 align-items-center bgContainerL">
+                      {%load static%}
+                      <img src="{%static 'img/criptomoneda.png' %}" class="bgImage" alt="">
+                      <p id="bgPL" class="w-100 text-justify bgText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate deserunt fugiat iusto enim rem dolore eos ducimus distinctio est?</p>
+                    </div>
+                    
+                    <div id="imgL" class="d-flex position-absolute justify-content-end align-items-center w-100 pr-3">
+                      {%load static%}
+                      <img id="imgLS" src="{% static 'img/bara.png' %}" class="w-100 float-right" alt="">
+                    </div>
+
+                    <div id="areaL" onmouseover="actionArea('imgL', 'start')" onmouseout="actionArea('imgL', 'stop')" class="position-absolute w-100 "></div>
+                  
+                  </div>
+                  <!-- ///////////////////////TERMINA SEGMENTO IZQUIERDO//////////////// -->
+                  <!-- ///////////////////////SEGMENTO DERECHO//////////////// -->
+                  <div class="col-5 d-flex justify-content-start align-items-center h-100 p-0">
+
+                    <div id="bgSectR" class="position-absolute d-flex flex-column w-100 align-items-center bgContainerR" style="opacity: 0; padding-left:12%; padding-right: 25%;">
+                      {%load static%}
+                      <img src="{% static 'img/edificios.png' %}" style="height: 10vw; width: 10vw; min-width: 70px; min-height: 70px;" alt="">
+                      <p id="bgPR" class="w-100">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae cupiditate deserunt fugiat iusto enim rem dolore eos ducimus distinctio est?</p>
+                    </div>
+
+                    <div id="imgR" class="d-flex position-absolute justify-content-start align-items-center w-100 pl-3">
+                      {%load static%}
+                      <img src="{% static 'img/boo 2.png' %}" class="w-100 float-left" alt="">
+                    </div>
+                    
+                    <div id="areaR" onmouseover="actionArea('imgR', 'start')" onmouseout="actionArea('imgR', 'stop')" class="bg-transparent position-absolute w-100"></div>
+                  
+                  </div>
+                  <!-- ///////////////////////TERMINA SEGMENTO DERECHO//////////////// -->
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-sm-1"></div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="d-flex align-items-center justify-content-center footShow">
+        <button class="btn bg-transparent" to="info" type="button" onclick="moveScrollTo(this)">
+          <i class="fas fa-angle-down" style="font-size: 25px;"></i>
+        </button>
+      </footer>
+    </div>
+    <!-- ////////////////// Termina Page 1 /////////////////// -->
+    <!-- //////////////////  Page 2 /////////////////// -->
+    {% comment %} <div id="info" class="d-none"> {% endcomment %}
+    <div id="info">
+      <div class="d-flex flex-column w-100">
+        <!-- //////////////////////////////////Investments && Develop///////////////////////// -->
+        <div class="d-flex flex-column flex-row">
+          <div class="container-fluid mt-5 mb-5">
+            <div class="row">
+              <div class="col-md-1"></div>
+              
+              <div class="col-12 col-sm-5">
+                
+              </div>
+              <div class="col-12 col-lg-5 bg-light">
+                <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
+                  <div class="row">
+                    <div class="col-12 d-flex justify-content-center align-items-center mt-5 mb-5">
+                      <a href="/investments/" class="btn w-50 text-light" style="background-color: black;">Investments</a>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center align-items-center mt-5 mb-5">
+                      <button class="btn w-50 text-light" style="background-color: black;">Develop</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-sm-1" style="height: 20px;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- //////////////////////////////////Termina Investments && Develop///////////////////////// -->
+        
+        
+        
+        <!-- ////////////////////////////////// Formulario///////////////////////// -->
+        <div class="d-flex flex-column flex-row">
+          <div class="container-fluid mt-5 mb-5">
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-12 col-sm-5">
+                <!-- <img src="{% static 'img/'%}" alt=""> -->
+              </div>
+              <div class="col-12 col-lg-5">
+                <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
+                    {% if isLogged %}
+                    {% else %}
+                    <form id="registerForm" action="/register/" class="row bg-light" method="POST">
+                      {% csrf_token %}
+
+
+                      <div class="form-group col-12 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                          <label class="pb-0 mb-0 form-text" for="firstName">First Name*</label>
+                        </div>      
+                        <div class="flex-fill h-75">    
+                          <input name="name" type="text" class="form-control h-100 input-form"
+                           style="line-height: 0px;" minlength="1" maxlength="32" required autocomplete="off"
+                           data-parsley-required-message="This field is required!"
+                           >
+                        </div>
+                      </div>
+
+
+                      <div class="form-group col-12 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                          <label class="pb-0 mb-0  form-text" for="lastName">Last Name*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                          <input name="lastName" type="text" class="form-control h-100 input-form"
+                          style="line-height: 0px;" minlength="2" maxlength="32" required autocomplete="off"
+                          data-parsley-required-message="This field is required!" 
+                          >
+                        </div>
+
+                      </div>
+                      
+
+                      
+                      <div class="form-group col-6 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                          <label class="pb-0 mb-0 form-text" for="email">Email*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                          <input name="email" type="email" class="form-control h-100 input-form"
+                          style="line-height: 0px;" required autocomplete="off"
+                          >
+                        </div>
+                      </div>
+                      
+
+                      <div class="form-group col-6 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                          <label class="pb-0 mb-0  form-text" for="userName">Username*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                          <input id="username" name="userName" type="text"
+                          class="form-control h-100 input-form" style="line-height: 0px;"
+                          minlength="2" maxlength="32" required autocomplete="off"
+                          data-parsley-required-message="This field is required!"
+                          >
+                        </div>
+                      </div>
+
+                      <div class="form-group col-12 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                          <label class="pb-0 mb-0 form-text">Birth date*</label>
+                        </div>
+                        <select name="dobday" id="dobday" class="flex-fill form-control text-muted mr-3 h-100 input-form"
+                        style="text-align-last: center;" required
+                        ></select>
+                        <select name="dobmonth" id="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100 input-form"
+                        style="text-align-last: center;" required
+                        ></select>
+                        <select name="dobyear" id="dobyear" class="flex-fill form-control text-muted pr-2 h-100 input-form"
+                        style="text-align-last: center;" required 
+                        ></select>
+                      </div>
+
+                      <div class="form-group col-6 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                          <label class="pb-0 mb-0  form-text" for="pswdForm">Password*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                          <input id="pswdForm" name="password" type="password"
+                          class="form-control h-100 input-form" style="line-height: 0px;"
+                          pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" autocomplete="off"
+                          required data-parsley-error-message="Minimum eight characters, at least one letter and one number"
+                          >
+                        </div>
+                      </div>
+
+                      <div class="form-group col-6 d-flex align-items-end">
+                        <div class="mr-3 form-label">
+                          <label class="pb-0 mb-0  form-text" for="confirmPsw">Confirm password*</label>
+                        </div>
+                        <div class="flex-fill h-75">
+                          <input id="confirmPsw" type="password" class="form-control h-100 input-form"
+                          style="line-height: 0px;" required autocomplete="off" data-parsley-equalto="#pswdForm"
+                          data-parsley-error-message="This value must match email"
+                          >
+                        </div>
+                      </div>
+                      
+                      <div class="form-group col-6 d-flex align-items-end">
+                          <div class="mr-3 form-label">
+                            <label class="pb-0 mb-0  form-text" for="country">Country*</label>
+                          </div>
+                          <select name="country" value class="form-control h-100 input-form country"  style="text-align-last: center;"
+                          >
+                            <option value="AF">Afghanistan</option>
+                            <option value="AX">Åland Islands</option>
+                                <option value="AL">Albania</option>
+                                <option value="DZ">Algeria</option>
+                                <option value="AS">American Samoa</option>
+                                <option value="AD">Andorra</option>
+                                <option value="AO">Angola</option>
+                                <option value="AI">Anguilla</option>
+                                <option value="AQ">Antarctica</option>
+                                <option value="AG">Antigua and Barbuda</option>
+                                <option value="AR">Argentina</option>
+                                <option value="AM">Armenia</option>
+                                <option value="AW">Aruba</option>
+                                <option value="AU">Australia</option>
+                                <option value="AT">Austria</option>
+                                <option value="AZ">Azerbaijan</option>
+                                <option value="BS">Bahamas</option>
+                                <option value="BH">Bahrain</option>
+                                <option value="BD">Bangladesh</option>
+                                <option value="BB">Barbados</option>
+                                <option value="BY">Belarus</option>
+                                <option value="BE">Belgium</option>
+                                <option value="BZ">Belize</option>
+                                <option value="BJ">Benin</option>
+                                <option value="BM">Bermuda</option>
+                                <option value="BT">Bhutan</option>
+                                <option value="BO">Bolivia, Plurinational State of</option>
+                                <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                                <option value="BA">Bosnia and Herzegovina</option>
+                                <option value="BW">Botswana</option>
+                                <option value="BV">Bouvet Island</option>
+                                <option value="BR">Brazil</option>
+                                <option value="IO">British Indian Ocean Territory</option>
+                                <option value="BN">Brunei Darussalam</option>
+                                <option value="BG">Bulgaria</option>
+                                <option value="BF">Burkina Faso</option>
+                                <option value="BI">Burundi</option>
+                                <option value="KH">Cambodia</option>
+                                <option value="CM">Cameroon</option>
+                                <option value="CA">Canada</option>
+                                <option value="CV">Cape Verde</option>
+                                <option value="KY">Cayman Islands</option>
+                                <option value="CF">Central African Republic</option>
+                                <option value="TD">Chad</option>
+                                <option value="CL">Chile</option>
+                                <option value="CN">China</option>
+                                <option value="CX">Christmas Island</option>
+                                <option value="CC">Cocos (Keeling) Islands</option>
+                                <option value="CO">Colombia</option>
+                                <option value="KM">Comoros</option>
+                                <option value="CG">Congo</option>
+                                <option value="CD">Congo, the Democratic Republic of the</option>
+                                <option value="CK">Cook Islands</option>
+                                <option value="CR">Costa Rica</option>
+                                <option value="CI">Côte d'Ivoire</option>
+                                <option value="HR">Croatia</option>
+                                <option value="CU">Cuba</option>
+                                <option value="CW">Curaçao</option>
+                                <option value="CY">Cyprus</option>
+                                <option value="CZ">Czech Republic</option>
+                                <option value="DK">Denmark</option>
+                                <option value="DJ">Djibouti</option>
+                                <option value="DM">Dominica</option>
+                                <option value="DO">Dominican Republic</option>
+                                <option value="EC">Ecuador</option>
+                                <option value="EG">Egypt</option>
+                                <option value="SV">El Salvador</option>
+                                <option value="GQ">Equatorial Guinea</option>
+                                <option value="ER">Eritrea</option>
+                                <option value="EE">Estonia</option>
+                                <option value="ET">Ethiopia</option>
+                                <option value="FK">Falkland Islands (Malvinas)</option>
+                                <option value="FO">Faroe Islands</option>
+                                <option value="FJ">Fiji</option>
+                                <option value="FI">Finland</option>
+                                <option value="FR">France</option>
+                                <option value="GF">French Guiana</option>
+                                <option value="PF">French Polynesia</option>
+                                <option value="TF">French Southern Territories</option>
+                                <option value="GA">Gabon</option>
+                                <option value="GM">Gambia</option>
+                                <option value="GE">Georgia</option>
+                                <option value="DE">Germany</option>
+                                <option value="GH">Ghana</option>
+                                <option value="GI">Gibraltar</option>
+                                <option value="GR">Greece</option>
+                                <option value="GL">Greenland</option>
+                                <option value="GD">Grenada</option>
+                                <option value="GP">Guadeloupe</option>
+                                <option value="GU">Guam</option>
+                                <option value="GT">Guatemala</option>
+                                <option value="GG">Guernsey</option>
+                                <option value="GN">Guinea</option>
+                                <option value="GW">Guinea-Bissau</option>
+                                <option value="GY">Guyana</option>
+                                <option value="HT">Haiti</option>
+                                <option value="HM">Heard Island and McDonald Islands</option>
+                                <option value="VA">Holy See (Vatican City State)</option>
+                                <option value="HN">Honduras</option>
+                                <option value="HK">Hong Kong</option>
+                                <option value="HU">Hungary</option>
+                                <option value="IS">Iceland</option>
+                                <option value="IN">India</option>
+                                <option value="ID">Indonesia</option>
+                                <option value="IR">Iran, Islamic Republic of</option>
+                                <option value="IQ">Iraq</option>
+                                <option value="IE">Ireland</option>
+                                <option value="IM">Isle of Man</option>
+                                <option value="IL">Israel</option>
+                                <option value="IT">Italy</option>
+                                <option value="JM">Jamaica</option>
+                                <option value="JP">Japan</option>
+                                <option value="JE">Jersey</option>
+                                <option value="JO">Jordan</option>
+                                <option value="KZ">Kazakhstan</option>
+                                <option value="KE">Kenya</option>
+                                <option value="KI">Kiribati</option>
+                                <option value="KP">Korea, Democratic People's Republic of</option>
+                                <option value="KR">Korea, Republic of</option>
+                                <option value="KW">Kuwait</option>
+                                <option value="KG">Kyrgyzstan</option>
+                                <option value="LA">Lao People's Democratic Republic</option>
+                                <option value="LV">Latvia</option>
+                                <option value="LB">Lebanon</option>
+                                <option value="LS">Lesotho</option>
+                                <option value="LR">Liberia</option>
+                                <option value="LY">Libya</option>
+                                <option value="LI">Liechtenstein</option>
+                                <option value="LT">Lithuania</option>
+                                <option value="LU">Luxembourg</option>
+                                <option value="MO">Macao</option>
+                                <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+                                <option value="MG">Madagascar</option>
+                                <option value="MW">Malawi</option>
+                                <option value="MY">Malaysia</option>
+                                <option value="MV">Maldives</option>
+                                <option value="ML">Mali</option>
+                                <option value="MT">Malta</option>
+                                <option value="MH">Marshall Islands</option>
+                                <option value="MQ">Martinique</option>
+                                <option value="MR">Mauritania</option>
+                                <option value="MU">Mauritius</option>
+                                <option value="YT">Mayotte</option>
+                                <option value="MX">Mexico</option>
+                                <option value="FM">Micronesia, Federated States of</option>
+                                <option value="MD">Moldova, Republic of</option>
+                                <option value="MC">Monaco</option>
+                                <option value="MN">Mongolia</option>
+                                <option value="ME">Montenegro</option>
+                                <option value="MS">Montserrat</option>
+                                <option value="MA">Morocco</option>
+                                <option value="MZ">Mozambique</option>
+                                <option value="MM">Myanmar</option>
+                                <option value="NA">Namibia</option>
+                                <option value="NR">Nauru</option>
+                                <option value="NP">Nepal</option>
+                                <option value="NL">Netherlands</option>
+                                <option value="NC">New Caledonia</option>
+                                <option value="NZ">New Zealand</option>
+                                <option value="NI">Nicaragua</option>
+                                <option value="NE">Niger</option>
+                                <option value="NG">Nigeria</option>
+                                <option value="NU">Niue</option>
+                                <option value="NF">Norfolk Island</option>
+                                <option value="MP">Northern Mariana Islands</option>
+                                <option value="NO">Norway</option>
+                                <option value="OM">Oman</option>
+                                <option value="PK">Pakistan</option>
+                                <option value="PW">Palau</option>
+                                <option value="PS">Palestinian Territory, Occupied</option>
+                                <option value="PA">Panama</option>
+                                <option value="PG">Papua New Guinea</option>
+                                <option value="PY">Paraguay</option>
+                                <option value="PE">Peru</option>
+                                <option value="PH">Philippines</option>
+                                <option value="PN">Pitcairn</option>
+                                <option value="PL">Poland</option>
+                                <option value="PT">Portugal</option>
+                                <option value="PR">Puerto Rico</option>
+                                <option value="QA">Qatar</option>
+                                <option value="RE">Réunion</option>
+                                <option value="RO">Romania</option>
+                                <option value="RU">Russian Federation</option>
+                                <option value="RW">Rwanda</option>
+                                <option value="BL">Saint Barthélemy</option>
+                                <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                                <option value="KN">Saint Kitts and Nevis</option>
+                                <option value="LC">Saint Lucia</option>
+                                <option value="MF">Saint Martin (French part)</option>
+                                <option value="PM">Saint Pierre and Miquelon</option>
+                                <option value="VC">Saint Vincent and the Grenadines</option>
+                                <option value="WS">Samoa</option>
+                                <option value="SM">San Marino</option>
+                                <option value="ST">Sao Tome and Principe</option>
+                                <option value="SA">Saudi Arabia</option>
+                                <option value="SN">Senegal</option>
+                                <option value="RS">Serbia</option>
+                                <option value="SC">Seychelles</option>
+                                <option value="SL">Sierra Leone</option>
+                                <option value="SG">Singapore</option>
+                                <option value="SX">Sint Maarten (Dutch part)</option>
+                                <option value="SK">Slovakia</option>
+                                <option value="SI">Slovenia</option>
+                                <option value="SB">Solomon Islands</option>
+                                <option value="SO">Somalia</option>
+                                <option value="ZA">South Africa</option>
+                                <option value="GS">South Georgia and the South Sandwich Islands</option>
+                                <option value="SS">South Sudan</option>
+                                <option value="ES">Spain</option>
+                                <option value="LK">Sri Lanka</option>
+                                <option value="SD">Sudan</option>
+                                <option value="SR">Suriname</option>
+                                <option value="SJ">Svalbard and Jan Mayen</option>
+                                <option value="SZ">Swaziland</option>
+                                <option value="SE">Sweden</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="SY">Syrian Arab Republic</option>
+                                <option value="TW">Taiwan, Province of China</option>
+                                <option value="TJ">Tajikistan</option>
+                                <option value="TZ">Tanzania, United Republic of</option>
+                                <option value="TH">Thailand</option>
+                                <option value="TL">Timor-Leste</option>
+                                <option value="TG">Togo</option>
+                                <option value="TK">Tokelau</option>
+                                <option value="TO">Tonga</option>
+                                <option value="TT">Trinidad and Tobago</option>
+                                <option value="TN">Tunisia</option>
+                                <option value="TR">Turkey</option>
+                                <option value="TM">Turkmenistan</option>
+                                <option value="TC">Turks and Caicos Islands</option>
+                                <option value="TV">Tuvalu</option>
+                                <option value="UG">Uganda</option>
+                                <option value="UA">Ukraine</option>
+                                <option value="AE">United Arab Emirates</option>
+                                <option value="GB">United Kingdom</option>
+                                <option selected="selected" value="US">United States</option>
+                                <option value="UM">United States Minor Outlying Islands</option>
+                                <option value="UY">Uruguay</option>
+                                <option value="UZ">Uzbekistan</option>
+                                <option value="VU">Vanuatu</option>
+                                <option value="VE">Venezuela, Bolivarian Republic of</option>
+                                <option value="VN">Viet Nam</option>
+                                <option value="VG">Virgin Islands, British</option>
+                                <option value="VI">Virgin Islands, U.S.</option>
+                                <option value="WF">Wallis and Futuna</option>
+                                <option value="EH">Western Sahara</option>
+                                <option value="YE">Yemen</option>
+                                <option value="ZM">Zambia</option>
+                                <option value="ZW">Zimbabwe</option>
+                              </select>
+                            </div>
+
+
+                      <div class="col-12 mt-2 mb-3 d-flex justify-content-start align-items-end justify-content-end">
+                        <button type="submit" class="h1 btn btn-primary" style="width: 20%;">Send</button>
+                      </div>
+                    </form>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="col-sm-1" style="height: 20px;"></div>
+              </div>
+            </div>
+          </div>
+          <!-- ////////////////////////////////// Formulario///////////////////////// -->
+
+
+
+
+        <div style="height: 100px;"></div>
+        <div id="copyright" class="footer-baraboo d-flex p-3 pr-2 pl-2">
+          <div class="w-25 d-flex flex-column text-center m-0 p-0">
+            <span class="font-weight-bold text-light footer-title">Conocenos</span>
+            <div class="row justify-content-start">
+              <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+              <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+              <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+            </div>
+          </div>
+
+          <div class="w-25 d-flex flex-column text-center">
+            <span class="font-weight-bold text-light footer-title ">Terminos y Condiciones</span>
+            <div class="row justify-content-start">
+              <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+              <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+              <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+            </div>
+          </div>
+
+          <div class="w-25 d-flex flex-column text-center">
+            <span class="font-weight-bold text-light footer-title">Politicas de privacidad</span>
+            <div class="row justify-content-start">
+              <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+              <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+              <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+            </div>
+          </div>
+          <div class="w-25 d-flex flex-column text-center">
+            <span class="font-weight-bold text-light footer-title">Ayuda</span>
+            <div class="row justify-content-start">
+              <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+              <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+              <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom w-100 m-0 p-2 pt-3 pb-3 text-center">
+            <span class="text-center text-muted "><a class="text-light" href="">Condiciones de uso | Aviso de privacidad</a> 2018 Baraboo.com, Inc. o afiliados. Todos los derechos renrvados.</span>
+        </div>
+
+
+      </div>
+    </div>
+    <!-- ////////////////// Termina Page 2 /////////////////// -->
+  </div>
+  {%load static%}
+  <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap-material-design.js' %}"></script>
+  <script src="{% static 'js/baraboo.js' %}"></script>
+  <script src="{% static 'js/dobpicker.js' %}"></script>
+  <script src="{% static 'js/parsley.js' %}"></script>
+  <script>
+    var isValid = false;
+
+    $(document).ready(function() {
+        $.dobPicker({
+            daySelector: '#dobday', /* Required */
+            monthSelector: '#dobmonth', /* Required */
+            yearSelector: '#dobyear', /* Required */
+            dayDefault: 'Day', /* Optional */
+            monthDefault: 'Month', /* Optional */
+            yearDefault: 'Year', /* Optional */
+            minimumAge: 18, /* Optional */
+            maximumAge: 80 /* Optional */
+        });
+    });
+
+     $("#registerForm").parsley({
+      errorClass: 'is-invalid text-danger',
+      successClass: 'is-valid', // Comment this option if you don't want the field to become green when valid. Recommended in Google material design to prevent too many hints for user experience. Only report when a field is wrong.
+      errorsWrapper: '<span class="form-text text-danger"></span>',
+      errorTemplate: '<span></span>',
+      trigger: 'change'
+    })
+  </script>
+</body>
+</html>
