@@ -11,9 +11,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
-from bsite.models import Person, User
+from bsite.models import Person, User, PresentationProjectData, PresentationProjectImage, ImageType
 from django.core.mail import send_mail
 from django.utils.crypto import get_random_string
+from bsite import PresentationProject
 
 #from django.http import HttpResponse
 
@@ -137,6 +138,16 @@ def recoverpassword(request):
         return HttpResponseRedirect('/')
     except:
         return HttpResponseRedirect('/')
+
+def getPresentationProject(requestm, id):
+    pp = PresentationProject()
+
+    modelo = PresentationProjectData.objects.get(idProject = id)
+    pp.tittle = modelo.tittle
+    pp.description = modelo.description
+
+
+
 
 # def hola (request):
     
