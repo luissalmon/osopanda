@@ -7,6 +7,7 @@ urlpatterns = [
     path('login/', views.loginpage, name="login"),
     path('register/', views.register, name="register"),
     path('investments/', views.projects, name="projects"),
+    path('page6/', views.page6, name="page6"),
     path('logout/', views.logoutUser, name="logout"),
 
     # Urls de prueba para recuperar cuenta y contraseña
