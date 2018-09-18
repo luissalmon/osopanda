@@ -53,7 +53,7 @@ def projects(request):
     projects = []
     projects.append(proj)
 
-    return render(request, 'investments.html', {'projects':projects, 'isLogged':isLogged})
+    return render(request, 'investments.html', {'projects':projects, 'isLogged':isLogged, 'username': request.user.username})
 
 def loginpage(request):
 
@@ -63,16 +63,12 @@ def loginpage(request):
     try:
         user = authenticate(request, username = username, password = password)
         login(request, user)
-
-        userConfirmed = User.objects.get(username = username)
-        if userConfirmed.confirm == False:
-            logout(request)
-            return HttpResponseRedirect('/confirm/')
-
         if user:
+            if user.confirm == False:
+                logout(request)
+                return HttpResponseRedirect('/confirm/')
+
             return HttpResponseRedirect('/')
-        else:
-            return render(request,'baraboo.html')
     except:
         return HttpResponseRedirect('/')
 
@@ -152,8 +148,6 @@ def getPresentationProject(requestm, id):
     modelo = PresentationProjectData.objects.get(idProject = id)
     pp.tittle = modelo.tittle
     pp.description = modelo.description
-
-
 
 def confirm(request):
         return render(request, 'confirmAccount.html')
