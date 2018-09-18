@@ -18,8 +18,9 @@
          <div class="logofull_left"><img src="{% static 'img/letras_fraktall.svg' %}"></div>
          {% if isLogged %}
          <div class="d-flex w-50 ml-2 mr-2 mr-md-3 align-items-center" style="height: 35px;">
-            <button class="btn_login" type="submit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div class="btn_login_triengle"><span>{{username}}</span></div></button>
-            </button>
+            <a class="btn_login" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="btn_login_triengle"><span>{{username}}</span></div></a>
+            </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#">Action</a>
               <div class="dropdown-divider"></div>
@@ -244,7 +245,7 @@
                           <div class="flex-fill h-75">
                             <input name="password" type="text" class="form-control h-100 input-form" style="line-height: 0px;"
                             pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" autocomplete="off"
-                                  required data-parsley-error-message="Minimum eight characters, at least one letter and one number"
+                            required data-parsley-error-message="Minimum eight characters, at least one letter and one number"
                             >
                           </div>
                         </div>
