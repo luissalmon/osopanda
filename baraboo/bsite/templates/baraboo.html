@@ -13,7 +13,7 @@
   <div>
     <!-- //////////////////  Page 1 /////////////////// -->
     <div class="d-flex flex-column screen">
-      <nav id="navBar" class="navbar navbar-light d-flex p-2 justify-content-end h-auto">
+      <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
          <div class="logo_left"><img src="{% static 'img/simbolo-fraktall.svg' %}"></div>
          <div class="logofull_left"><img src="{% static 'img/letras_fraktall.svg' %}"></div>
          {% if isLogged %}
@@ -28,8 +28,13 @@
          {% else %}
           <form id="loginForm" class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="POST">
             {% csrf_token%}
-            <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
-            <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
+            <div class="d-flex flex-column justify-content-start align-items-start">
+              <div class="d-flex flex-row">
+                <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
+                <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
+              </div>
+              <a class="text-primary" style="font-size: 10px;" href="">Recover account</a>
+            </div>
             <a id="submitLogin">
               <div class="btn_login_triengle">
                 <span>Login</span>
