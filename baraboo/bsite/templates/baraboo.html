@@ -27,7 +27,7 @@
             </div>
         </div>
          {% else %}
-          <form class="form-inline ml-2 mr-2 mr-md-3 bg-danger" action="/login/" method="POST">
+          <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="POST">
             {% csrf_token%}
             <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
             <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
@@ -242,7 +242,7 @@
                             <label class="pb-0 mb-0  form-text" for="pswdForm">Password*</label>
                           </div>
                           <div class="flex-fill h-75">
-                            <input name="password" type="text" class="form-control h-100 input-form" style="line-height: 0px;"
+                            <input name="password" type="password" class="form-control h-100 input-form" style="line-height: 0px;"
                             pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" autocomplete="off"
                                   required data-parsley-error-message="Minimum eight characters, at least one letter and one number"
                             >
@@ -254,7 +254,7 @@
                             <label class="pb-0 mb-0  form-text" for="confirmPsw">Confirm password*</label>
                           </div>
                           <div class="flex-fill h-75">
-                            <input id="passwordConfirmation" type="text" class="form-control h-100 input-form" style="line-height: 0px;"
+                            <input id="passwordConfirmation" type="password" class="form-control h-100 input-form" style="line-height: 0px;"
                               required autocomplete="off" data-parsley-equalto="#pswdForm" data-parsley-error-message="This value must match email">
                           </div>
                         </div>
