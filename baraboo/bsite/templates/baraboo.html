@@ -30,10 +30,13 @@
             {% csrf_token%}
             <div class="d-flex flex-column justify-content-start align-items-start">
               <div class="d-flex flex-row">
-                <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
-                <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
+                <input name="username" type="text" class="form-control mr-sm-2 input-login" placeholder="User">
+                <input name="password" type="password" class="form-control mr-sm-2 input-login" placeholder="Password">
               </div>
-              <a class="text-primary" style="font-size: 10px;" href="">Recover account</a>
+              <div class="d-flex flex-row">
+                <a class="text-primary mr-4" style="font-size: 10px;" href="">Register</a>
+                <a class="text-primary mr-3" style="font-size: 10px;" href="">Recover account</a>
+              </div>
             </div>
             <a id="submitLogin">
               <div class="btn_login_triengle">
