@@ -18,48 +18,26 @@
          <div class="logofull_left"><img src="{% static 'img/letras_fraktall.svg' %}"></div>
          {% if isLogged %}
          <div class="d-flex w-50 ml-2 mr-2 mr-md-3 align-items-center" style="height: 35px;">
-            <button class="btn_login" type="submit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div class="btn_login_triengle"><span>{{username}}</span></div></button>
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/logout/">Logout</a>
-            </div>
+          <a href=""><strong class=" mr-sm-2">{{username}}</strong></a>
+          <button class="btn_login" type="submit"><a href="/logout/"><div class="btn_login_triengle"><span>Logout</span></div></button></a>
+          </button>
         </div>
+        <!-- <form class="form-inline ml-2 mr-2 mr-md-3" action="/logout/" method="POST">
+          {% csrf_token%}
+          <a href=""><strong class="form-control mr-sm-2">{{username}}</strong></a>
+          <button class="btn_login" type="submit"><a href="/logout/"><div class="btn_login_triengle"><span>LOG OUT</span></div></button></a>
+        </form> -->
          {% else %}
           <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="POST">
             {% csrf_token%}
             <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
             <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
-            <button class="btn_login" type="submit"><div class="btn_login_triengle"><span>LOG IN</span></div></button>
+            <button class="btn_login" type="submit"><div class="btn_login_triengle"><span>Login</span></div></button>
           </form>
           
           {% endif %}
       </nav>
-
-      {% comment %} {% if isLogged %}
-          <div class="d-flex pr-2 align-items-center">
-              <strong class="pr-2 text-muted">{{username}}</strong>
-              <button class="btn circle rounded-circle bg-transparent p-0 m-0" style="height: 40px; width: 40px; overflow: hidden;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {%load static%}
-                  <img src="{% static 'img/building.jpg' %}" class="img-fluid" alt="">
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/logout/">Logout</a>
-              </div>
-          </div>
-          {% else %}
-          <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="POST">
-            {% csrf_token %}
-            <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
-            <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
-            <button class="bg-dark btn btn-login text-light" type="submit">Log In</button>
-          </form>
-          {% endif %} {% endcomment %}
+      
       <div class="flex-fill d-flex flex-column align-items-center justify-content-center" style="height: 50vh;">
         <div class="container-fluid h-100">
           <div class="row h-100">
@@ -242,7 +220,7 @@
                             <label class="pb-0 mb-0  form-text" for="pswdForm">Password*</label>
                           </div>
                           <div class="flex-fill h-75">
-                            <input name="password" type="password" class="form-control h-100 input-form" style="line-height: 0px;"
+                            <input name="password" id="password" type="text" class="form-control h-100 input-form" style="line-height: 0px;"
                             pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" autocomplete="off"
                                   required data-parsley-error-message="Minimum eight characters, at least one letter and one number"
                             >
@@ -254,8 +232,8 @@
                             <label class="pb-0 mb-0  form-text" for="confirmPsw">Confirm password*</label>
                           </div>
                           <div class="flex-fill h-75">
-                            <input id="passwordConfirmation" type="password" class="form-control h-100 input-form" style="line-height: 0px;"
-                              required autocomplete="off" data-parsley-equalto="#pswdForm" data-parsley-error-message="This value must match email">
+                            <input id="passwordConfirmation" type="text" class="form-control h-100 input-form" style="line-height: 0px;"
+                              required autocomplete="off" data-parsley-equalto="#password" data-parsley-error-message="This value must match password">
                           </div>
                         </div>
                         
@@ -575,7 +553,7 @@
         </div>
         
         <div class="footer-bottom w-100 m-0 p-2 pt-3 pb-3 text-center">
-            <span class="text-center text-muted "><a class="text-light" href="">Condiciones de uso | Aviso de privacidad</a> 2018 Baraboo.com, Inc. o afiliados. Todos los derechos renrvados.</span>
+            <span class="text-center text-muted "><a class="text-light" href="">Condiciones de uso | Aviso de privacidad</a> 2018 Frakt.all, Inc. o afiliados. Todos los derechos renrvados.</span>
         </div>
    </div>
 
