@@ -9,30 +9,32 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
-<body class="bg-image" style="min-width: 520px;">
+<body style="min-width: 520px;">
   <div>
     <!-- //////////////////  Page 1 /////////////////// -->
     <div class="d-flex flex-column screen">
-      <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
+      <nav id="navBar" class="navbar navbar-light d-flex p-2 justify-content-end h-auto">
          <div class="logo_left"><img src="{% static 'img/simbolo-fraktall.svg' %}"></div>
          <div class="logofull_left"><img src="{% static 'img/letras_fraktall.svg' %}"></div>
          {% if isLogged %}
-         <div class="d-flex w-50 ml-2 mr-2 mr-md-3 align-items-center" style="height: 35px;">
-          <a href=""><strong class=" mr-sm-2">{{username}}</strong></a>
-          <button class="btn_login" type="submit"><a href="/logout/"><div class="btn_login_triengle"><span>Logout</span></div></button></a>
-          </button>
+         <div class="d-flex w-50 ml-2 mr-2 mr-md-3 pr-5 align-items-center justify-content-end" style="height: 35px;">
+          <a href=""><strong class="text-muted mr-sm-2">{{username}}</strong></a> 
+          <a href="/logout/">
+            <div class="btn_login_triengle">
+              <span>Logout</span>
+            </div>
+          </a>
         </div>
-        <!-- <form class="form-inline ml-2 mr-2 mr-md-3" action="/logout/" method="POST">
-          {% csrf_token%}
-          <a href=""><strong class="form-control mr-sm-2">{{username}}</strong></a>
-          <button class="btn_login" type="submit"><a href="/logout/"><div class="btn_login_triengle"><span>LOG OUT</span></div></button></a>
-        </form> -->
          {% else %}
-          <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="POST">
+          <form id="loginForm" class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="POST">
             {% csrf_token%}
             <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
             <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
-            <button class="btn_login" type="submit"><div class="btn_login_triengle"><span>Login</span></div></button>
+            <a id="submitLogin">
+              <div class="btn_login_triengle">
+                <span>Login</span>
+              </div>
+            </a>
           </form>
           
           {% endif %}
@@ -217,12 +219,12 @@
                         
                         <div class="form-group col-6 d-flex align-items-start">
                           <div class="mr-3 form-label pt-2">
-                            <label class="pb-0 mb-0  form-text" for="pswdForm">Password*</label>
+                            <label class="pb-0 mb-0  form-text" for="password">Password*</label>
                           </div>
                           <div class="flex-fill h-75">
-                            <input name="password" id="password" type="text" class="form-control h-100 input-form" style="line-height: 0px;"
+                            <input id="password" name="password" type="text" class="form-control h-100 input-form" style="line-height: 0px;"
                             pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" autocomplete="off"
-                                  required data-parsley-error-message="Minimum eight characters, at least one letter and one number"
+                            required data-parsley-error-message="Minimum eight characters, at least one letter and one number"
                             >
                           </div>
                         </div>
@@ -567,6 +569,9 @@
   <script src="{% static 'js/dobpicker.js'%}"></script>
   <script src="{% static 'js/parsley.js' %}"></script>
   <script>
+
+    
+
     $(document).ready(function() {
         $.dobPicker({
             daySelector: '#dobday', /* Required */
@@ -600,6 +605,10 @@
         errorsWrapper: '<span class="form-text text-danger"></span>',
         errorTemplate: '<span></span>',
         trigger: 'change'
+      });
+
+      $("#submitLogin").click(function() {
+        $("#loginForm").submit();
       });
     });
   </script>

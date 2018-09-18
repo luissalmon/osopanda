@@ -33,6 +33,9 @@ def index (request):
 def homepage(request):
     return render(request,'homepage.html')
 
+def page6(request):
+    return render(request,'page6.html')
+
 def projects(request):
 
     isLogged = False
