@@ -13,7 +13,7 @@ class KYCRequest(models.Model):
     idStatus = models.ForeignKey('StatusRequest', on_delete=models.CASCADE)
 
 class UserManager(BaseUserManager):
-    def create_user(self, userName, password, Person):
+    def create_user(self, userName, password, Person, code):
         """
         Creates and saves a User with the given username and password.
         """
@@ -23,6 +23,7 @@ class UserManager(BaseUserManager):
         )
         user.set_password(password)
         user.idPerson = Person
+        user.confirmationCode = code
         user.save()
         return user
 

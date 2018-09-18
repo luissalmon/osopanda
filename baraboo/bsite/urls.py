@@ -11,6 +11,10 @@ urlpatterns = [
 
     # Urls de prueba para recuperar cuenta y contraseña
     path('forgotpassword/', views.forgotpassword, name="forgotpassword"),
-    path('recoverpassword/', views.recoverpassword, name="recover")
+    path('recoverpassword/', views.recoverpassword, name="recover"),
+
+    #Urls de prueba para confirmar cuenta
+    path('confirm/', views.confirm, name="confirm"),
+    path('sendConfirmation/', views.confirmAccount, name="send confirm")
 ]
 

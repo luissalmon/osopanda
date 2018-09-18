@@ -16,13 +16,50 @@
       <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
          <div class="logo_left"><img src="{% static 'img/simbolo-fraktall.svg' %}"></div>
          <div class="logofull_left"><img src="{% static 'img/letras_fraktall.svg' %}"></div>
+         {% if isLogged %}
+         <div class="d-flex w-50 ml-2 mr-2 mr-md-3 align-items-center" style="height: 35px;">
+            <button class="btn_login" type="submit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div class="btn_login_triengle"><span>{{username}}</span></div></button>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/logout/">Logout</a>
+            </div>
+        </div>
+         {% else %}
           <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="POST">
+            {% csrf_token%}
             <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
             <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
             <button class="btn_login" type="submit"><div class="btn_login_triengle"><span>LOG IN</span></div></button>
           </form>
-  
+          
+          {% endif %}
       </nav>
+
+      {% comment %} {% if isLogged %}
+          <div class="d-flex pr-2 align-items-center">
+              <strong class="pr-2 text-muted">{{username}}</strong>
+              <button class="btn circle rounded-circle bg-transparent p-0 m-0" style="height: 40px; width: 40px; overflow: hidden;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {%load static%}
+                  <img src="{% static 'img/building.jpg' %}" class="img-fluid" alt="">
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/logout/">Logout</a>
+              </div>
+          </div>
+          {% else %}
+          <form class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="POST">
+            {% csrf_token %}
+            <input name="username" type="text" class="form-control mr-sm-2" placeholder="User">
+            <input name="password" type="password" class="form-control mr-sm-2" placeholder="Password">
+            <button class="bg-dark btn btn-login text-light" type="submit">Log In</button>
+          </form>
+          {% endif %} {% endcomment %}
       <div class="flex-fill d-flex flex-column align-items-center justify-content-center" style="height: 50vh;">
         <div class="container-fluid h-100">
           <div class="row h-100">
@@ -102,7 +139,7 @@
 
               <div class="col-12 col-sm-4 card_invest">
                   <div class="col-12 text-center mb-5"><img src="{% static 'img/return.svg' %}" width="63"></div>
-                  <div class="col-12 text-center form-group"><a href="/investments/" class="btn_white">DEVELOP</a></div>
+                  <div class="col-12 text-center form-group"><a href="#" class="btn_white">DEVELOP</a></div>
                   <div class="col-12 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>      
               </div>
 
@@ -128,80 +165,102 @@
               <div class="col-12">
                 <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
 
-                  <form action="/register/" class="row" method="POST">
-                 
+                  <form id="registerForm" action="/register/" class="row" method="POST">
+                   {% csrf_token %} 
                    <div class="col-12 text-center mb-5"><h3>JOIN US</h3></div>
                     <div class="col-6">
-                      <div class="form-group col-12 d-flex align-items-end">
-                        <div class="mr-3 form-label">
+                      <div class="form-group col-12 d-flex align-items-start">
+                        <div class="mr-3 form-label pt-2">
                           <label class="pb-0 mb-0  form-text" for="firstName">First Name*</label>
                         </div>
                         <div class="flex-fill h-75">
-                          <input name="name" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                          <input name="name" type="text" class="form-control h-100 input-form" style="line-height: 0px;" 
+                            minlength="1" maxlength="32" required autocomplete="off" data-parsley-required-message="This field is required!"
+                          >
                         </div>
                       </div>
                       
                       
-                      <div class="form-group col-12 d-flex align-items-end">
-                        <div class="mr-3 form-label">
+                      <div class="form-group col-12 d-flex align-items-start">
+                        <div class="mr-3 form-label pt-2">
                           <label class="pb-0 mb-0  form-text" for="lastName">Last Name*</label>
                         </div>
+
                         <div class="flex-fill h-75">
-                          <input name="lastName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                          <input name="lastName" type="text" class="form-control h-100 input-form" style="line-height: 0px;"
+                            minlength="2" maxlength="32" required autocomplete="off" data-parsley-required-message="This field is required!" 
+                          >
                         </div>
                       </div>
                       
                       
-                      <div class="form-group col-6 d-flex align-items-end">
-                        <div class="mr-3 form-label">
+                      <div class="form-group col-6 d-flex align-items-start">
+                        <div class="mr-3 form-label pt-2">
                           <label class="pb-0 mb-0 form-text" for="email">Email*</label>
                         </div>
                         <div class="flex-fill h-75">
-                          <input name="email" type="email" class="form-control h-100 input-form" style="line-height: 0px;">
+                          <input name="email" type="email" class="form-control h-100 input-form" style="line-height: 0px;"
+                            required autocomplete="off"
+                          >
                         </div>
                       </div>
                       
-                      <div class="form-group col-6 d-flex align-items-end">
-                        <div class="mr-3 form-label">
+                      <div class="form-group col-6 d-flex align-items-start">
+                        <div class="mr-3 form-label pt-2">
                           <label class="pb-0 mb-0  form-text" for="userName">Username*</label>
                           </div>
                           <div class="flex-fill h-75">
-                            <input name="userName" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                            <input name="userName" type="text" class="form-control h-100 input-form" style="line-height: 0px;" 
+                              minlength="2" maxlength="32" required autocomplete="off" data-parsley-required-message="This field is required!"
+                            >
                           </div>
                         </div>
                       </div>
 
 
-                      <div class="col-6 mt-5">  
-                        <div class="form-group col-12 d-flex align-items-end">
-                          <div class="mr-3 form-label">
+                      <div class="col-6 row">  
+                        <div class="form-group col-12 d-flex align-items-start">
+                          <div class="mr-3 form-label pt-2">
                             <label class="pb-0 mb-0 form-text">Birth date*</label>
                           </div>
-                          <select name="dobday" id="dobday" class="flex-fill form-control text-muted mr-3 h-100 input-form" style="text-align-last: center;"></select>
-                          <select name="dobmonth" id="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100 input-form" style="text-align-last: center;"></select>
-                          <select name="dobyear" id="dobyear" class="flex-fill form-control text-muted pr-2 h-100 input-form" style="text-align-last: center;"></select>
+                          <div class="flex-fill mr-2">
+                            <select name="dobday" id="dobday" class="flex-fill form-control text-muted mr-3 h-100 input-form"
+                            style="text-align-last: center;" required></select>
+                          </div>
+                          <div class="flex-fill mr-2">
+                            <select name="dobmonth" id="dobmonth" class="flex-fill form-control text-muted pr-2 mr-3 h-100 input-form" style="text-align-last: center;"
+                            required></select>
+                          </div>
+                          <div class="flex-fill mr-2">
+                            <select name="dobyear" id="dobyear" class="flex-fill form-control text-muted pr-2 h-100 input-form" style="text-align-last: center;" 
+                            required></select>
+                          </div>
                         </div>
                         
-                        <div class="form-group col-6 d-flex align-items-end">
-                          <div class="mr-3 form-label">
+                        <div class="form-group col-6 d-flex align-items-start">
+                          <div class="mr-3 form-label pt-2">
                             <label class="pb-0 mb-0  form-text" for="pswdForm">Password*</label>
                           </div>
                           <div class="flex-fill h-75">
-                            <input name="password" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                            <input name="password" type="password" class="form-control h-100 input-form" style="line-height: 0px;"
+                            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" autocomplete="off"
+                                  required data-parsley-error-message="Minimum eight characters, at least one letter and one number"
+                            >
                           </div>
                         </div>
                         
-                        <div class="form-group col-6 d-flex align-items-end">
-                          <div class="mr-3 form-label">
+                        <div class="form-group col-6 d-flex align-items-start">
+                          <div class="mr-3 form-label pt-2">
                             <label class="pb-0 mb-0  form-text" for="confirmPsw">Confirm password*</label>
                           </div>
                           <div class="flex-fill h-75">
-                            <input id="passwordConfirmation" type="text" class="form-control h-100 input-form" style="line-height: 0px;">
+                            <input id="passwordConfirmation" type="password" class="form-control h-100 input-form" style="line-height: 0px;"
+                              required autocomplete="off" data-parsley-equalto="#pswdForm" data-parsley-error-message="This value must match email">
                           </div>
                         </div>
                         
-                        <div class="form-group col-6 d-flex align-items-end">
-                          <div class="mr-3 form-label">
+                        <div class="form-group col-6 d-flex align-items-start">
+                          <div class="mr-3 form-label pt-2">
                             <label class="pb-0 mb-0  form-text" for="country">Country*</label>
                           </div>
                           <select name="country" value class="form-control h-100 input-form country"  style="text-align-last: center;">
@@ -458,8 +517,8 @@
                          </div>
                         </div>
 
-                        <div class="col-12 text-center">
-                          <a class="btn_black w-50">START</a>
+                        <div class="col-12 d-flex justify-content-center text-center">
+                          <button type="submit" class="btn_black w-50">START</button      >
                         </div>
                     </form>
 
@@ -528,6 +587,7 @@
   <script src="{% static 'js/bootstrap-material-design.js'%}"></script>
   <script src="{% static 'js/baraboo.js'%}"></script>
   <script src="{% static 'js/dobpicker.js'%}"></script>
+  <script src="{% static 'js/parsley.js' %}"></script>
   <script>
     $(document).ready(function() {
         $.dobPicker({
@@ -555,6 +615,14 @@
             $('.logofull_left').removeClass("show_logo");
           }
         });
+        
+      $("#registerForm").parsley({
+        errorClass: 'is-invalid text-danger',
+        successClass: 'is-valid', // Comment this option if you don't want the field to become green when valid. Recommended in Google material design to prevent too many hints for user experience. Only report when a field is wrong.
+        errorsWrapper: '<span class="form-text text-danger"></span>',
+        errorTemplate: '<span></span>',
+        trigger: 'change'
+      });
     });
   </script>
 </body>

@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'bsite',
         'USER': 'bsiteuser',
         'PASSWORD': 'toor',
-        'HOST': 'localhost',
+        'HOST': '192.168.0.15',
         'PORT': '5432'
     }
 }
@@ -136,7 +136,7 @@ STATICFILES_DIRS = [
 
 #LOGIN_REDIRECT_URL = 'investments.html'
 
-WEB3_PROVIDER_URI = 'ws://127.0.0.1:8545'
+#WEB3_PROVIDER_URI = 'ws://127.0.0.1:8545'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'

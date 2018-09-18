@@ -58,9 +58,13 @@ def loginpage(request):
     password = request.POST.get('password')
 
     try:
-
         user = authenticate(request, username = username, password = password)
         login(request, user)
+
+        userConfirmed = User.objects.get(username = username)
+        if userConfirmed.confirm == False:
+            logout(request)
+            return HttpResponseRedirect('/confirm/')
 
         if user:
             return HttpResponseRedirect('/')
@@ -89,20 +93,20 @@ def register(request):
         try:
             birthDate = dobyear + "-" + dobmonth + "-" + dobday
             person = Person(name=name, lastName=lastName, birthDate=birthDate, mail=email, country=country)
+            code = get_random_string(length=32)
 
             if person:
                 person.save()
-                User.objects.create_user(username, password, person)
+                User.objects.create_user(username, password, person, code)
 
-                code = get_random_string(length=32)
-                emailMessage = "Your confirmation code is : " + code
+                emailMessage = "Your confirmation code is: " + code
                 send_mail('Confirm your account',
                     emailMessage,
                     'gregorio.garza.garcia@gmail.com',
                     [email],
                     fail_silently=False)
         except:
-            return render(request,'baraboo.html', {'isLogged':False})
+            return HttpResponseRedirect('/')
         
         return HttpResponseRedirect('/')
 
@@ -148,6 +152,18 @@ def getPresentationProject(requestm, id):
 
 
 
+def confirm(request):
+        return render(request, 'confirmAccount.html')
+
+def confirmAccount(request):
+    code = request.POST.get('code')
+
+    user = User.objects.get(confirmationCode = code)
+    if user:
+        user.confirm = True
+        user.save()
+
+    return HttpResponseRedirect('/')
 
 # def hola (request):
     
