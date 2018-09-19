@@ -49,9 +49,9 @@ def getTransferedValue(HashTransaccion):
     return web3.eth.getTransaction(HashTransaccion)['value']
 
 #Función para mandar ethereum entre un wallet y otro, retorna el hash de la transaccion
-def makeTransaction(de,para,value):
+def makeTransaction(to,from1,value):
     web3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
-    hashT = binascii.hexlify(web3.eth.sendTransaction({'to':para,'from':de,'value':value}))
+    hashT = binascii.hexlify(web3.eth.sendTransaction({'to':to,'from':from1,'value':value}))
     return hashT.decode()
 
 #Función para retornar el balance de una cuenta, recibe como parametro la wallet de la cual se quiere consultar el saldo
@@ -64,5 +64,4 @@ class Transaction:
         self.from1 = from1
         self.to = to
         self.value = value
-        self.date = date
- 
+        self.date = dates

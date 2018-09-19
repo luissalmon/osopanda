@@ -6,7 +6,7 @@ urlpatterns = [
     path('', views.index, name = 'index'),
     path('investments/', views.loadprojects, name="projects"),
     path('investments/<projectname>/', views.gotoproject, name="gotoproject"),
-    path('page6/', views.page6, name="page6"),
+    path('userprofile/', views.userprofile, name="userprofile"),
 
     #Urls login/logout and register
     path('register/', views.register, name="register"),
