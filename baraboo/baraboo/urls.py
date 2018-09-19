@@ -21,3 +21,5 @@ from bsite import views
 urlpatterns = [
     url(r'', include('bsite.urls')),
 ]
+
+

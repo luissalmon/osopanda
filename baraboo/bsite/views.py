@@ -14,7 +14,9 @@ from django.contrib.auth import authenticate, login, logout
 from bsite.models import Person, User, PresentationProjectData, PresentationProjectImage, ImageType
 from django.core.mail import send_mail
 from django.utils.crypto import get_random_string
-from bsite import PresentationProject
+from bsite.PresentationProject import PresentationProject
+from rest_framework import viewsets
+from bsite.Serializers import PresentationSerializer
 
 #from django.http import HttpResponse
 
@@ -193,6 +195,16 @@ def confirmAccount(request):
         user.save()
 
     return HttpResponseRedirect('/')
+
+def testProjectInfo(request):
+    return render(request, 'confirmAccount.html')
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = PresentationProjectData.objects.all()
+    serializer_class = PresentationSerializer
 
 # def hola (request):
     

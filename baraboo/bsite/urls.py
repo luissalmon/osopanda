@@ -1,6 +1,11 @@
 from django.urls import path, include
 from django.conf.urls import url
 from . import views
+from rest_framework import routers
+
+
+router = routers.DefaultRouter()
+router.register(r'api', views.UserViewSet)
 
 urlpatterns = [
     path('', views.index, name = 'index'),
@@ -19,6 +24,10 @@ urlpatterns = [
 
     #Urls para confirmar cuenta
     path('confirm/', views.confirm, name="confirm"),
-    path('sendConfirmation/', views.confirmAccount, name="send confirm")
+    path('sendConfirmation/', views.confirmAccount, name="send confirm"),
+
+    #Url to access API to register a project
+    path('test/', include(router.urls)),
 ]
+
 
