@@ -7,4 +7,5 @@ class PresentationProject():
     initialInvestmentRound = ""
     taretCapital = ""
     video = ""
-    images = ""
+    presentation = []
+    images = []
