@@ -143,12 +143,37 @@ def recoverpassword(request):
     except:
         return HttpResponseRedirect('/')
 
-def getPresentationProject(requestm, id):
+def getPresentationProject(request, id):
     pp = PresentationProject()
 
-    modelo = PresentationProjectData.objects.get(idProject = id)
-    pp.tittle = modelo.tittle
-    pp.description = modelo.description
+    #Get the model base on Id to create content to show
+    modelpp = PresentationProjectData.objects.get(idProject = id)
+    
+    #Get the id's of images for the presentation section 
+    imgToPresentationIds = ImageType.objects.filter(idImageType = 1)
+    imgToGalletyIds = ImageType.objects.filter(idImageType = 2)
+
+    #y
+    imgToPresentation = PresentationProjectImage.filter(
+        idPresentationProjectData__in=modelpp.idpresentationProjectData).filter(
+            idImageType__in=imgToPresentationIds)
+
+    imgToGallery = PresentationProjectImage.filter(
+        idPresentationProjectData__in=modelpp.idpresentationProjectData).filter(
+            idImageType__in=imgToGalletyIds)
+
+    pp.idProject = id
+    pp.tittle = modelpp.tittle
+    pp.description = modelpp.description
+    pp.returnOfInversion = modelpp.returnOfInversion
+    pp.expirationDate = modelpp.expirationDate
+    pp.initialInvestmentRound = modelpp.initialInvestmentRound
+    pp.taretCapital = modelpp.taretCapital
+    pp.video = modelpp.video
+    pp.presentation = imgToPresentation
+    pp.images = imgToGallery
+
+    return render(request, 'pantalla6.html', {'pp':pp})
 
 
 
