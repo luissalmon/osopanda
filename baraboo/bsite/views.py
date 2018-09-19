@@ -8,13 +8,12 @@ def index(request):
 '''
 
 from django.http import HttpResponse, HttpResponseRedirect
-from django.template import RequestContext
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from bsite.models import Person, User, PresentationProjectData, PresentationProjectImage, ImageType
 from django.core.mail import send_mail
 from django.utils.crypto import get_random_string
-from bsite import PresentationProject
+from bsite import PresentationProject, job
 
 #from django.http import HttpResponse
 
@@ -26,6 +25,7 @@ from bsite import PresentationProject
 
 def index (request):
     isLogged = False
+    #job.job()
     if request.user.id:
         isLogged = True
     return render(request,'baraboo.html', {'isLogged':isLogged, 'username': request.user.username})
@@ -68,7 +68,6 @@ def gotoproject(request, projectname):
 
 
     return render(request, '')
-
 
 #------------------------------------------
 def loginUser(request):
