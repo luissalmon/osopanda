@@ -12,7 +12,7 @@ urlpatterns = [
     path('register/', views.register, name="register"),
     path('login/', views.loginUser, name="login"),
     path('logout/', views.logoutUser, name="logout"),
-
+    path('page6/', views.page6, name="page6"),
     # Urls para recuperar cuenta y contraseña
     path('forgotpassword/', views.forgotpassword, name="forgotpassword"),
     path('recoverpassword/', views.recoverpassword, name="recover"),
