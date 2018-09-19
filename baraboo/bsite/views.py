@@ -22,8 +22,8 @@ def index (request):
         isLogged = True
     return render(request,'baraboo.html', {'isLogged':isLogged, 'username': request.user.username})
 
-def page6(request):
-    return render(request,'page6.html')
+def userprofile(request):
+    return render(request,'userprofile.html', {'username' : request.user.username})
 
 #------------------
 class project():
