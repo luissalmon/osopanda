@@ -21,12 +21,16 @@ function resize() {
   var data = document.getElementById('imgLS').getBoundingClientRect();
   adjustHeight('bgSectL');
   adjustHeight('bgSectR');
-  adjustHeight('areaL');
-  adjustHeight('areaR');
+  adjustArea('areaL');
+  adjustArea('areaR');
   adjustFontSize('bgPL');
   adjustFontSize('bgPR');
 
   function adjustHeight(id) {
+    document.getElementById(id).style.height = `${data.height * 2.5}px`;
+  }
+  
+  function adjustArea(id) {
     document.getElementById(id).style.height = `${data.height}px`;
   }
 

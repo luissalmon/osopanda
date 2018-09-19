@@ -15,6 +15,9 @@ from django.core.mail import send_mail
 from django.utils.crypto import get_random_string
 from bsite import PresentationProject, job
 
+def page6(request):
+    return render(request,'page6.html')
+
 def index (request):
     isLogged = False
     #job.job()
