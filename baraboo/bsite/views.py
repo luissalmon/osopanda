@@ -30,10 +30,20 @@ def index (request):
         isLogged = True
     return render(request,'baraboo.html', {'isLogged':isLogged, 'username': request.user.username})
 
-def homepage(request):
-    return render(request,'homepage.html')
+def page6(request):
+    return render(request,'page6.html')
 
-def projects(request):
+#------------------
+class project():
+    Name = ""
+    Location = ""
+    Time = ""
+    FinancialReturn = ""
+    RisedMoney = ""
+    MaximumAmount = ""
+#------------------
+
+def loadprojects(request):
 
     isLogged = False
     if request.user.id:
@@ -50,9 +60,18 @@ def projects(request):
     projects = []
     projects.append(proj)
 
-    return render(request, 'investments.html', {'projects':projects, 'isLogged':isLogged})
+    return render(request, 'investments.html', {'projects':projects, 'isLogged':isLogged, 'username': request.user.username})
 
-def loginpage(request):
+def gotoproject(request, projectname):
+
+    #Get all the info about the project
+
+
+    return render(request, '')
+
+
+#------------------------------------------
+def loginUser(request):
 
     username = request.POST.get('username')
     password = request.POST.get('password')
@@ -60,16 +79,12 @@ def loginpage(request):
     try:
         user = authenticate(request, username = username, password = password)
         login(request, user)
-
-        userConfirmed = User.objects.get(username = username)
-        if userConfirmed.confirm == False:
-            logout(request)
-            return HttpResponseRedirect('/confirm/')
-
         if user:
+            if user.confirm == False:
+                logout(request)
+                return HttpResponseRedirect('/confirm/')
+
             return HttpResponseRedirect('/')
-        else:
-            return render(request,'baraboo.html')
     except:
         return HttpResponseRedirect('/')
 
@@ -109,15 +124,6 @@ def register(request):
             return HttpResponseRedirect('/')
         
         return HttpResponseRedirect('/')
-
-class project():
-    Name = ""
-    Location = ""
-    Time = ""
-    FinancialReturn = ""
-    RisedMoney = ""
-    MaximumAmount = ""
-
 
 def forgotpassword(request):
     return render(request, 'forgotpassword.html')
@@ -174,8 +180,6 @@ def getPresentationProject(request, id):
     pp.images = imgToGallery
 
     return render(request, 'pantalla6.html', {'pp':pp})
-
-
 
 def confirm(request):
         return render(request, 'confirmAccount.html')

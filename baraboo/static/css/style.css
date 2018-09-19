@@ -121,19 +121,20 @@ background-attachment: fixed;
 }
 
 .input-login, .btn-login {
-  font-size: 10px;
+  font-size: 10px !important;
   height: calc(1.6rem + 2px);
 }
 
 .input-login {
-  width: 25% !important;
+  width: 50% !important;
   margin-right: 8px;
 }
 
 .input-login[type ="text"] {
-  font-size: 10px;
+  font-size: 10px !important;
 }
  
+
 .input-form {
   font-size: 14px;
 }
@@ -176,6 +177,10 @@ background-attachment: fixed;
 .footer-text {
   font-family: mont-light;
   font-size: 12px;
+}
+
+.form-control[type=text] {
+  font-size: 12px !important;
 }
 
 .form-control:focus {
@@ -339,6 +344,7 @@ select.form-control:focus::-ms-value {
 
 .btn_login{
   position: absolute;
+  
   top: 0;
   right: 0;
 }
