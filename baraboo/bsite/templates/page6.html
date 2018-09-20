@@ -12,6 +12,7 @@
 </head>
 <body>
   <div>
+<<<<<<< HEAD
     <div class="d-flex flex-column">
       <div class="container-fluid m-0 p-0">
         <div class="row">
@@ -66,22 +67,158 @@
               // ...
               </script>
   
+=======
+      <div class="d-flex flex-column">
+        <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
+          <div class="logo_left"><a href="/"><img src="{% static 'img/simbolo-fraktall.svg' %}"></a></div>
+          <div class="logofull_left"><img src="{% static 'img/letras_fraktall.svg' %}"></div>
+          {% if isLogged %}
+          <div class="d-flex w-50 ml-2 mr-2 mr-md-3 pr-5 align-items-center justify-content-end" style="height: 35px;">
+            <a href="/userprofile/"><strong class="text-muted mr-sm-2">{{username}}</strong></a> 
+            <a href="/logout/">
+              <div class="btn_login_triengle">
+                <span>Logout</span>
+              </div>
+            </a>
           </div>
-          <!-- //////////////////////////////////////////////Termina Segmento Izquierdo//////////////////////////////////// -->
-
-  
-  
-  
-          <div class="col-1"></div>
+          {% else %}
+            <form id="loginForm" class="form-inline ml-2 mr-2 mr-md-3" action="/login/" method="POST">
+              {% csrf_token%}
+              <div class="d-flex flex-column justify-content-start align-items-start">
+                <div class="d-flex flex-row">
+                  <input name="username" type="text" class="form-control mr-sm-2 input-login" placeholder="User">
+                  <input name="password" type="password" class="form-control mr-sm-2 input-login" placeholder="Password">
+                </div>
+                <div class="d-flex flex-row">
+                  <a class="text-primary mr-4" style="font-size: 10px;" href="#registerForm">Register</a>
+                  <a class="text-primary mr-3" style="font-size: 10px;" href="/forgotpassword/">Recover account</a>
+                </div>
+              </div>
+              <a id="submitLogin">
+                <div class="btn_login_triengle">
+                  <span>Login</span>
+                </div>
+              </a>
+            </form>
+            
+            {% endif %}
+        </nav>
+        <div style="height: 50px;"></div>
+        <div class="container-fluid m-0 p-0">
+          <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+              <div id="idensic"></div>
+            </div>
+            <div class="col-3"></div>
+>>>>>>> 8ab2cb3d617779b4dd8f636ee4513b1711c88e93
+          </div>
         </div>
+  
+  
+        <div class="col-md-12 p-0">                       
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            viewBox="230.3 188 1422.2 188" style="enable-background:new 230.3 188 1422.2 188;" xml:space="preserve">
+            <polygon points="230.5,376 1652.5,376 230.5,188 "/>
+            </svg>
+                <div id="copyright" class="footer-baraboo row p-4 m-0">
+                  <div class="w-25 d-flex flex-column text-center m-0 p-0">
+                    <span class="font-weight-bold text-light footer-title">Conocenos</span>
+                    <div class="row justify-content-start">
+                      <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+                      <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+                      <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+                    </div>
+                  </div>
+        
+                  <div class="w-25 d-flex flex-column text-center">
+                    <span class="font-weight-bold text-light footer-title ">Terminos y Condiciones</span>
+                    <div class="row justify-content-start">
+                      <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+                      <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+                      <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+                    </div>
+                  </div>
+        
+                  <div class="w-25 d-flex flex-column text-center">
+                    <span class="font-weight-bold text-light footer-title">Politicas de privacidad</span>
+                    <div class="row justify-content-start">
+                      <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+                      <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+                      <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+                    </div>
+                  </div>
+                  <div class="w-25 d-flex flex-column text-center">
+                    <span class="font-weight-bold text-light footer-title">Ayuda</span>
+                    <div class="row justify-content-start">
+                      <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+                      <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+                      <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="footer-bottom w-100 m-0 p-2 pt-3 pb-3 text-center">
+                    <span class="text-center text-muted "><a class="text-light" href="">Condiciones de uso | Aviso de privacidad</a> 2018 Frakt.all, Inc. o afiliados. Todos los derechos renrvados.</span>
+                </div>
+           </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
       </div>
     </div>
-  </div>
   {%load static%}
   <script src="{% static 'js/jquery-3.3.1.slim.min.js'%}"></script>
   <script src="{% static 'js/popper.min.js'%}"></script>
   <script src="{% static 'js/bootstrap.min.js'%}"></script>
   <script src="{% static 'js/bootstrap-material-design.js'%}"></script>
-  <script src="{% static 'js/baraboo.js'%}"></script>
+  {% comment %} <script src="{% static 'js/baraboo.js'%}"></script> {% endcomment %}
+  {% comment %} <script src="{% static 'js/push.js'%}"></script> {% endcomment %}
+  <script src="https://test-api.sumsub.com/idensic/static/idensic.js"></script>
+  <script>
+    var id = idensic.init(
+      // selector of an iframe container (see above)
+      '#idensic',
+      // configuration object (see preparation steps)
+      {
+          accessToken: "0987bc9c-5436-438a-9ed4-998d056bb281",
+          applicantDataPage: {
+              "enabled": true,
+              "fields": [
+                  {
+                  "name": "firstName",
+                  "required": true
+                  },
+                  {
+                  "name": "lastName",
+                  "required": true
+                  },
+                  {
+                  "name": "email",
+                  "required": true
+                  }
+              ]
+          },
+          // steps to require:
+          // identity proof (passport, id card or driving license) and a selfie
+          requiredDocuments: "IDENTITY:PASSPORT,ID_CARD,DRIVERS;SELFIE:SELFIE",
+      },
+      // function for the iframe callbacks
+      function (messageType, payload) {
+          // just logging the incoming messages
+          console.log('[IDENSIC DEMO] Idensic message:', messageType, payload);
+      }
+    );
+  // ...
+  </script>
 </body>
 </html>

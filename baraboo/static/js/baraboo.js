@@ -82,7 +82,7 @@ function animation(el) {
     running = true;
     var frame = [
     { transform: 'rotate(0) translateY(0px)', opacity: 1, },
-    { transform: 'rotate(0) translateY(50%)', opacity: 1, }];
+    { transform: 'rotate(0) translateY(100%)', opacity: 1, }];
     var options = {
       duration: animSpeed,
       fill: 'forwards',

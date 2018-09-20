@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Fraktall -Investments</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200,200i,300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
@@ -19,7 +19,7 @@
          <div class="logofull_left"><img src="{% static 'img/letras_fraktall.svg' %}"></div>
          {% if isLogged %}
          <div class="d-flex w-50 ml-2 mr-2 mr-md-3 pr-5 align-items-center justify-content-end" style="height: 35px;">
-          <a href=""><strong class="text-muted mr-sm-2">{{username}}</strong></a> 
+          <a href="/userprofile/"><strong class="text-muted mr-sm-2">{{username}}</strong></a> 
           <a href="/logout/">
             <div class="btn_login_triengle">
               <span>Logout</span>
