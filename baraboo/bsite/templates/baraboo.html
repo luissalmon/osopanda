@@ -14,11 +14,11 @@
     <!-- //////////////////  Page 1 /////////////////// -->
     <div class="d-flex flex-column screen">
       <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
-         <div class="logo_left"><a href=""><img src="{% static 'img/simbolo-fraktall.svg' %}"></a></div>
+         <div class="logo_left"><a href="/"><img src="{% static 'img/simbolo-fraktall.svg' %}"></a></div>
          <div class="logofull_left"><img src="{% static 'img/letras_fraktall.svg' %}"></div>
          {% if isLogged %}
          <div class="d-flex w-50 ml-2 mr-2 mr-md-3 pr-5 align-items-center justify-content-end" style="height: 35px;">
-          <a href="userprofile/"><strong class="text-muted mr-sm-2">{{username}}</strong></a> 
+          <a href="/userprofile/"><strong class="text-muted mr-sm-2">{{username}}</strong></a> 
           <a href="/logout/">
             <div class="btn_login_triengle">
               <span>Logout</span>

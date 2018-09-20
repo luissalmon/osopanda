@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  {%load static%}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  
+</head>
+<body>
+  <div>
+    <div class="d-flex flex-column">
+      <div class="container-fluid m-0 p-0">
+        <div class="row">
+          <div class="col-1"></div>
+
+
+
+
+          <!-- //////////////////////////////////////////////Segmento Izquierdo//////////////////////////////////// -->
+          <div class="col-10 row d-flex flex-column bg-danger">
+            <!-- don't forget to change this URL when switching to the prod environment -->
+            <script src="https://test-api.sumsub.com/idensic/static/idensic.js"></script>
+            <div id="idensic"></div>
+
+            <!-- See our demo to see which parameters are -->
+            <!-- passed to the iframe when selecting different options -->
+            <script>
+              // ...
+                var id = idensic.init(
+                  // selector of an iframe container (see above)
+                  '#idensic',
+                  // configuration object (see preparation steps)
+                  {
+                      accessToken: "0987bc9c-5436-438a-9ed4-998d056bb281",
+                      applicantDataPage: {
+                          "enabled": true,
+                          "fields": [
+                              {
+                              "name": "firstName",
+                              "required": true
+                              },
+                              {
+                              "name": "lastName",
+                              "required": true
+                              },
+                              {
+                              "name": "email",
+                              "required": true
+                              }
+                          ]
+                      },
+                      // steps to require:
+                      // identity proof (passport, id card or driving license) and a selfie
+                      requiredDocuments: "IDENTITY:PASSPORT,ID_CARD,DRIVERS;SELFIE:SELFIE",
+                  },
+                  // function for the iframe callbacks
+                  function (messageType, payload) {
+                      // just logging the incoming messages
+                      console.log('[IDENSIC DEMO] Idensic message:', messageType, payload);
+                  }
+                )
+              // ...
+              </script>
+  
+          </div>
+          <!-- //////////////////////////////////////////////Termina Segmento Izquierdo//////////////////////////////////// -->
+
+  
+  
+  
+          <div class="col-1"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%load static%}
+  <script src="{% static 'js/jquery-3.3.1.slim.min.js'%}"></script>
+  <script src="{% static 'js/popper.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap-material-design.js'%}"></script>
+  <script src="{% static 'js/baraboo.js'%}"></script>
+</body>
+</html>
