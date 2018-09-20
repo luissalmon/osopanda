@@ -28,6 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['0.0.0.0',
 		'nl-resto9iap-b00.southcentralus.cloudapp.azure.com',
         '127.0.0.1']
+# ALLOWED_HOSTS = ['0.0.0.0',
+# 		'nl-resto9iap-b00.southcentralus.cloudapp.azure.com']
 
 
 # Application definition
