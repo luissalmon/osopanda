@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,62 +10,6 @@
 </head>
 <body>
   <div>
-<<<<<<< HEAD
-    <div class="d-flex flex-column">
-      <div class="container-fluid m-0 p-0">
-        <div class="row">
-          <div class="col-1"></div>
-
-
-
-
-          <!-- //////////////////////////////////////////////Segmento Izquierdo//////////////////////////////////// -->
-          <div class="col-10 row d-flex flex-column bg-danger">
-            <!-- don't forget to change this URL when switching to the prod environment -->
-            <script src="https://test-api.sumsub.com/idensic/static/idensic.js"></script>
-            <div id="idensic"></div>
-
-            <!-- See our demo to see which parameters are -->
-            <!-- passed to the iframe when selecting different options -->
-            <script>
-              // ...
-                var id = idensic.init(
-                  // selector of an iframe container (see above)
-                  '#idensic',
-                  // configuration object (see preparation steps)
-                  {
-                      accessToken: "c960d84e-0eba-4be0-96c5-6d5ef24a02d9",
-                      applicantDataPage: {
-                          "enabled": true,
-                          "fields": [
-                              {
-                              "name": "firstName",
-                              "required": true
-                              },
-                              {
-                              "name": "lastName",
-                              "required": true
-                              },
-                              {
-                              "name": "email",
-                              "required": true
-                              }
-                          ]
-                      },
-                      // steps to require:
-                      // identity proof (passport, id card or driving license) and a selfie
-                      requiredDocuments: "IDENTITY:PASSPORT,ID_CARD,DRIVERS;SELFIE:SELFIE",
-                  },
-                  // function for the iframe callbacks
-                  function (messageType, payload) {
-                      // just logging the incoming messages
-                      console.log('[IDENSIC DEMO] Idensic message:', messageType, payload);
-                  }
-                )
-              // ...
-              </script>
-  
-=======
       <div class="d-flex flex-column">
         <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
           <div class="logo_left"><a href="/"><img src="{% static 'img/simbolo-fraktall.svg' %}"></a></div>
@@ -111,7 +53,6 @@
               <div id="idensic"></div>
             </div>
             <div class="col-3"></div>
->>>>>>> 8ab2cb3d617779b4dd8f636ee4513b1711c88e93
           </div>
         </div>
   
