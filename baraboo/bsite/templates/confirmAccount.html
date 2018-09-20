@@ -11,15 +11,74 @@
 </head>
 <body class="bg-image" style="min-width: 520px;">
   <div>
-    <!-- //////////////////  Page 1 /////////////////// -->
-    <div class="d-flex flex-column screen">
-      <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
-          <form class="form-inline ml-2 mr-2 mr-md-3" action="/sendConfirmation/" method="POST">
+      <!-- //////////////////  Page 1 /////////////////// -->
+    <div class="d-flex flex-column screen align-items-center" style="height: 50vh;">
+      <div class="col-4 justify-content-center align-content-center">
+        <div class="row justify-content-center">
+          <div class="col-6 mt-2">
+            <div class=" img-fluid "><img src="{% static 'img/letras_fraktall.svg' %}"></div>
+          </div>
+        </div>
+        <div class="card shadow-none border d-flex flex-column justify-content-center mt-3" style="padding: 15px; padding-right: 50px; padding-left: 50px;">
+          <p class="card-title h3">Confirm your account</p>
+          <p class="card-subtitle">Enter the code sent to your email address associated with your Fraktall account.</p>
+          <form action="/sendConfirmation/" method="POST">
             {% csrf_token %}
-            <input name="code" type="text" class="form-control mr-sm-2" placeholder="code">
-            <button class="bg-dark btn btn-login text-light" type="submit">Send</button>
+            <label class="font-weight-bold mt-3 mb-0" for="code">Code</label>
+            <input id="code" name="code" type="text" class="form-control mb-3">
+            <button class="bg-dark btn btn-login text-light w-100" type="submit">Send</button>
           </form>
-      </nav>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="col-md-12 p-0">                       
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    viewBox="230.3 188 1422.2 188" style="enable-background:new 230.3 188 1422.2 188;" xml:space="preserve">
+    <polygon points="230.5,376 1652.5,376 230.5,188 "/>
+    </svg>
+    <div id="copyright" class="footer-baraboo row p-4 m-0">
+      <div class="w-25 d-flex flex-column text-center m-0 p-0">
+        <span class="font-weight-bold text-light footer-title">Conocenos</span>
+        <div class="row justify-content-start">
+          <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+          <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+          <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+        </div>
+      </div>
+
+      <div class="w-25 d-flex flex-column text-center">
+        <span class="font-weight-bold text-light footer-title ">Terminos y Condiciones</span>
+        <div class="row justify-content-start">
+          <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+          <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+          <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+        </div>
+      </div>
+
+      <div class="w-25 d-flex flex-column text-center">
+        <span class="font-weight-bold text-light footer-title">Politicas de privacidad</span>
+        <div class="row justify-content-start">
+          <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+          <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+          <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+        </div>
+      </div>
+
+
+      <div class="w-25 d-flex flex-column text-center">
+        <span class="font-weight-bold text-light footer-title">Ayuda</span>
+        <div class="row justify-content-start">
+          <a href="#" class="col-12 footer-text text-light mt-2 mb-2">Texto 1</a>
+          <a href="#" class="col-12 footer-text text-light mb-2">Texto 2</a>
+          <a href="#" class="col-12 footer-text text-light">Texto 3</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom w-100 m-0 p-2 pt-3 pb-3 text-center">
+        <span class="text-center text-muted "><a class="text-light" href="">Condiciones de uso | Aviso de privacidad</a> 2018 Frakt.all, Inc. o afiliados. Todos los derechos renrvados.</span>
     </div>
   </div>
 </body>
