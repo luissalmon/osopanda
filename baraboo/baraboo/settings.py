@@ -26,7 +26,8 @@ SECRET_KEY = 'qq@+yr5op^9jrf-3q+&dk5orc(5g=i)+z&6anavh191d7%=uv8'
 DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0',
-		'nl-resto9iap-b00.southcentralus.cloudapp.azure.com']
+		'nl-resto9iap-b00.southcentralus.cloudapp.azure.com',
+        '127.0.0.1']
 
 
 # Application definition
@@ -80,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'bsite',
         'USER': 'bsiteuser',
-        'PASSWORD': 'Msit9675#',
+        'PASSWORD': 'toor',
         'HOST': 'localhost',
         'PORT': '5432'
     }
