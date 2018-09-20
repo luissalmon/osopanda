@@ -108,3 +108,4 @@ venv.bak/
 
 #kate Swap Files
 *.kate-swp
+baraboo/baraboo/settings.py
