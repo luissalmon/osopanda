@@ -120,6 +120,8 @@ def register(request):
         return HttpResponseRedirect('/')
 
 def forgotpassword(request):
+    if request.user.id:
+        return HttpResponseRedirect('/')
     return render(request, 'forgotpassword.html')
 
 def recoverpassword(request):
@@ -176,7 +178,9 @@ def getPresentationProject(request, id):
     return render(request, 'pantalla6.html', {'pp':pp})
 
 def confirm(request):
-        return render(request, 'confirmAccount.html')
+    if request.user.id:
+        return HttpResponseRedirect('/')
+    return render(request, 'confirmAccount.html')
 
 def confirmAccount(request):
     code = request.POST.get('code')
