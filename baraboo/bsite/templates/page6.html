@@ -52,7 +52,7 @@
           <div class="row">
             <div class="col-3"></div>
             <div class="col-6">
-              <div id="idensic"></div>
+              {% comment %} <div id="idensic"></div> {% endcomment %}
             </div>
             <div class="col-3"></div>
           </div>
@@ -124,9 +124,18 @@
   <script src="{% static 'js/popper.min.js'%}"></script>
   <script src="{% static 'js/bootstrap.min.js'%}"></script>
   <script src="{% static 'js/bootstrap-material-design.js'%}"></script>
-  <script src="{% static 'js/baraboo.js'%}"></script>
+  {% comment %} <script src="{% static 'js/baraboo.js'%}"></script> {% endcomment %}
+  <script src="{% static 'js/push.js'%}"></script>
   <script src="https://test-api.sumsub.com/idensic/static/idensic.js"></script>
   <script>
+      Push.create("Hello world!", {
+        body: "How's it hangin'?",
+        timeout: 4000,
+        onClick: function () {
+            window.focus();
+            this.close();
+        }
+    });
       // ...
     var id = idensic.init(
       // selector of an iframe container (see above)
