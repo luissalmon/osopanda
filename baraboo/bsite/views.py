@@ -26,7 +26,10 @@ def index (request):
     return render(request,'baraboo.html', {'isLogged':isLogged, 'username': request.user.username})
 
 def userprofile(request):
-    return render(request,'userprofile.html', {'username' : request.user.username})
+    if request.user.id:
+        return render(request,'userprofile.html', {'username' : request.user.username})
+    return HttpResponseRedirect('/')
+    
 
 #------------------
 class project():
