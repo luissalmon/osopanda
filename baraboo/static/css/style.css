@@ -290,7 +290,7 @@ select.form-control:focus::-ms-value {
     left: 0;
     z-index: -1;
 }
-#info{
+/* #info{
   min-height: 622px;
   padding-top: 25px;
   margin-bottom: 100px;
@@ -318,7 +318,7 @@ select.form-control:focus::-ms-value {
   #info {
     padding-top: 150px;
   }
- }
+ } */
 
  
 
@@ -420,9 +420,9 @@ select.form-control:focus::-ms-value {
 }
 
 .btn_white{
-  background-color: white;
-  color: black !important;
-  padding: 15px 10px;
+  /* background-color: white; */
+  /* color: black !important; */
+  /* padding: 15px 10px; */
   font-size: large;
   cursor: pointer;
   display: block;
