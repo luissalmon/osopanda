@@ -14,7 +14,7 @@
     <!-- //////////////////  Page 1 cambios /////////////////// -->
     <div class="d-flex flex-column screen">
       <nav id="navBar" class="d-flex p-2 justify-content-end h-auto">
-         <div class="logo_left"><a href="/"><img class="img-fluid" src="{% static 'img/fraktall_icon.jpeg' %}"></a></div>
+         <div class="logo_left"><a href="/"><img style="width: 80px;" src="{% static 'img/fraktall_logo.png' %}"></a></div>
          <div class="logofull_left"><img src="{% static 'img/letras_fraktall.svg' %}"></div>
          {% if isLogged %}
          <div class="d-flex w-50 ml-2 mr-2 mr-md-3 pr-5 align-items-center justify-content-end" style="height: 35px;">
@@ -150,7 +150,8 @@
 <div class="col-md-12">
   <div class="container-fluid mt-5 mb-5">
     <div class="row">
-      <div class="col-12">
+      <div class="col-2"></div>
+      <div class="col-12 col-lg-8">
         <div class="container-fluid pt-3 inRound-Container" style="background-color: transparent">
 
           <form id="registerForm" action="/register/" class="row" method="POST">
@@ -514,6 +515,8 @@
         </div>
        <div class="col-sm-1" style="height: 20px;"></div>
       </div>
+      <!-- //////////////////////////// -->
+      <div class="col-2"></div>
     </div>
 </div>
 {% endif %}

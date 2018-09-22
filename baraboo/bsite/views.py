@@ -18,6 +18,9 @@ from bsite import PresentationProject, job
 def page6(request):
     return render(request,'page6.html')
 
+def projectTemplate(request):
+    return render(request,'project.html')
+
 def index (request):
     isLogged = False
     #job.job()
