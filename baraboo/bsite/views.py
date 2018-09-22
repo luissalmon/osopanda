@@ -63,12 +63,12 @@ def loadprojects(request):
 
     return render(request, 'investments.html', {'projects':projects, 'isLogged':isLogged, 'username': request.user.username})
 
-def gotoproject(request, projectname):
-
+#def gotoproject(request, projectname):
+def gotoproject(request):
     #Get all the info about the project
 
 
-    return render(request, '')
+    return render(request, 'project.html')
 
 #------------------------------------------
 def loginUser(request):
@@ -197,3 +197,36 @@ def confirmAccount(request):
         user.save()
 
     return HttpResponseRedirect('/')
+
+def getUserDataFromKYC():
+
+    updateUserAfterKYC()
+    updateWalletAfterKYC()
+    return 1
+
+def updateUserAfterKYC():
+
+    return 1
+
+def updateWalletAfterKYC():
+
+    return 1
+
+def changeKycStatusForPendientUsers():
+    #funcion periodica
+    #getPendientUsers()
+    return 1
+
+def insertUserToWhiteList():
+    getWalletUser()
+
+    return 1
+
+
+def getWalletUser(request):
+    #idUser = request.iduser
+    #walletAddre
+    return HttpResponseRedirect('/')
+
+def getTokenBalance():
+    return 1
