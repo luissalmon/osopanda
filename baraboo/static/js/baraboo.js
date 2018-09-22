@@ -19,23 +19,36 @@ window.addEventListener("resize", resize);
 
 function resize() {
   var data = document.getElementById('imgLS').getBoundingClientRect();
+  var buildSize = document.getElementById('buildings').getBoundingClientRect();
   adjustHeight('bgSectL');
   adjustHeight('bgSectR');
-  adjustArea('areaL');
-  adjustArea('areaR');
-  adjustFontSize('bgPL');
-  adjustFontSize('bgPR');
-
+  adjustArea('areaL', 1, data.height);
+  adjustArea('areaR', 1, data.height);
+  adjustFontSize('bgPL', 0.03, data.width);
+  adjustFontSize('bgPR', 0.03, data.width);
+  adjustArea('info', 1, buildSize.height);
+  adjustArea('inBtn', 0.055, buildSize.height);
+  adjustArea('devBtn', 0.055, buildSize.height);
+  adjustImg('inImg', 0.035,buildSize.width);
+  adjustImg('devImg', 0.035,buildSize.width);
+  adjustFontSize('inText', 0.01, buildSize.width);
+  adjustFontSize('devText', 0.01, buildSize.width);
+  adjustFontSize('inTitle', 0.012, buildSize.width);
+  adjustFontSize('devTitle', 0.012, buildSize.width);
   function adjustHeight(id) {
     document.getElementById(id).style.height = `${data.height * 2.5}px`;
   }
   
-  function adjustArea(id) {
-    document.getElementById(id).style.height = `${data.height}px`;
+  function adjustArea(id, percent, height) {
+    document.getElementById(id).style.height = `${height * percent}px`;
   }
 
-  function adjustFontSize(id) {
-    var fontsize = data.width * 0.03;
+  function adjustImg(id, percent, width) {
+    document.getElementById(id).style.width = `${width * percent}px`;
+  }
+
+  function adjustFontSize(id, percent, size) {
+    var fontsize = size * percent;
     document.getElementById(id).style.fontSize = `${fontsize}px`;
   }
 }
