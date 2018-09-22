@@ -191,3 +191,36 @@ def confirmAccount(request):
         user.save()
 
     return HttpResponseRedirect('/')
+
+def getUserDataFromKYC():
+
+    updateUserAfterKYC()
+    updateWalletAfterKYC()
+    return 1
+
+def updateUserAfterKYC():
+
+    return 1
+
+def updateWalletAfterKYC():
+
+    return 1
+
+def changeKycStatusForPendientUsers():
+    #funcion periodica
+    #getPendientUsers()
+    return 1
+
+def insertUserToWhiteList():
+    getWalletUser()
+
+    return 1
+
+
+def getWalletUser(request):
+    #idUser = request.iduser
+    #walletAddre
+    return HttpResponseRedirect('/')
+
+def getTokenBalance():
+    return 1
