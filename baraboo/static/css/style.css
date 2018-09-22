@@ -378,11 +378,11 @@ select.form-control:focus::-ms-value {
 }
 
 .logo_left{
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 29px;
-  margin: 16px;
+  width: 125px;
+  /* margin: 16px; */
   z-index: 2;
 }
 
