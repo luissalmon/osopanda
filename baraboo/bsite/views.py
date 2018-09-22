@@ -57,12 +57,12 @@ def loadprojects(request):
 
     return render(request, 'investments.html', {'projects':projects, 'isLogged':isLogged, 'username': request.user.username})
 
-def gotoproject(request, projectname):
-
+#def gotoproject(request, projectname):
+def gotoproject(request):
     #Get all the info about the project
 
 
-    return render(request, '')
+    return render(request, 'project.html')
 
 #------------------------------------------
 def loginUser(request):
